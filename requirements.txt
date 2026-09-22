@@ -1,0 +1,5 @@
+langchain-core==1.6.4
+langchain-openai==1.6.3
+langgraph==1.2.12
+openai==3.17.0
+python-dotenv==1.2.3
