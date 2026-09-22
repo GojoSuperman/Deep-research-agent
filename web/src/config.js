@@ -9,7 +9,7 @@ export const STEP = { X: 128, Y: 64 };
 // 스프라이트 캔버스 — 타일(256×128)보다 크게 잡아 가장자리가 잘리지 않게 한다.
 // 256 폭으로 렌더하면 책장 같은 오브젝트가 프레임 밖으로 나가 다리가 잘린다 (실측).
 export const SPRITE = { W: 384, H: 768 };
-export const GRID = { cols: 12, rows: 7 };   // 서고 구역을 없앤 만큼 방을 줄여 소품을 키운다
+export const GRID = { cols: 14, rows: 9 };   // 방을 조금 넓혔다 (소품을 더 놓을 자리)
 
 // 책상 위에 올리는 소품의 높이 (px). 책상 상판 0.384유닛 × 157px/유닛 ≈ 60
 export const DESK_TOP = -60;
@@ -67,7 +67,13 @@ export const PROPS = [
   // 긴 회의 탁자 — 세로 방향(_SW)으로 돌리고 두 배로 키운다
   // 낮은 탁자를 두 배로. 세로만 누르면 비율이 깨져 바닥에서 뜬 것처럼 보인다.
   { id: "round", col: 2, row: 4, sprite: "tableCoffee", face: "_SW", scale: 2 },
-  { id: "coffee", col: 0, row: 6, sprite: "kitchenCoffeeMachine" },
+  { id: "coffee", col: 0, row: 7, sprite: "kitchenCoffeeMachine" },
+  // 문(왼쪽 벽 2행)과 커피 머신 사이 — 책장 한 칸
+  { id: "shelfA", col: 0, row: 5, sprite: "bookcaseClosed" },
+  // 휴게 소파 — 커피 머신 곁
+  { id: "sofa", col: 2, row: 7, sprite: "loungeSofa", face: "_NE" },
+  // 회의 의자 — MEETING 좌석과 같은 칸. 캐릭터가 그 위에 서므로 walk:true 로 두어
+  // 막힌 칸에서 뺀다 (tools/막힌칸.py 가 이 표시를 본다). 등받이가 탁자를 향하게 돌린다.
 
   // 조사관 책상 섬 (가운데) — 책상 위에 모니터와 키보드
   { id: "d1", col: 4, row: 2, sprite: "desk" },
@@ -80,6 +86,26 @@ export const PROPS = [
   { id: "s4", col: 6, row: 4, sprite: "computerScreen", layer: 1.2, dy: DESK_TOP },
 
 ];
+
+// 소품이 덮는 칸 — **실측값이다.** tools/막힌칸.py 가 스프라이트 알파로 재서 뽑는다.
+// 소품을 옮기거나 배율을 바꾸면 그 도구를 다시 돌려 이 줄을 갈아 끼운다.
+// (추측으로 적었더니 캐릭터가 회의 탁자 위에 올라섰다 — 탁자는 앵커 칸이 아니라 그 위쪽 네 칸을 덮는다)
+export const BLOCKED = [[1,0], [5,0], [6,0], [7,0], [8,0], [9,0], [10,0], [0,2], [1,2], [3,2], [4,2], [5,2], [6,2], [1,3], [2,3], [3,4], [4,4], [5,4], [6,4], [2,7]];
+
+// 회의 탁자 자리 — 탁자가 덮는 (0,2)(1,2)(1,3)(2,3) 의 **좌우 양옆**에 선다.
+// 탁자의 긴 축은 화면에서 왼쪽 위 → 오른쪽 아래로 흐른다. 그 양쪽 줄이 아래 두 쌍이다.
+// 좌석은 **칸 한가운데가 아니라 탁자에 붙는 소수 좌표**다.
+// 칸 중앙(정수)에 세우면 한 칸씩 떨어져 "모였다"로 안 보인다 — 화면에서 재서 정한 값이다.
+// 탁자가 덮는 칸: (0,2)(1,2)(1,3)(2,3). 그 가장자리에 다섯이 둘러선다.
+export const MEETING = [
+  { col: 0.00, row: 1.85 },   // r1 — 탁자 위쪽 왼편 (r3 쪽으로 더 붙였다)
+  { col: 1.90, row: 2.60 },   // r2 — 오른쪽 아래
+  { col: 0.05, row: 2.70 },   // r3 — 왼쪽
+  { col: 2.00, row: 3.20 },   // r4 — 탁자 아래
+];
+// 상석 — 탁자 오른쪽 위. 소장과 r1 자리를 맞바꾼 것이다.
+export const COORD_SEAT = { col: 0.85, row: 1.25 };
+export const COORD_HOME = { col: 2, row: 1 };   // 소장 책상 앞
 
 // 조사관 의자 — 각자 책상 앞. 캐릭터도 여기에 선다.
 export const DESKS = [

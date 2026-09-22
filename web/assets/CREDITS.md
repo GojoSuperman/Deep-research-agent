@@ -17,7 +17,7 @@ CC0는 **저작자 표시 의무가 없지만**, 제작자의 요청에 따라 �
 | `characters/` | Shape Characters (1.0) | 100 | 104 파일 | https://kenney.nl/assets/shape-characters |
 | `library/` | Isometric Miniature Library (2.1) | 35 | 88 파일 | https://kenney.nl/assets/isometric-miniature-library |
 | `floor/` | Isometric Miniature Prototype | 60 | 28 파일 | https://kenney.nl/assets/isometric-miniature-prototype |
-| `furniture/` | Furniture Kit (2.0) | 140 모델 | 26종 × 4방향 = 104 파일 (**직접 렌더**) | https://kenney.nl/assets/furniture-kit |
+| `furniture/` | Furniture Kit (2.0) | 140 모델 | 27종 × 4방향 = 108 파일 (**직접 렌더**) | https://kenney.nl/assets/furniture-kit |
 
 ## 직접 렌더한 에셋 — `furniture/`
 

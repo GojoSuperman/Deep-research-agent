@@ -161,10 +161,10 @@ function drawGauge(ctx, x, y, zone) {
 
 function drawLabels(ctx, items, actors, origin) {
   ctx.save();
-  ctx.font = "bold 18px sans-serif";
+  ctx.font = "bold 23px sans-serif";       // 이름표 — 멀리서도 읽히게
   ctx.textAlign = "center";
   const tag = (x, y, text) => {
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 6;
     ctx.strokeStyle = "rgba(255,255,255,.92)";
     ctx.strokeText(text, x, y);
     ctx.fillStyle = "#1a1a1a";
@@ -178,33 +178,59 @@ function drawLabels(ctx, items, actors, origin) {
   }
   for (const a of actors) {
     const f = foot(a.col, a.row, origin);
-    tag(f.x, f.y - 120, CAST[a.role]?.label || a.role);
-    if (a.say) say(ctx, f.x, f.y - 150, a.say);
+    tag(f.x, f.y - 122, CAST[a.role]?.label || a.role);
+    if (a.say) say(ctx, f.x, f.y - 152, a.say);
   }
+  ctx.restore();
+}
+
+/** 격자 눈금 — 어느 칸에 무엇이 놓였는지 눈으로 재는 자 (개발용, G 키) */
+function drawGrid(ctx, origin) {
+  ctx.save();
+  ctx.font = "bold 15px sans-serif";
+  ctx.textAlign = "center";
+  for (let row = 0; row < GRID.rows; row++)
+    for (let col = 0; col < GRID.cols; col++) {
+      const f = foot(col, row, origin);
+      ctx.beginPath();
+      ctx.moveTo(f.x, f.y - TILE.H / 2);
+      ctx.lineTo(f.x + TILE.W / 2, f.y);
+      ctx.lineTo(f.x, f.y + TILE.H / 2);
+      ctx.lineTo(f.x - TILE.W / 2, f.y);
+      ctx.closePath();
+      ctx.strokeStyle = "rgba(200,40,40,.55)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = "rgba(255,255,255,.85)";
+      ctx.strokeText(`${col},${row}`, f.x, f.y + 6);
+      ctx.fillStyle = "#b02020";
+      ctx.fillText(`${col},${row}`, f.x, f.y + 6);
+    }
   ctx.restore();
 }
 
 /** 말풍선 — 지금 무엇을 하는지 한 줄 */
 function say(ctx, x, y, text) {
-  const t = text.length > 26 ? text.slice(0, 25) + "…" : text;
+  const t = text.length > 38 ? text.slice(0, 37) + "…" : text;
   ctx.save();
-  ctx.font = "16px sans-serif";
+  ctx.font = "21px sans-serif";            // 말풍선
   ctx.textAlign = "center";
-  const w = ctx.measureText(t).width + 18;
+  const w = ctx.measureText(t).width + 22;
   ctx.fillStyle = "rgba(255,255,255,.93)";
   ctx.strokeStyle = "rgba(0,0,0,.18)";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
-  ctx.roundRect(x - w / 2, y - 22, w, 26, 8);
+  ctx.roundRect(x - w / 2, y - 27, w, 33, 9);
   ctx.fill(); ctx.stroke();
   ctx.fillStyle = "#1a1a1a";
-  ctx.fillText(t, x, y - 4);
+  ctx.fillText(t, x, y - 5);
   ctx.restore();
 }
 
 export function draw(canvas, view) {
   const { scale = 0.45, pan = { x: 0, y: 0 },
-          labels = true, reads = {}, walls = true, actors = [] } = view;
+          labels = true, reads = {}, walls = true, actors = [], grid = false } = view;
   const ctx = canvas.getContext("2d");
   const dpr = window.devicePixelRatio || 1;
   const vw = canvas.clientWidth, vh = canvas.clientHeight;
@@ -218,6 +244,7 @@ export function draw(canvas, view) {
   ctx.translate(pan.x, pan.y);
   ctx.scale(scale, scale);
   const r = paint(ctx, reads, labels, walls, actors);
+  if (grid) drawGrid(ctx, sceneBox().origin);
   ctx.restore();
   return r;
 }
@@ -226,6 +253,6 @@ export function draw(canvas, view) {
 export function fitView(canvas) {
   const box = sceneBox();
   const vw = canvas.clientWidth, vh = canvas.clientHeight;
-  const scale = Math.min(vw / box.width, vh / box.height) * 0.96;
+  const scale = Math.min(vw / box.width, vh / box.height) * 0.995;
   return { scale, pan: { x: (vw - box.width * scale) / 2, y: (vh - box.height * scale) / 2 } };
 }

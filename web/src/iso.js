@@ -23,13 +23,20 @@ export function depth(col, row, layer) {
   return (col + row) * 10 + layer;
 }
 
-/** 장면 전체 크기와 (0,0) 원점. 벽이 격자 바깥 한 줄에 서므로 그만큼 여유를 둔다. */
-export function sceneBox(pad = 32) {
+/**
+ * 장면 전체 크기와 (0,0) 원점.
+ * 위 여백은 스프라이트 캔버스(768)가 아니라 **실제로 위로 뻗는 높이**로 잡는다.
+ * 실측: 회의 탁자 258 · 서고 기계 244(+게이지·이름 ~70) · 벽 198 · 말풍선 ~190.
+ * 캔버스 높이를 그대로 쓰면 화면 위쪽에 400px 가까운 빈 하늘이 생겨 방이 작아 보인다.
+ */
+export const TOP_MARGIN = 340;
+
+export function sceneBox(pad = 12) {
   const { cols, rows } = GRID;
-  const top = SPRITE.H - TILE.H / 2;
+  const top = TOP_MARGIN;
   return {
-    width: (cols + rows) * STEP.X + SPRITE.W + pad * 2,
+    width: (cols + rows) * STEP.X + TILE.W + pad * 2,
     height: (cols + rows) * STEP.Y + top + TILE.H + pad * 2,
-    origin: { x: pad + rows * STEP.X + SPRITE.W / 2, y: pad + top },
+    origin: { x: pad + rows * STEP.X + TILE.W / 2, y: pad + top },
   };
 }

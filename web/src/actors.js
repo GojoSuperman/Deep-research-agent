@@ -11,13 +11,18 @@ const FACE = { cx: 40, cy: 33, eyeGap: 24, mouthCy: 54 };
 const HAND = { y: 34, gap: -2 };     // 몸통에 살짝 붙인다. 띄우면 떨어져 보인다.
 
 // 배역 — 소장만 몸통 모양이 다르다 (계획서 5.8)
+// 이름은 **표시용일 뿐이다.** 절과 조사관을 잇는 것은 여전히 인덱스다 (계획서 5.7).
+// r1~r4 는 사람에게 말을 안 건다 — 화면에서 누가 누군지 따라가려면 이름이 있어야 한다.
 export const CAST = {
-  coord: { color: "purple", shape: "squircle", label: "소장" },
-  r1: { color: "blue",  shape: "circle", label: "r1" },
-  r2: { color: "green", shape: "circle", label: "r2" },
-  r3: { color: "pink",  shape: "circle", label: "r3" },
-  r4: { color: "red",   shape: "circle", label: "r4" },
+  coord: { color: "purple", shape: "squircle", label: "정 소장", full: "정한결 소장" },
+  r1: { color: "blue",  shape: "circle", label: "김 대리",   full: "김민준 대리" },
+  r2: { color: "green", shape: "circle", label: "이 주임",   full: "이서연 주임" },
+  r3: { color: "pink",  shape: "circle", label: "박 연구원", full: "박지호 연구원" },
+  r4: { color: "red",   shape: "circle", label: "최 선임",   full: "최다은 선임" },
 };
+
+/** 조사관 인덱스(0~3) → 이름. 소장은 "coord". */
+export const name = (i) => CAST[typeof i === "string" ? i : `r${i + 1}`]?.label || `r${i + 1}`;
 
 // 상태 → 부품. 5.4 대응표를 실제 파일명으로 옮긴 것.
 export const STATES = {

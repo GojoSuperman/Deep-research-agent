@@ -14,101 +14,387 @@
        font:15px/1.6 -apple-system,"Noto Sans KR",sans-serif;overflow:hidden}
   header{padding:10px 18px;border-bottom:1px solid var(--line);
          display:flex;gap:12px;align-items:center;flex-wrap:wrap;flex:none}
-  h1{font-size:1.02rem;margin:0;font-weight:700}
-  .q{font-size:.8rem;color:var(--mut);max-width:38ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  h1{font-size:1.02rem;margin:0;font-weight:700;flex:none}
+  /* 주제 한 줄 — 헤더 오른쪽 빈자리를 채운다. 좁아지면 감춘다 */
+  /* ch 는 숫자 0 의 폭 기준이라 한글에서는 예상보다 훨씬 좁게 잘린다 — 폭 제한을 두지 않는다 */
+  #about{margin:0 0 0 26px;font-size:.82rem;line-height:1.55;color:var(--mut);flex:1 1 0}
+  #about b{color:var(--fg);font-weight:600}
+  @media (max-width:1100px){ #about{display:none} }
   .ctrl{display:flex;gap:10px;align-items:center;margin-left:auto;font-size:.85rem;flex-wrap:wrap}
+  /* 탭 — 왼쪽 패널에 무엇을 띄울지 고른다 */
+  .tabs{display:flex;gap:4px;margin-left:14px}
+  .tabs button{border-radius:8px 8px 0 0;padding:7px 16px;font-weight:700;border-bottom-color:transparent}
   button{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);
          background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
   button:hover{border-color:var(--acc);color:var(--acc)}
+  button:disabled{opacity:.42;cursor:default}
+  button:disabled:hover{border-color:var(--line);color:var(--fg)}
   button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
   select{font:inherit;font-size:.85rem;padding:5px 8px;border:1px solid var(--line);
          background:var(--panel);color:var(--fg);border-radius:6px}
   label{display:flex;gap:6px;align-items:center;cursor:pointer;user-select:none}
-  #stage{flex:1;min-height:0;padding:10px 18px;position:relative}
-  #wrap{position:relative;width:100%;height:100%;background:var(--panel);
+  /* 본문 — 왼쪽 조작판 · 오른쪽 연구소. 재생 모드에서는 왼쪽이 사라지고 연구소가 폭을 다 쓴다 */
+  #main{flex:1;min-height:0;display:flex;align-items:stretch}
+  #stage{flex:1;min-width:0;min-height:0;padding:10px 18px;position:relative;
+         display:flex;flex-direction:column;gap:8px}
+  /* 오른쪽 패널 머리말 — 지금 보는 것이 녹화인지 실시간인지 */
+  #banner{flex:none;font-size:.8rem;line-height:1.5;padding:7px 12px;border-radius:8px;
+          border:1px solid var(--line);background:var(--panel);color:var(--mut)}
+  #banner b{color:var(--fg)}
+  #banner.live{border-color:var(--acc);color:var(--acc)}
+  #wrap{position:relative;flex:1;min-height:0;width:100%;background:var(--panel);
         border:1px solid var(--line);border-radius:8px;overflow:hidden}
   canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
   canvas.drag{cursor:grabbing}
   #phase{position:absolute;left:14px;top:12px;font-weight:700;font-size:.95rem;
          background:color-mix(in srgb,var(--panel) 90%,transparent);padding:6px 12px;border-radius:7px}
-  #dash{position:absolute;right:14px;top:12px;width:250px;font-size:.8rem;
+  /* 파이프라인 표시기 — 지금 어느 노드가 도는가 */
+  #pipe{position:absolute;left:14px;top:44px;margin:0;padding:10px 12px;list-style:none;
+        background:color-mix(in srgb,var(--panel) 90%,transparent);border:1px solid var(--line);
+        border-radius:9px;font-size:.78rem;line-height:1.35;min-width:132px}
+  #pipe li{display:grid;grid-template-columns:16px 1fr;gap:7px;align-items:center;
+           padding:3px 0;color:var(--mut)}
+  #pipe .dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--line);
+             justify-self:center}
+  #pipe li.done{color:var(--fg)}
+  #pipe li.done .dot{background:var(--line);border-color:var(--line)}
+  #pipe li.now{color:var(--acc);font-weight:700}
+  #pipe li.now .dot{background:var(--acc);border-color:var(--acc);
+                    box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 25%,transparent)}
+  #pipe .sub{grid-column:2;font-size:.7rem;color:var(--mut);font-weight:400}
+  #pipe .off{margin-top:6px;padding-top:6px;border-top:1px solid var(--line);
+             font-size:.72rem;color:#c0392b;line-height:1.5}
+  #pipe .off b{color:var(--mut)}
+  #pipe .loop{margin-top:6px;padding-top:6px;border-top:1px solid var(--line);
+              font-size:.72rem;color:var(--mut)}
+  #pipe .loop b{color:var(--acc)}
+  #dash{position:absolute;right:14px;top:12px;width:286px;font-size:.8rem;
         background:color-mix(in srgb,var(--panel) 93%,transparent);border:1px solid var(--line);
         border-radius:8px;padding:10px 12px;display:none}
   #dash h3{margin:0 0 6px;font-size:.82rem;color:var(--acc)}
   #dash table{width:100%;border-collapse:collapse}
   #dash td{padding:2px 0}
-  #dash td:last-child{text-align:right;font-weight:700}
+  #dash td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  #dash td:first-child{cursor:help}
   #dash .bad{color:#c0392b}
+  #dash .verdict{margin:8px 0 0;padding-top:7px;border-top:1px solid var(--line);font-weight:700}
+  #dash .why{font-weight:400;color:var(--mut);font-size:.75rem;margin-top:3px}
   #bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:color-mix(in srgb,var(--line) 60%,transparent)}
   #bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .1s linear}
-  #hint{position:absolute;left:14px;bottom:14px;font-size:.75rem;color:var(--mut)}
+  /* 조작 안내 — 자막 그라데이션 위로 올리고 배경·테두리를 줘서 바닥 무늬에 묻히지 않게 한다 */
+  #hint{position:absolute;right:14px;bottom:58px;z-index:3;font-size:.76rem;color:var(--fg);
+        text-align:right;background:var(--panel);border:1px solid var(--line);
+        padding:5px 10px;border-radius:7px;opacity:.94}
+  /* 자막 — 지금 무슨 일이 벌어지는지 한 줄로 */
+  #cap{position:absolute;left:0;right:0;bottom:4px;padding:10px 16px 14px;text-align:center;
+       font-size:.92rem;line-height:1.5;color:var(--fg);pointer-events:none;
+       background:linear-gradient(transparent,color-mix(in srgb,var(--panel) 88%,transparent) 45%)}
+  #cap b{color:var(--acc)}
   #status{padding:6px 18px 10px;font-size:.8rem;color:var(--mut);text-align:center;flex:none}
   .err{color:#c0392b}
+  /* 라이브 모드 줄 — 재생 모드에서는 통째로 숨는다 */
+  #live,#info,#setp{display:none;padding:12px 16px;border-right:1px solid var(--line);
+        background:var(--panel);font-size:.85rem;flex:0 0 clamp(340px,40%,560px);overflow:auto}
+  #live{gap:9px;align-content:start;flex-wrap:wrap}
+  #live.on{display:flex}
+  #info.on,#setp.on{display:block}
+  #setp h3{margin:0 0 4px;font-size:1rem}
+  #setp .sub{color:var(--mut);font-size:.82rem;margin:0 0 14px;line-height:1.6}
+  #setp input[type=password]{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);
+       background:var(--bg);color:var(--fg);border-radius:6px}
+  #setp ul{font-size:.79rem;color:var(--mut);line-height:1.7;padding-left:18px;margin:16px 0 0;
+       border-top:1px solid var(--line);padding-top:12px}
+  #setp .state{font-size:.82rem;color:var(--acc);margin:12px 0 0;min-height:1.2em}
+  #info h3{margin:0 0 3px;font-size:1rem}
+  #info select{font-size:.88rem;padding:7px 9px}
+  #info .acts{display:flex;gap:6px;margin:0 0 14px}
+  #info .acts button{flex:1}
+  #info .q{font-size:.92rem;line-height:1.55;margin:0 0 12px;color:var(--fg);
+           white-space:normal;max-width:none;overflow:visible}
+  #info .watch{border-left:3px solid var(--acc);padding:2px 0 2px 10px;margin:0 0 14px;
+               color:var(--mut);font-size:.83rem;line-height:1.6}
+  #info table{width:100%;border-collapse:collapse;font-size:.83rem;margin:0 0 6px}
+  #info td{padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+  #info td:last-child{text-align:right;font-weight:700}
+  #info .bad{color:#c0392b}
+  #info .exp{font-size:.79rem;color:var(--mut);line-height:1.65;margin:14px 0 0;
+             border-top:1px solid var(--line);padding-top:12px}
+  #info .exp b{color:var(--fg)}
+  @media (max-width:900px){          /* 좁은 화면에서는 위아래로 쌓는다 */
+    #main{flex-direction:column}
+    #live{flex:0 0 auto;max-height:52%;border-right:none;border-bottom:1px solid var(--line)}
+  }
+  #live input[type=text],#live input[type=password]{font:inherit;font-size:.85rem;padding:5px 9px;
+        border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px}
+  #q{flex:1 1 100%;min-width:0}
+  #key{width:190px}
+  #live .note{color:var(--mut);font-size:.75rem}
+  /* 예시 질문·서고 안내 — 라이브 줄 아래 한 단 */
+  #guide{flex-basis:100%;display:flex;flex-direction:column;gap:6px}
+  #examples{margin:0}
+  #examples summary{cursor:pointer;font-size:.8rem;color:var(--mut)}
+  #exbox{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+         gap:4px 12px;margin-top:8px;max-height:min(42vh,320px);overflow:auto;padding-right:6px}
+  #exbox h4{grid-column:1/-1;margin:8px 0 1px;font-size:.76rem;color:var(--acc);letter-spacing:.02em}
+  #exbox h4:first-child{margin-top:0}
+  #exbox button{font-size:.81rem;padding:5px 9px;text-align:left;line-height:1.45;
+                border-color:transparent;background:transparent;color:var(--fg)}
+  #exbox button:hover{border-color:var(--acc);color:var(--acc)}
+  #shelf{font-size:.75rem;color:var(--mut)}
+  #shelf summary{cursor:pointer}
+  #shelf dl{margin:6px 0 0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;
+            max-height:26vh;overflow:auto}
+  #shelf dt{font-weight:700;white-space:nowrap}
+  #shelf dd{margin:0}
+  dialog{max-width:760px;width:90%;border:1px solid var(--line);border-radius:10px;
+         background:var(--panel);color:var(--fg);padding:20px}
+  dialog::backdrop{background:#0008}
+  #reportText{line-height:1.8;max-height:66vh;overflow:auto;font-size:.92rem}
+  #reportText h4{margin:20px 0 6px;font-size:1rem;color:var(--acc)}
+  #reportText h4:first-child{margin-top:0}
+  #reportText p{margin:0 0 11px}
+  #reportText cite{font-style:normal;font-size:.8rem;padding:1px 6px;border-radius:4px;
+       background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc);white-space:nowrap}
+  #reportMeta{color:var(--mut);font-size:.78rem;margin:0 0 14px;padding-bottom:10px;
+       border-bottom:1px solid var(--line)}
+  /* 첫 방문 안내 — 세 줄 */
+  #intro{max-width:560px}
+  #intro h2{margin:0 0 4px;font-size:1.15rem}
+  #intro .sub{color:var(--mut);font-size:.82rem;margin:0 0 16px}
+  #intro ol{margin:0;padding-left:0;list-style:none;display:grid;gap:13px}
+  #intro li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;line-height:1.6}
+  #intro .n{width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;
+            display:grid;place-items:center;font-size:.8rem;font-weight:700}
+  #intro em{font-style:normal;color:var(--acc);font-weight:700}
 </style>
 </head>
 <body>
 <header>
   <h1>딥리서치 연구소</h1>
-  <span class="q" id="question">녹화를 고르세요</span>
-  <div class="ctrl">
-    <select id="run"></select>
+  <nav class="tabs">
+    <button id="tLive">라이브</button>
+    <button id="tReplay" class="on">재생</button>
+    <button id="tSet">설정</button>
+  </nav>
+  <p id="about">
+    <b>“MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가”</b>를 파고드는 딥리서치 에이전트입니다.
+    영문 위키백과 <b>52건</b>만 읽고, 조사관 넷이 나눠 조사해 <b>근거를 단 한국어 보고서</b>를 씁니다.
+  </p>
+</header>
+<div id="main">
+<div id="info">
+  <select id="run" style="width:100%;margin-bottom:10px"></select>
+  <p class="acts">
     <button id="play">▶ 재생</button>
     <button id="reset">처음으로</button>
-    <select id="speed">
-      <option value="0.5">0.5×</option>
-      <option value="1">1×</option>
-      <option value="2">2×</option>
-      <option value="4">4×</option>
-    </select>
-    <button id="fit">맞춤</button>
-    <label><input id="labels" type="checkbox" checked> 이름표</label>
+    <button id="reportOpen" disabled>보고서</button>
+  </p>
+  <div id="infoBody"></div>
+</div>
+<div id="setp">
+  <h3>API 키</h3>
+  <p class="sub">
+    <b>재생 모드는 키가 필요 없습니다.</b> 키는 「라이브」로 내 질문을 직접 돌릴 때만 씁니다.
+  </p>
+  <p style="margin:0 0 8px">
+    <input id="key" type="password" placeholder="sk-…" autocomplete="off">
+  </p>
+  <label><input id="remember" type="checkbox"> 이 브라우저에 저장해 두기</label>
+  <p style="margin:12px 0 0">
+    <button id="set-save" class="on">저장</button>
+    <button id="set-clear">저장한 키 지우기</button>
+  </p>
+  <p id="setState" class="state"></p>
+  <p style="margin:16px 0 0"><button id="intro-open">이 화면이 무엇인지 다시 보기</button></p>
+  <ul>
+    <li>키는 <b>이 브라우저와 요청 헤더에만</b> 있습니다. 서버는 저장하지도 기록하지도 않습니다.</li>
+    <li>비용은 키 주인에게 청구됩니다 — 간단 한 바퀴 약 ₩20, 정식 약 ₩40.</li>
+    <li>키는 OpenAI 계정의 API keys 화면에서 발급합니다.</li>
+    <li>로컬 개발 서버로 열었다면 비워 두어도 됩니다 — 서버의 <code>.env.local</code> 키로 돕니다.</li>
+  </ul>
+</div>
+<div id="live">
+  <input id="q" type="text" placeholder="궁금한 것을 적으세요 — 예: MBTI 궁합론은 어떤 근거로 제시되는가?">
+  <select id="preset">
+    <option value="간단">간단 · 2절×2건 (약 20초 · ₩20)</option>
+    <option value="정식">정식 · 4절×3건 (약 40초 · ₩40)</option>
+  </select>
+  <button id="go">실행</button>
+  <button id="reportOpen2" disabled>보고서</button>
+  <span class="note" id="keyState"></span>
+  <div id="guide">
+    <details id="examples">
+      <summary>예시 질문 <b>30개</b> — 이 서고로 답할 수 있는 질문들 (눌러서 펼치기)</summary>
+      <div id="exbox"></div>
+    </details>
+    <details id="shelf">
+      <summary>영문 위키백과 <b>52건</b> 안에서만 답합니다 — 16유형 개별 궁합(INFP와 ENTJ 등)은 서고에 없습니다. 서고 보기</summary>
+      <dl>
+        <dt>유형론 11</dt><dd>Carl Jung · Psychological Types · Myers–Briggs Type Indicator · Analytical psychology · Collective unconscious · Jungian archetypes · Extraversion and introversion · Temperament · Keirsey Temperament Sorter · Socionics · Enneagram of Personality</dd>
+        <dt>성격심리 11</dt><dd>Personality · Personality psychology · Personality type · Trait theory · Big Five personality traits · HEXACO · 16PF Questionnaire · Hans Eysenck · Raymond Cattell · Gordon Allport · Person–situation debate</dd>
+        <dt>측정 11</dt><dd>Psychometrics · Personality test · Questionnaire · Construct validity · Test validity · Validity (statistics) · Reliability (statistics) · Factor analysis · Effect size · Statistical significance · Replication crisis</dd>
+        <dt>유사사례 7</dt><dd>Pseudoscience · Falsifiability · Scientific consensus · Astrology · Blood type personality theory · Phrenology · Graphology</dd>
+        <dt>편향 6</dt><dd>Barnum effect · Cognitive bias · Confirmation bias · Halo effect · Self-fulfilling prophecy · Stereotype</dd>
+        <dt>관계 6</dt><dd>Interpersonal compatibility · Interpersonal attraction · Interpersonal relationship · Assortative mating · Social psychology · Industrial and organizational psychology</dd>
+      </dl>
+    </details>
   </div>
-</header>
-<div id="stage"><div id="wrap">
+</div>
+<div id="stage"><div id="banner"></div><div id="wrap">
   <canvas id="lab"></canvas>
   <div id="phase"></div>
+  <ol id="pipe"></ol>
   <div id="dash"></div>
-  <div id="hint">끌어서 이동 · 휠로 확대/축소 · Space 재생/멈춤</div>
+  <div id="hint">끌어서 이동 · 휠 확대/축소 · Space 재생 · F 맞춤 · L 이름표 · G 격자</div>
+  <div id="cap"></div>
   <div id="bar"><i></i></div>
 </div></div>
+</div>
 <div id="status">에셋 읽는 중…</div>
+<dialog id="intro">
+  <h2>딥리서치 연구소</h2>
+  <p class="sub">질문 하나를 조사관 여럿이 나눠 조사하는 과정을, 그대로 보여 주는 화면입니다.<br>
+    기본 화면의 12편은 <b>실제로 AI를 돌려 녹화해 둔 것</b>입니다 — 보고서도 계기판 숫자도 그때 나온 진짜 값입니다.</p>
+  <ol>
+    <li><span class="n">1</span><span>소장이 질문을 <em>절로 나누고</em>, 조사관마다 맡을 서고와 시작 문서를 정합니다.
+      자료는 영문 위키백과 <em>52건</em>뿐입니다 — 웹 검색은 하지 않습니다.</span></li>
+    <li><span class="n">2</span><span>조사관들은 <em>서로 무엇을 읽는지 모른 채</em> 동시에 흩어집니다.
+      3만 자짜리 문서를 읽고 <em>쪽지 300자</em>만 들고 나옵니다. 그 쪽지만으로 원고를 씁니다.</span></li>
+    <li><span class="n">3</span><span>끝나면 <em>LLM이 아니라 프로그램이</em> 보고서를 서고와 대조합니다.
+      지어낸 출처는 없는지, 근거가 정말 그 문서에 있는지 — <em>계기판</em>이 그 결과입니다.</span></li>
+    <li><span class="n">4</span><span>12편은 <em>같은 연구소에서 장치를 하나씩 끄고</em> 돌린 것입니다.
+      시작 문서를 안 정해 주면? 역할을 안 주면? 빈 절을 안 되돌려 보내면? — 무엇이 무너지는지 보는 실험입니다.</span></li>
+  </ol>
+  <p style="text-align:right;margin:20px 0 0">
+    <button id="intro-close" class="on">보러 가기</button>
+  </p>
+</dialog>
+<dialog id="reportBox">
+  <h3 style="margin:0 0 10px">보고서</h3>
+  <p id="reportMeta"></p>
+  <div id="reportText"></div>
+  <p style="text-align:right;margin:14px 0 0"><button id="reportClose">닫기</button></p>
+</dialog>
 
 <script type="module">
 import { draw, preload, actorSpots, fitView } from "./src/renderer.js";
 import { createView } from "./src/view.js";
-import { load, createPlayer } from "./src/player.js";
+import { load, createPlayer, caption } from "./src/player.js";
+import * as live from "./src/live.js";
+import { docKo } from "./src/docs.js";
 
 const canvas = document.getElementById("lab");
 const status = document.getElementById("status");
 const $run = document.getElementById("run");
 const $play = document.getElementById("play");
-const $speed = document.getElementById("speed");
-const $labels = document.getElementById("labels");
-const $question = document.getElementById("question");
+// 배속 선택과 이름표·격자 체크는 헤더에서 뺐다. 값은 여기 남기고 단축키로만 바꾼다.
+const $speed = { value: "1" };
+const $labels = { checked: true };
+const $grid = { checked: false };
+// 질문은 왼쪽 패널이 보여 준다. 헤더의 짧은 칸은 없앴다 (38자에서 잘렸다)
+const $question = { set textContent(_) {}, set title(_) {} };
 const $phase = document.getElementById("phase");
 const $dash = document.getElementById("dash");
 const $bar = document.querySelector("#bar i");
+const $cap = document.getElementById("cap");
+const $live = document.getElementById("live");
+const $q = document.getElementById("q");
+const $key = document.getElementById("key");
+const $remember = document.getElementById("remember");
+const $preset = document.getElementById("preset");
+const $go = document.getElementById("go");
+const $reportBox = document.getElementById("reportBox");
+const $reportText = document.getElementById("reportText");
+const $reportMeta = document.getElementById("reportMeta");
+const $reportOpen = document.getElementById("reportOpen");
+const $reportOpen2 = document.getElementById("reportOpen2");
+const $keyState = document.getElementById("keyState");
+const $banner = document.getElementById("banner");
+const $info = document.getElementById("info");
 
-const RUNS = [];
-for (const q of ["단일", "다갈래", "관계"])
-  for (const s of ["기본", "배정구역끔", "역할끔", "재위임끔"])
-    RUNS.push(`${q}-${s}`);
-for (const n of RUNS) {
-  const o = document.createElement("option");
-  o.value = n; o.textContent = n.replace("-", " · ");
-  $run.appendChild(o);
+const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+/** 보고서를 띄운다. «출처» 를 눈에 띄게 칠하는 것이 핵심이다 — 근거가 어디 붙었는지 보인다. */
+function showReport(text, meta) {
+  $reportMeta.textContent = meta;
+  $reportText.innerHTML = text.split(/\n+/).filter(Boolean).map(line => {
+    const body = esc(line.replace(/^#+\s*/, ""))
+      .replace(/«([^»]+)»/g, (_, d) => `<cite title="${esc(d)}">${esc(docKo(d))}</cite>`);
+    return /^#/.test(line) ? `<h4>${body}</h4>` : `<p>${body}</p>`;
+  }).join("");
+  $reportBox.showModal();
+  // 다시 열면 지난번 읽던 자리에 남아 있다 — 늘 맨 위에서 시작하게 한다
+  $reportText.scrollTop = 0;
+  $reportBox.scrollTop = 0;
+}
+
+/** 끝나면 보고서를 저절로 띄운다. 한 번만. */
+let autoShown = false;
+function maybeAutoReport() {
+  if (autoShown || !report || !player?.state.finished) return;
+  autoShown = true;
+  showReport(report, reportMeta);
+}
+
+function setReport(text, meta) {
+  report = text || "";
+  reportMeta = meta || "";
+  $reportOpen.disabled = $reportOpen2.disabled = !report;
+}
+let reportMeta = "";
+$reportOpen.onclick = $reportOpen2.onclick = () => showReport(report, reportMeta);
+
+// 녹화 12편 = 질문 3 × 설정 4 (절제 실험).
+// 파일 이름(단일-역할끔)은 만든 사람의 말이라 화면에는 쓰지 않는다.
+const QUESTIONS = [
+  ["다갈래", "MBTI 궁합론은 근거가 있는가?", "여러 서고를 가로질러야 풀리는 질문"],
+  ["단일", "바넘 효과란 무엇인가?", "답이 한 군데 모여 있는 질문"],
+  ["관계", "성격이 비슷하면 잘 맞는가?", "링크로 못 닿는 문서에 닿아야 풀리는 질문"],
+];
+const SETTINGS = [
+  ["기본", "전부 켜고 (기준선)", "넷이 각자 다른 서고로 흩어진다"],
+  ["배정구역끔", "시작 문서를 안 정해 줌", "소장이 길을 안 잡아 주면 어디로 가는가"],
+  ["역할끔", "조사관 역할을 안 줌", "넷이 같은 눈으로 읽으면 원고가 어떻게 되는가"],
+  ["재위임끔", "빈 절을 안 되돌려 보냄", "근거를 못 찾은 절이 그대로 남는다"],
+];
+const RUN_INFO = {};
+for (const [q, qlabel, qhint] of QUESTIONS) {
+  const group = document.createElement("optgroup");
+  group.label = qlabel;
+  for (const [s, slabel, shint] of SETTINGS) {
+    const name = `${q}-${s}`;
+    RUN_INFO[name] = { 질문: qlabel, 설정: slabel, 볼것: s === "기본" ? qhint : shint };
+    const o = document.createElement("option");
+    o.value = name;
+    o.textContent = slabel;
+    group.appendChild(o);
+  }
+  $run.appendChild(group);
 }
 $run.value = "다갈래-기본";
 
 const cam = createView(canvas, () => render());
 let player = null, playing = false, last = 0, ready = false;
+let mode = "replay", session = null, report = "";
+let shown = undefined;      // 지금 카메라가 따라가는 연출 목표
 
 async function pick(name) {
   playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
   const res = await fetch(`runs/${name}.json`);
   const run = await res.json();
-  $question.textContent = run.question;
-  player = createPlayer(load(run));
+  const info = RUN_INFO[name] || {};
+  const net = run.metrics?.그물;
+  $question.textContent = `${run.question}`;
+  $question.title = run.question;
+  showInfo(name, run, info, net);
+  $cap.innerHTML = `<b>${info.설정 || ""}</b> — ${info.볼것 || ""}`
+    + `<br><span style="font-size:.82rem;color:var(--mut)">`
+    + `${run.built} 녹화 · 근거가 달린 문장 ${Math.round((run.metrics?.근거율 || 0) * 100)}%`
+    + ` · 읽어 볼 가치 ${net ? (net.통과 ? "통과" : "탈락") : "—"}`
+    + ` · ▶ 재생을 누르세요</span>`;
+  setReport(run.report, `녹화 ${name.replace("-", " · ")} · ${run.built} 실행 · 보고서 ${(run.report || "").length}자`);
+  player = createPlayer(load(run), ev => { $cap.textContent = caption(ev); });
+  shown = undefined; autoShown = false;
   $dash.style.display = "none";
   render();
 }
@@ -120,42 +406,276 @@ function render() {
     ? [{ ...st.coord }, ...st.actors]
     : [{ role: "coord", col: 2, row: 1, state: "idle" }, ...actorSpots().slice(1)];
   const r = draw(canvas, {
-    ...cam.v, labels: $labels.checked, walls: true,
+    ...cam.v, labels: $labels.checked, grid: $grid.checked, walls: true,
     reads: st?.reads || {}, actors,
   });
-  $phase.textContent = st?.phase || "";
+  showPipe(st);
+  $phase.textContent = (mode === "live" && player?.waiting && !player.done)
+    ? (st?.phase ? st.phase + " …" : "기다리는 중 …") : (st?.phase || "");
   $bar.style.width = ((player?.progress || 0) * 100) + "%";
   if (st?.metrics) showDash(st.metrics);
   status.innerHTML = r.missing.length
     ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>` : "";
 }
 
-function showDash(m) {
-  const net = m["그물"];
+/** 왼쪽 설명 패널 — 지금 고른 녹화가 무엇을 시험한 것인지 */
+function showInfo(name, run, info, net) {
+  const m = run.metrics || {};
+  const pct = v => Math.round((v || 0) * 100) + "%";
   const row = (k, v, bad) => `<tr><td>${k}</td><td class="${bad ? "bad" : ""}">${v}</td></tr>`;
-  $dash.innerHTML = `<h3>계기판</h3><table>
-    ${row("근거율", (m["근거율"] * 100).toFixed(0) + "%")}
-    ${row("인용 0곳 절", m["인용0곳절수"], m["인용0곳절수"] > 0)}
-    ${row("허위 인용", m["허위인용"], m["허위인용"] > 0)}
-    ${row("출처 불일치", m["출처불일치"], m["출처불일치"] > 0)}
-    ${row("최다 문서 편중", (m["최다문서편중"] * 100).toFixed(0) + "%")}
-    ${row("중복률", (m["중복률"] * 100).toFixed(0) + "%")}
-    ${row("격리율", (m["격리율"] * 100).toFixed(1) + "%")}
-    ${row("그물", net["통과"] ? "통과" : "탈락", !net["통과"])}
-  </table>`;
+  document.getElementById("infoBody").innerHTML = `
+    <h3>${info.설정 || name}</h3>
+    <p class="q">${run.question}</p>
+    <div class="watch"><b>여기서 볼 것</b><br>${info.볼것 || ""}</div>
+    <table>
+      ${row("근거가 달린 문장", pct(m.근거율))}
+      ${row("근거 없는 절", `${m.인용0곳절수 ?? 0}개`, m.인용0곳절수 > 0)}
+      ${row("지어낸 인용", `${m.허위인용 ?? 0}곳`, m.허위인용 > 0)}
+      ${row("한 문서에 쏠림", pct(m.최다문서편중), m.최다문서편중 > 0.5)}
+      ${row("소장이 본 글", pct(m.격리율), m.격리율 > 0.1)}
+      ${row("읽어 볼 가치", net ? (net.통과 ? "통과" : "탈락 — " + net.사유.join(", ")) : "—", net && !net.통과)}
+      ${row("보고서", `${(run.report || "").length.toLocaleString("ko-KR")}자`)}
+    </table>
+    <p class="exp">
+      <b>이 12편은 실제로 AI를 돌려 녹화한 것입니다.</b> 보고서도 위 숫자도 그때 나온 값입니다
+      (${run.built} · 호출 ${run.usage?.calls ?? "?"}회).<br><br>
+      같은 연구소에서 <b>장치를 하나씩 끄고</b> 질문 3개를 돌렸습니다 — 시작 문서를 안 정해 주면,
+      역할을 안 주면, 빈 절을 안 되돌려 보내면 무엇이 무너지는가. 헤더의 목록에서 갈아 끼우며 비교해 보세요.<br><br>
+      화면 아래 <b>자막</b>이 지금 무슨 일이 벌어지는지 알려 주고, 끝나면 <b>계기판</b>과 <b>보고서</b>가 뜹니다.
+    </p>`;
+}
+
+// 6노드 — 계획서 3.1. 이벤트가 곧 노드라서 따로 계산할 것이 없다.
+const NODES = [
+  ["plan", "① 기획", "질문을 절로 나눈다"],
+  ["dispatch", "② 파견", "절마다 조사관을 보낸다"],
+  ["research", "③ 조사", "읽고 메모만 들고 나온다"],
+  ["review", "④ 점검", "빈 절을 되돌려 보낸다"],
+  ["synth", "⑤ 종합", "절을 한 편으로 묶는다"],
+  ["evaluate", "⑥ 평가", "서고와 대조해 계기판을 낸다"],
+];
+const NODE_ORDER = NODES.map(n => n[0]);
+const $pipe = document.getElementById("pipe");
+
+/** 이번 실험에서 꺼 둔 장치 — 화면 어디에도 상시로 보이지 않으면 헷갈린다 */
+function offLine(cfg) {
+  if (!cfg) return "";
+  const off = [
+    cfg.배정 === false && ["①", "시작 문서를 소장이 안 정해 줌"],
+    cfg.구역 === false && ["①", "남의 문서를 안 피함"],
+    cfg.역할 === false && ["①", "역할을 안 줌"],
+    cfg.재위임 === false && ["④", "빈 절을 안 되돌려 보냄"],
+  ].filter(Boolean);
+  return `<div class="off">${off.length
+    ? "<b>끈 장치</b><br>" + off.map(([n, x]) => `${n} ${x}`).join("<br>")
+    : "<b>장치 전부 켬</b> (기준선)"}</div>`;
+}
+
+function showPipe(st) {
+  const node = st?.node;
+  // 조사 중에는 ③ 이 현재, 끝났으면 전부 지난 것으로
+  const at = node === "end" ? NODE_ORDER.length : NODE_ORDER.indexOf(node);
+  $pipe.innerHTML = NODES.map(([id, label, hint], i) => {
+    const cls = i === at ? "now" : i < at ? "done" : "";
+    return `<li class="${cls}"><span class="dot"></span><span>${label}</span>`
+      + (i === at ? `<span class="sub">${hint}</span>` : "") + `</li>`;
+  }).join("")
+    + offLine(st?.settings)
+    + `<div class="loop">${st?.round > 1 || st?.sentBack
+        ? `<b>${st.round}바퀴째</b> — 점검이 ④→② 로 되돌려 보냈습니다`
+        : "④에서 빈 절이 있으면 ②로 되돌아갑니다"}</div>`;
+}
+
+function showDash(m) {
+  // 계기판은 방문자의 말로 적는다. 지표 이름(근거율·격리율…)은 만드는 사람의 말이다.
+  // 각 줄에 title 로 "왜 이걸 재나"를 달아 둔다.
+  const pct = v => (v * 100).toFixed(0) + "%";
+  const rows = [
+    ["근거가 달린 문장", pct(m["근거율"]), false,
+     "보고서 문장 중 «출처»가 붙은 비율. 높을수록 서고에 붙어 있다는 뜻입니다."],
+    ["근거 없는 절", `${m["인용0곳절수"]}개`, m["인용0곳절수"] > 0,
+     "출처가 한 곳도 없는 절. 평균에 묻히는 구멍을 절 단위로 잡습니다."],
+    ["지어낸 인용", `${m["허위인용"]}곳`, m["허위인용"] > 0,
+     "읽지도 않은 문서를 출처로 적은 횟수. 0이 아니면 지어낸 것입니다."],
+    ["원문에 없는 말", `${m["출처불일치"]}곳`, m["출처불일치"] > 0,
+     "적어 놓은 출처 문서의 원문에 그 이름·연도가 실제로 있는지 글자 그대로 대조한 결과입니다."],
+    ["한 문서에 쏠림", pct(m["최다문서편중"]), m["최다문서편중"] > 0.5,
+     "출처의 몇 %가 문서 한 건에서 나왔나. 절반을 넘으면 한 문서를 베낀 것으로 봅니다."],
+    ["두 절이 겹쳐 읽음", pct(m["중복률"]), false,
+     "서로 다른 절이 같은 문서를 읽은 비율. 분업이 겹쳤다는 신호입니다."],
+    ["소장이 본 글", pct(m["격리율"]), m["격리율"] > 0.1,
+     "팀이 읽은 글자 중 소장이 직접 본 비율. 조사관들은 서로를 모르고, 소장은 요약만 봅니다. 한 자릿수가 정상입니다."],
+  ];
+  const net = m["그물"];
+  const few = (m["읽은문서수"] ?? 0) <= 4 && m["최다문서편중"] > 0.5;
+  $dash.innerHTML = `<h3>계기판</h3><table>${
+    rows.map(([k, v, bad, why]) =>
+      `<tr><td title="${why}">${k}</td><td class="${bad ? "bad" : ""}">${v}</td></tr>`).join("")
+  }</table>
+  <div class="verdict ${net["통과"] ? "" : "bad"}" title="지어낸 인용·근거 없는 절·한 문서 쏠림 중 하나라도 걸리면 탈락입니다. 사람이 읽기 전에 기계가 먼저 거릅니다.">
+    읽어 볼 가치: ${net["통과"] ? "통과" : "탈락"}
+    <div class="why">${net["통과"]
+      ? `문서 ${m["읽은문서수"]}건을 읽어 ${m["문장수"]}문장을 썼습니다.`
+      : net["사유"].join(" · ") + (few ? `<br>문서를 ${m["읽은문서수"]}건만 읽어서 쏠림은 원래 걸립니다 — 규모를 「정식」으로 올리면 달라집니다.` : "")}</div>
+  </div>`;
   $dash.style.display = "block";
 }
+
+/**
+ * 카메라 자리 — **두 단계로만 끊는다.**
+ *   걷는 중  → 줌아웃 (어디서 어디로 가는지 보여야 한다)
+ *   멈춰 있음 → 줌인  (책상에 모였거나 서고에서 읽는 중 — 무엇을 하는지 보여야 한다)
+ * 배율을 연속으로 따라가게 했더니 계속 들썩여서 어지러웠다.
+ */
+const CAM = { 이동: 13, 정지: 4.5, 서고: 4.2 };
+
+/** 이 사람들을 담는 카메라 자리 */
+function boxOf(list, min, pad) {
+  const xs = list.map(a => a.col - a.row), ys = list.map(a => a.col + a.row);
+  const spread = Math.max(Math.max(...xs) - Math.min(...xs),
+                          (Math.max(...ys) - Math.min(...ys)) * 1.6) + pad;
+  return {
+    col: list.reduce((s, a) => s + a.col, 0) / list.length,
+    row: list.reduce((s, a) => s + a.row, 0) / list.length,
+    span: Math.min(CAM.이동, Math.max(min, spread)),
+  };
+}
+
+function followSpot(st) {
+  // ① 서고에서 읽는 사람이 있으면 **그 서고**를 본다. 한 명뿐이어도 그렇다
+  //    (재위임 바퀴엔 한 사람만 다녀온다 — 그때가 오히려 제일 봐야 할 장면이다).
+  // **도착한** 사람만 센다. 걷는 도중에도 상태는 이미 "읽는 중"이라,
+  // 이걸 빼면 서고로 가는 내내 줌인이 걸려 화면이 끌려다닌다.
+  const readers = st.actors.filter(a => !a.target && (a.state === "reading" || a.state === "skip"));
+  if (readers.length) {
+    const b = boxOf(readers, CAM.서고, 1.2);
+    return { ...b, row: b.row - 0.6 };      // 기계와 게이지가 화면에 들어오게 살짝 위로
+  }
+  // ② 걷는 중이면 물러선다 — 어디서 어디로 가는지 보여야 한다
+  if (st.actors.some(a => a.target)) return boxOf(st.actors, CAM.이동, 1.5);
+  // ③ 멈춰 있으면 당긴다 (책상에 모인 상태)
+  return boxOf(st.actors, CAM.정지, 1.5);
+}
+
+// 카메라가 마지막으로 향한 자리. 창 크기가 바뀌면 이걸 기준으로 다시 잡는다.
+let lastSpot = null;
+function aim(spot) { lastSpot = spot; cam.focus(spot); }
+
+/**
+ * 창·패널 크기가 바뀌면 화면을 다시 맞춘다.
+ * resize 이벤트만 듣던 때는 탭을 바꿔 패널이 열리고 닫힐 때(캔버스 폭이 달라질 때)를 놓쳤다.
+ * 사람이 직접 끌거나 확대한 뒤에는 건드리지 않는다.
+ */
+let resizeTimer = null;
+new ResizeObserver(() => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (!ready) return;
+    if (cam.touched()) { render(); return; }     // 사람이 잡은 화면은 그대로 둔다
+    if (lastSpot) cam.focus(lastSpot); else cam.fit();
+    render();
+  }, 80);
+}).observe(document.getElementById("wrap"));
 
 function loop(now) {
   requestAnimationFrame(loop);
   const dt = Math.min((now - last) / 1000, 0.1);
   last = now;
+  // 카메라는 재생이 멈춰 있어도 목표까지 마저 간다
+  if (cam.step(dt)) render();
   if (!playing || !player) return;
-  if (player.tick(dt * Number($speed.value))) {
+  // 연출이 카메라 목표를 바꿨을 때만 카메라에 알린다.
+  // 따라다니기(follow)는 값이 매 프레임 바뀌므로 매번 갱신한다 — 실제 이동은 view 가 부드럽게 한다.
+  const want = player.state.focus;
+  if (want?.follow) { shown = want; aim(followSpot(player.state)); }
+  else if (want !== shown) { shown = want; aim(want); }
+  maybeAutoReport();
+  if (player.tick(dt * (mode === "live" ? 1 : Number($speed.value)))) {
     playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
   }
   render();
 }
+
+// ── 탭 · 모드 ────────────────────────────────────────────
+// 탭 = 왼쪽 패널에 무엇을 띄울지. 모드 = 이벤트를 어디서 받을지(녹화 파일 / SSE).
+// 「설정」 탭은 패널만 바꾼다 — 돌고 있는 재생이나 라이브 실행을 건드리지 않는다.
+const $setp = document.getElementById("setp");
+const TABS = { live: "tLive", replay: "tReplay", settings: "tSet" };
+
+function setTab(next) {
+  $info.classList.toggle("on", next === "replay");
+  $live.classList.toggle("on", next === "live");
+  $setp.classList.toggle("on", next === "settings");
+  for (const [k, id] of Object.entries(TABS))
+    document.getElementById(id).classList.toggle("on", k === next);
+  if (next !== "settings" && next !== mode) setMode(next);
+}
+
+function setMode(next) {
+  if (session) { session.stop(); session = null; }
+  mode = next;
+  $run.disabled = $play.disabled = next === "live";
+  $reportOpen.disabled = $reportOpen2.disabled = true;
+  playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
+  $banner.classList.toggle("live", next === "live");
+  $banner.innerHTML = next === "replay"
+    ? `<b>재생 — 미리 돌려 둔 실행 기록입니다.</b> 아래 움직임·계기판·보고서는 모두 그때 실제로 AI가 내놓은 결과입니다. 키도 비용도 들지 않습니다.`
+    : `<b>라이브 — 지금 당신의 질문으로 실제 실행합니다.</b> 본인 키로 호출하며, 화면은 파이프라인이 도는 속도 그대로 움직입니다.`;
+  if (next === "replay") { pick($run.value); status.textContent = ""; }
+  else {
+    player = null; $dash.style.display = "none"; setReport("", "");
+    $question.textContent = "질문을 적고 실행하세요";
+    $cap.textContent = "질문을 적고 실행하면, 이 연구소가 지금 그 질문으로 움직입니다.";
+    $phase.textContent = ""; $bar.style.width = "0";
+    render();
+    status.textContent = "본인 OpenAI 키로 실제 한 바퀴를 돕니다. 비용은 방문자 부담입니다.";
+  }
+}
+
+// ── 라이브 실행 ──────────────────────────────────────────
+function startLive() {
+  if (session) { session.stop(); session = null; $go.textContent = "실행"; return; }
+  const question = $q.value.trim();
+  const key = $key.value.trim();
+  if (!question) { status.innerHTML = `<span class="err">질문을 적으세요</span>`; return; }
+  // 키가 비어도 보낸다 — 판단은 서버 몫이다.
+  // (로컬 개발 서버는 .env.local 키로 대신 돌고, 배포판은 "API 키가 없다"를 돌려준다)
+
+  setReport("", "");
+  $question.textContent = question;
+  $dash.style.display = "none";
+  // 이벤트가 오는 대로 밀어 넣는다
+  player = createPlayer(null, ev => { $cap.textContent = caption(ev); });
+  shown = undefined; autoShown = false;
+  playing = true;
+  $go.textContent = "멈춤";
+  $cap.textContent = "소장이 질문을 읽는 중입니다 — 10초쯤 걸립니다.";
+  status.textContent = `실행 중 — ${key ? live.mask(key) + " 로 호출합니다" : "서버에 설정된 키로 호출합니다"}. 첫 이벤트까지 10초쯤 걸립니다.`;
+
+  session = live.run({
+    question, key, preset: $preset.value,
+    onEvent: ev => player?.push(ev),
+    onResult: r => {
+      setReport(r.report, `방금 실행 · 호출 ${r.usage.calls}회 · 약 ₩${r.cost_krw} · 보고서 ${(r.report || "").length}자`);
+      maybeAutoReport();          // 재생이 이미 끝난 뒤에 결과가 왔을 수도 있다
+      status.innerHTML = `끝 — 보고서 ${(r.report || "").length}자 · 호출 ${r.usage.calls}회 · 약 ₩${r.cost_krw}`
+        + (r.report ? " · 헤더의 <b>보고서</b> 버튼으로 읽으세요" : "");
+    },
+    onError: msg => { status.innerHTML = `<span class="err">${msg}</span>`; },
+    onClose: why => {
+      player?.endStream();
+      session = null; $go.textContent = "실행";
+      if (why === "stop") status.textContent = "멈췄습니다.";
+    },
+  });
+}
+
+document.getElementById("tReplay").onclick = () => setTab("replay");
+document.getElementById("tLive").onclick = () => setTab("live");
+document.getElementById("tSet").onclick = () => setTab("settings");
+$go.onclick = startLive;
+$q.addEventListener("keydown", e => { if (e.key === "Enter") startLive(); });
+document.getElementById("reportClose").onclick = () => $reportBox.close();
 
 $run.onchange = () => pick($run.value);
 $play.onclick = () => {
@@ -165,15 +685,106 @@ $play.onclick = () => {
   $play.textContent = playing ? "⏸ 멈춤" : "▶ 재생";
   $play.classList.toggle("on", playing);
 };
-document.getElementById("reset").onclick = () => pick($run.value);
-document.getElementById("fit").onclick = () => cam.fit();
-$labels.onchange = render;
+document.getElementById("reset").onclick = () => { if (mode === "replay") pick($run.value); };
+// 「맞춤」 단추는 뺐다 — F 키와 카메라 연출이 대신한다 (아래 keydown 참조)
+
 addEventListener("keydown", e => {
   if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
   if (e.code === "Space") { e.preventDefault(); $play.click(); }
   else if (e.key.toLowerCase() === "f") cam.fit();
+  else if (e.key.toLowerCase() === "g") { $grid.checked = !$grid.checked; render(); }
+  else if (e.key.toLowerCase() === "l") { $labels.checked = !$labels.checked; render(); }
 });
-addEventListener("resize", render);
+// 창 크기는 위의 ResizeObserver 가 본다
+
+// 예시 질문 30개 — 서고 6분류에서 다섯씩. 전문을 그대로 보여 준다.
+// 짧은 꼬리표만 달면 눌러 보기 전에는 볼 만한 질문인지 알 수 없다.
+// 단답형 사실 질문은 넣지 않았다 — 4절로 쪼개면 오히려 손해라는 것이 실측이다 (계획서 14.2).
+const EXAMPLES = [
+  ["유형론 — 융에서 MBTI까지", [
+    "융의 유형론에서 MBTI로 오면서 무엇이 더해지고 무엇이 빠졌는가?",
+    "외향과 내향은 두 무리로 갈리는가, 연속된 정도의 문제인가?",
+    "MBTI·에니어그램·키어시는 서로 어디가 닮았고 어디가 다른가?",
+    "융의 집단 무의식과 원형은 MBTI의 네 지표와 어떻게 이어지는가?",
+    "소시오닉스는 MBTI와 같은 뿌리에서 어떻게 갈라져 나왔는가?",
+  ]],
+  ["성격심리 — 유형인가 특성인가", [
+    "성격을 유형으로 나누는 방식은 특성 이론과 무엇이 다르며, 어느 쪽 근거가 두터운가?",
+    "빅 파이브와 MBTI는 같은 것을 다르게 재는가, 아예 다른 것을 재는가?",
+    "HEXACO는 빅 파이브에 무엇을 더했고 왜 더했는가?",
+    "성격은 상황을 이기는가 — 사람·상황 논쟁은 무엇으로 결론 났는가?",
+    "카텔·아이젱크·올포트는 성격을 몇 개로 나눴고 왜 서로 달랐는가?",
+  ]],
+  ["측정 — 그 검사는 믿을 만한가", [
+    "MBTI는 심리 측정 도구로서 신뢰도와 타당도를 어떻게 평가받는가?",
+    "같은 사람이 다시 검사하면 유형이 바뀌는가, 그것은 무엇을 뜻하는가?",
+    "요인 분석은 성격 검사에서 무엇을 밝히고 무엇을 못 밝히는가?",
+    "재현성 위기는 성격 검사 연구에 어떤 자국을 남겼는가?",
+    "통계적으로 유의하다는 말과 실제로 의미 있다는 말은 어떻게 다른가?",
+  ]],
+  ["유사사례 — 무엇이 과학을 가르는가", [
+    "MBTI는 점성술·혈액형 성격설과 어디까지 닮았고 어디서 갈라지는가?",
+    "어떤 주장을 유사과학이라 부르려면 무엇이 필요한가?",
+    "골상학과 필적학은 왜 학문에서 밀려났고 무엇을 남겼는가?",
+    "반증 가능성은 성격 이론을 가르는 잣대가 될 수 있는가?",
+    "과학적 합의는 어떻게 만들어지며, MBTI는 그 안에서 어디에 있는가?",
+  ]],
+  ["편향 — 왜 맞는다고 느끼는가", [
+    "MBTI 결과가 잘 맞는다고 느끼게 만드는 심리 기제는 무엇인가?",
+    "바넘 효과는 어떤 실험으로 밝혀졌고 얼마나 강하게 나타나는가?",
+    "확증 편향은 유형 검사 결과를 어떻게 굳히는가?",
+    "성격 유형을 자기 정체성으로 삼을 때 어떤 부작용이 생기는가?",
+    "자기충족 예언은 「나는 이런 유형이라서」라는 말에 어떻게 작동하는가?",
+  ]],
+  ["관계 — 궁합과 쓰임새", [
+    "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+    "성격이 비슷한 사람끼리 짝이 되는 경향은 실제로 관찰되는가?",
+    "대인 매력은 무엇으로 결정되며 성격은 그중 얼마를 차지하는가?",
+    "회사가 채용과 배치에 성격 검사를 쓰는 것은 정당한가?",
+    "오래가는 관계를 예측하는 것은 성격의 닮음인가, 다른 무엇인가?",
+  ]],
+];
+const $exbox = document.getElementById("exbox");
+for (const [group, list] of EXAMPLES) {
+  const h = document.createElement("h4");
+  h.textContent = group;
+  $exbox.appendChild(h);
+  for (const question of list) {
+    const b = document.createElement("button");
+    b.textContent = question;
+    b.onclick = () => {
+      $q.value = question;
+      document.getElementById("examples").open = false;
+      $q.focus();
+    };
+    $exbox.appendChild(b);
+  }
+}
+
+// ── 설정 (API 키) ────────────────────────────────────────
+const $setState = document.getElementById("setState");
+function showKeyState(saved) {
+  const k = $key.value.trim();
+  $keyState.innerHTML = k
+    ? `키 ${live.mask(k)} 준비됨${$remember.checked ? " · 이 브라우저에 저장함" : ""}`
+    : `키 없음 — <b>설정</b> 탭에서 넣으세요 (로컬 개발 서버는 비워도 됩니다)`;
+  $setState.textContent = saved || (k ? `${live.mask(k)} 사용 중` : "키 없음");
+}
+document.getElementById("set-save").onclick = () => {
+  const k = $key.value.trim();
+  if ($remember.checked && k) live.keyStore.save(k); else live.keyStore.clear();
+  showKeyState(k ? `${live.mask(k)} 저장했습니다${$remember.checked ? " (이 브라우저에)" : " (이번 방문만)"}` : "키를 비웠습니다");
+};
+document.getElementById("set-clear").onclick = () => {
+  live.keyStore.clear(); $key.value = ""; $remember.checked = false;
+  showKeyState("저장한 키를 지웠습니다");
+};
+
+const saved = live.keyStore.load();
+if (saved) { $key.value = saved; $remember.checked = true; }
+showKeyState();
+
+setTab("replay");               // 처음 화면은 재생 탭
 
 preload().then(async ({ total, missing }) => {
   ready = true;
@@ -181,6 +792,9 @@ preload().then(async ({ total, missing }) => {
   await pick($run.value);
   if (missing) status.innerHTML = `<span class="err">스프라이트 ${missing}/${total} 못 읽음</span>`;
   requestAnimationFrame(loop);
+  let seen = false;
+  try { seen = !!localStorage.getItem(SEEN); } catch { seen = false; }
+  if (!seen) $intro.showModal();
 });
 </script>
 </body>
