@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>딥리서치 연구소</title>
+<style>
+  :root{--bg:#f6f2ea;--fg:#231f1a;--mut:#6d6559;--line:#ddd5c8;--acc:#8a5a2b;--panel:#fffdf9}
+  @media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+    --bg:#15130e;--fg:#e9e4d8;--mut:#98907f;--line:#332e24;--acc:#d6a75f;--panel:#1d1a13}}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;
+       font:15px/1.6 -apple-system,"Noto Sans KR",sans-serif;overflow:hidden}
+  header{padding:12px 20px;border-bottom:1px solid var(--line);
+         display:flex;gap:14px;align-items:center;flex-wrap:wrap;flex:none}
+  h1{font-size:1.05rem;margin:0;font-weight:700}
+  .step{font-size:.8rem;color:var(--mut)}
+  .ctrl{display:flex;gap:12px;align-items:center;margin-left:auto;font-size:.85rem;flex-wrap:wrap}
+  label{display:flex;gap:6px;align-items:center;cursor:pointer;user-select:none}
+  button{font:inherit;font-size:.85rem;padding:4px 10px;border:1px solid var(--line);
+         background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
+  button:hover{border-color:var(--acc);color:var(--acc)}
+  select{font:inherit;font-size:.85rem;padding:4px 6px;border:1px solid var(--line);
+         background:var(--panel);color:var(--fg);border-radius:6px}
+  #stage{flex:1;min-height:0;padding:12px 20px}
+  #wrap{position:relative;width:100%;height:100%;background:var(--panel);
+        border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
+  canvas.drag{cursor:grabbing}
+  canvas.turning{cursor:ew-resize}
+  #hint{position:absolute;left:12px;bottom:10px;font-size:.76rem;color:var(--mut);
+        background:color-mix(in srgb,var(--panel) 86%,transparent);padding:3px 8px;border-radius:5px}
+  #compass{position:absolute;right:12px;top:12px;font:600 .8rem/1 monospace;color:var(--mut);
+           background:color-mix(in srgb,var(--panel) 86%,transparent);padding:6px 9px;border-radius:5px}
+  #status{padding:8px 20px 12px;font-size:.82rem;color:var(--mut);text-align:center;flex:none}
+  #status b{color:var(--acc)}
+  .err{color:#c0392b}
+</style>
+</head>
+<body>
+<header>
+  <h1>딥리서치 연구소</h1>
+  <span class="step">5단계 · 첫 걸음 — 바닥과 서고 좌표 확인</span>
+  <div class="ctrl">
+    <button id="rotL" title="왼쪽으로 회전 (Q)">⟲</button>
+    <button id="rotR" title="오른쪽으로 회전 (E)">⟳</button>
+    <button id="fit" title="화면에 맞춤 (F)">맞춤</button>
+    <span id="zoomV" style="min-width:3.4em;text-align:right;color:var(--mut)">45%</span>
+    <label><input id="labels" type="checkbox" checked> 좌표·이름표</label>
+    <label><input id="walls" type="checkbox" checked> 벽</label>
+    <select id="tone" title="벽 색">
+      <option value="gray">차분한 회색</option>
+      <option value="beige">따뜻한 베이지</option>
+      <option value="cream">밝은 미색</option>
+    </select>
+    <label><input id="filled" type="checkbox"> 서가 채움</label>
+  </div>
+</header>
+<div id="stage"><div id="wrap">
+  <canvas id="lab"></canvas>
+  <div id="compass">S</div>
+  <div id="hint">좌우로 끌면 <b>회전</b> · 위아래로 끌면 <b>이동</b> · 오른쪽 버튼은 언제나 회전 · 휠 확대/축소</div>
+</div></div>
+<div id="status">에셋 읽는 중…</div>
+
+<script type="module">
+import { draw, preload } from "./src/renderer.js";
+import { createView } from "./src/view.js";
+import { ZONES } from "./src/config.js";
+
+const canvas = document.getElementById("lab");
+const status = document.getElementById("status");
+const compass = document.getElementById("compass");
+const $labels = document.getElementById("labels");
+const $filled = document.getElementById("filled");
+const $walls = document.getElementById("walls");
+const $tone = document.getElementById("tone");
+const $zoomV = document.getElementById("zoomV");
+
+const FACES = ["S", "W", "N", "E"];
+let ready = false, frame = null;
+
+function reads() {
+  // '서가 채움'은 읽은 횟수에 따라 스프라이트가 바뀌는지 보려는 시험용 값이다
+  return $filled.checked
+    ? Object.fromEntries(ZONES.map((z, i) => [z.name, i % 3 === 0 ? 0 : i % 3 === 1 ? 1 : 3]))
+    : {};
+}
+
+const cam = createView(canvas, () => schedule());
+
+function schedule() {
+  if (!ready || frame) return;
+  frame = requestAnimationFrame(() => { frame = null; render(); });
+}
+
+function render() {
+  const v = cam.v;
+  $zoomV.textContent = Math.round(v.scale * 100) + "%";
+  // 도는 중에는 넘어가는 두 방향을 같이 보여 준다
+  const shown = v.turn === 0 ? FACES[v.rot]
+    : `${FACES[v.rot]} → ${FACES[(v.rot + Math.sign(v.turn) + 4) & 3]}`;
+  compass.textContent = shown;
+  const r = draw(canvas, { ...v, labels: $labels.checked, walls: $walls.checked, tone: $tone.value, reads: reads() });
+  status.innerHTML = r.missing.length
+    ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>`
+    : `장면 <b>${Math.round(r.box.width)}×${Math.round(r.box.height)}</b> · 격자 10×8 ·
+       타일 256×128 · 서고 6 · 가구 5 · 책상 4 · 방향 <b>${shown}</b>`;
+}
+
+document.getElementById("rotL").onclick = () => cam.turnBy(-1);
+document.getElementById("rotR").onclick = () => cam.turnBy(1);
+document.getElementById("fit").onclick = () => cam.fit();
+addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  const k = e.key.toLowerCase();
+  if (k === "q") cam.turnBy(-1);
+  else if (k === "e") cam.turnBy(1);
+  else if (k === "f") cam.fit();
+});
+[$labels, $filled, $walls, $tone].forEach(el => el.addEventListener("change", schedule));
+addEventListener("resize", schedule);
+
+preload().then(({ total, missing }) => {
+  ready = true;
+  cam.fit();
+  if (missing) status.innerHTML = `<span class="err">스프라이트 ${missing}/${total} 못 읽음</span>`;
+});
+</script>
+</body>
+</html>

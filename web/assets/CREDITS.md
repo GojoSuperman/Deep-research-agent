@@ -17,6 +17,18 @@ CC0는 **저작자 표시 의무가 없지만**, 제작자의 요청에 따라 �
 | `characters/` | Shape Characters (1.0) | 100 | 104 파일 | https://kenney.nl/assets/shape-characters |
 | `library/` | Isometric Miniature Library (2.1) | 35 | 88 파일 | https://kenney.nl/assets/isometric-miniature-library |
 | `floor/` | Isometric Miniature Prototype | 60 | 28 파일 | https://kenney.nl/assets/isometric-miniature-prototype |
+| `walls/` | Isometric Miniature Prototype | 60 | 7종 × 3색 = 21 파일 (**색 변경**) | 위와 같음 |
+
+## 색을 바꾼 에셋 — `walls/`
+
+Prototype 팩은 배치 확인용이라 모든 오브젝트가 주황(`#ed8b1c`)이다. 그대로 쓰면 Library 팩의
+나무·돌 색과 섞이지 않는다. 그런데 **코너 조각(`wallCorner`)이 이 팩에만 있다** — Library 팩의
+벽은 `wallBooks`·`wallDoorway` 둘뿐이고 모서리를 맞출 조각이 없어 두 벽이 서로를 뚫고 나온다.
+
+그래서 `wall`·`wallCorner`·`window`·`doorway` 7종을 가져와 **채도만 낮추고 명암은 보존**해
+세 가지 벽 색(`gray`·`beige`·`cream`)을 만들었다. CC0는 수정과 재배포에 제약이 없다.
+
+재현: `python tools/리컬러.py <팩을 푼 Isometric 폴더>`
 
 ## 규격
 
