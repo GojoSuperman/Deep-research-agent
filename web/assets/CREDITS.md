@@ -17,20 +17,24 @@ CC0는 **저작자 표시 의무가 없지만**, 제작자의 요청에 따라 �
 | `characters/` | Shape Characters (1.0) | 100 | 104 파일 | https://kenney.nl/assets/shape-characters |
 | `library/` | Isometric Miniature Library (2.1) | 35 | 88 파일 | https://kenney.nl/assets/isometric-miniature-library |
 | `floor/` | Isometric Miniature Prototype | 60 | 28 파일 | https://kenney.nl/assets/isometric-miniature-prototype |
-| `walls/` | Isometric Miniature Prototype | 60 | 7종 × 3색 = 21 파일 (**색 변경**) | 위와 같음 |
+| `furniture/` | Furniture Kit (2.0) | 140 모델 | 26종 × 4방향 = 104 파일 (**직접 렌더**) | https://kenney.nl/assets/furniture-kit |
 
-## 색을 바꾼 에셋 — `walls/`
+## 직접 렌더한 에셋 — `furniture/`
 
-Prototype 팩은 배치 확인용이라 모든 오브젝트가 주황(`#ed8b1c`)이다. 그대로 쓰면 Library 팩의
-나무·돌 색과 섞이지 않는다. 그런데 **코너 조각(`wallCorner`)이 이 팩에만 있다** — Library 팩의
-벽은 `wallBooks`·`wallDoorway` 둘뿐이고 모서리를 맞출 조각이 없어 두 벽이 서로를 뚫고 나온다.
+Furniture Kit 은 3D 모델 팩이고 2D Isometric PNG 도 들어 있지만, 그 PNG 는 오브젝트마다
+다르게 크롭돼 있어 **타일 격자에 맞출 기준점이 없다**(투영비도 2.81:1 로 다르다).
+그래서 3D 원본을 **Isometric Miniature 규격**(2:1 · 타일 256×128)으로 다시 렌더했다.
 
-그래서 `wall`·`wallCorner`·`window`·`doorway` 7종을 가져와 **채도만 낮추고 명암은 보존**해
-세 가지 벽 색(`gray`·`beige`·`cream`)을 만들었다. CC0는 수정과 재배포에 제약이 없다.
+- 캔버스 384×768 — 타일(256×128)보다 크게 잡아야 책장처럼 타일을 넘는 오브젝트가 안 잘린다
+- `ortho_scale = 2√2 × (H/512)`, `shift_y = 0.4267` — 기존 Miniature 타일과 대조해 역산
+- 검증: `floorFull` 불투명 (0,382,256,512) · 허리 y=704 · 폭 256
 
-재현: `python tools/리컬러.py <팩을 푼 Isometric 폴더>`
+Workbench STUDIO 렌더는 면별 음영을 남기지만 전체가 어두워져서(바닥 `#99816c`, 원본 `#ffcb81`)
+밝기·채도를 원본에 맞춰 보정한다. 바닥만은 채도를 더 낮춰 가구가 묻히지 않게 한다.
 
-## 규격
+재현: `blender -b -P tools/render_iso.py -- <models> <out>` → `python tools/보정.py <out> web/assets/furniture`
+
+## 규격## 규격
 
 - **characters** — 80×80px 몸통, 부품 조립식 (몸통 + 얼굴 + 손)
 - **library / floor** — 256×512px, 4방향(`_N` `_E` `_W` `_S`), 정투영(Isometric) 버전

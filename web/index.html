@@ -28,11 +28,8 @@
         border:1px solid var(--line);border-radius:8px;overflow:hidden}
   canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
   canvas.drag{cursor:grabbing}
-  canvas.turning{cursor:ew-resize}
   #hint{position:absolute;left:12px;bottom:10px;font-size:.76rem;color:var(--mut);
         background:color-mix(in srgb,var(--panel) 86%,transparent);padding:3px 8px;border-radius:5px}
-  #compass{position:absolute;right:12px;top:12px;font:600 .8rem/1 monospace;color:var(--mut);
-           background:color-mix(in srgb,var(--panel) 86%,transparent);padding:6px 9px;border-radius:5px}
   #status{padding:8px 20px 12px;font-size:.82rem;color:var(--mut);text-align:center;flex:none}
   #status b{color:var(--acc)}
   .err{color:#c0392b}
@@ -41,44 +38,42 @@
 <body>
 <header>
   <h1>딥리서치 연구소</h1>
-  <span class="step">5단계 · 첫 걸음 — 바닥과 서고 좌표 확인</span>
+  <span class="step">5단계 — 연구소와 등장인물</span>
   <div class="ctrl">
-    <button id="rotL" title="왼쪽으로 회전 (Q)">⟲</button>
-    <button id="rotR" title="오른쪽으로 회전 (E)">⟳</button>
     <button id="fit" title="화면에 맞춤 (F)">맞춤</button>
     <span id="zoomV" style="min-width:3.4em;text-align:right;color:var(--mut)">45%</span>
     <label><input id="labels" type="checkbox" checked> 좌표·이름표</label>
     <label><input id="walls" type="checkbox" checked> 벽</label>
-    <select id="tone" title="벽 색">
-      <option value="gray">차분한 회색</option>
-      <option value="beige">따뜻한 베이지</option>
-      <option value="cream">밝은 미색</option>
-    </select>
+    <label><input id="actorsOn" type="checkbox" checked> 캐릭터</label>
+    <select id="state" title="캐릭터 상태"></select>
     <label><input id="filled" type="checkbox"> 서가 채움</label>
   </div>
 </header>
 <div id="stage"><div id="wrap">
   <canvas id="lab"></canvas>
-  <div id="compass">S</div>
-  <div id="hint">좌우로 끌면 <b>회전</b> · 위아래로 끌면 <b>이동</b> · 오른쪽 버튼은 언제나 회전 · 휠 확대/축소</div>
+  <div id="hint">끌어서 이동 · 휠로 확대/축소 · F 맞춤</div>
 </div></div>
 <div id="status">에셋 읽는 중…</div>
 
 <script type="module">
-import { draw, preload } from "./src/renderer.js";
+import { draw, preload, actorSpots } from "./src/renderer.js";
 import { createView } from "./src/view.js";
 import { ZONES } from "./src/config.js";
+import { STATES } from "./src/actors.js";
 
 const canvas = document.getElementById("lab");
 const status = document.getElementById("status");
-const compass = document.getElementById("compass");
 const $labels = document.getElementById("labels");
 const $filled = document.getElementById("filled");
 const $walls = document.getElementById("walls");
-const $tone = document.getElementById("tone");
+const $actorsOn = document.getElementById("actorsOn");
+const $state = document.getElementById("state");
 const $zoomV = document.getElementById("zoomV");
+for (const [k, v] of Object.entries(STATES)) {
+  const o = document.createElement("option");
+  o.value = k; o.textContent = v.label; $state.appendChild(o);
+}
 
-const FACES = ["S", "W", "N", "E"];
 let ready = false, frame = null;
 
 function reads() {
@@ -98,28 +93,21 @@ function schedule() {
 function render() {
   const v = cam.v;
   $zoomV.textContent = Math.round(v.scale * 100) + "%";
-  // 도는 중에는 넘어가는 두 방향을 같이 보여 준다
-  const shown = v.turn === 0 ? FACES[v.rot]
-    : `${FACES[v.rot]} → ${FACES[(v.rot + Math.sign(v.turn) + 4) & 3]}`;
-  compass.textContent = shown;
-  const r = draw(canvas, { ...v, labels: $labels.checked, walls: $walls.checked, tone: $tone.value, reads: reads() });
+  const r = draw(canvas, { ...v, labels: $labels.checked, walls: $walls.checked,
+    reads: reads(),
+    actors: $actorsOn.checked ? actorSpots().map(a => ({ ...a, state: $state.value })) : [] });
   status.innerHTML = r.missing.length
     ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>`
-    : `장면 <b>${Math.round(r.box.width)}×${Math.round(r.box.height)}</b> · 격자 10×8 ·
-       타일 256×128 · 서고 6 · 가구 5 · 책상 4 · 방향 <b>${shown}</b>`;
+    : `장면 <b>${Math.round(r.box.width)}×${Math.round(r.box.height)}</b> · 격자 14×8 ·
+       타일 256×128 · 서고 6 · 조사관 4`;
 }
 
-document.getElementById("rotL").onclick = () => cam.turnBy(-1);
-document.getElementById("rotR").onclick = () => cam.turnBy(1);
 document.getElementById("fit").onclick = () => cam.fit();
 addEventListener("keydown", e => {
   if (e.target.tagName === "INPUT") return;
-  const k = e.key.toLowerCase();
-  if (k === "q") cam.turnBy(-1);
-  else if (k === "e") cam.turnBy(1);
-  else if (k === "f") cam.fit();
+  if (e.key.toLowerCase() === "f") cam.fit();
 });
-[$labels, $filled, $walls, $tone].forEach(el => el.addEventListener("change", schedule));
+[$labels, $filled, $walls, $actorsOn, $state].forEach(el => el.addEventListener("change", schedule));
 addEventListener("resize", schedule);
 
 preload().then(({ total, missing }) => {
