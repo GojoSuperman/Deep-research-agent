@@ -45,8 +45,17 @@
   - 서고는 **계기 기계 + 게이지 막대**. 가구 모양 바꾸기로는 채움을 표현 못 한다 — **15.3**
   - 재생 12편 12~28초. 큐를 조사관별로 나누고 전역 이벤트만 배리어 — **5.5 · 15.4**
   - **그리기 규칙 셋**(15.2) — 한 축만 늘리지 않기 · 바닥은 먼저 깔기 · 배율을 따로 걸지 않기
-- ⏸️ **6 라이브 ← 다음 할 일.** 방문자 본인 키로 실행
-- ⏸️ 7 배포
+- ✅ **6 라이브 모드 완성** — 방문자 본인 키로 SSE 실행 (커밋 `c7c64f3`)
+  - `api/live.py` 의 `stream()` 은 프레임워크를 모른다. 로컬 서버와 Vercel 이 같은 함수를 부른다
+  - 실측: 간단 규모 **14.3초 · 호출 8회 · ₩10** · 키 유출 0건 · 오류 경로 5종 확인
+  - **간단 규모(2절×2건)는 편중 지표에 구조적으로 걸린다** — 문서를 4건만 읽어서다. 결함 아님
+  - 실측 기록은 **계획서 16장**에. 7단계에서 잴 것 세 가지도 거기에
+- ✅ **화면 개편** — 탭·좌우 분할·회의 연출·파이프라인 표시기 (커밋 `86a6ce5`)
+  - 만든 사람의 말을 걷어냈다: `격리율` → `소장이 본 글`, `r1` → `김 대리`, 문서명 한국어 52건
+  - **고친 버그 4개** — 배리어 덮어쓰기 · `종료` 사유 무시 · 배정 끔인데 배정한다고 말함 · 장면 여백
+    (앞의 셋은 전부 "백엔드는 사실을 싣는데 프런트가 안 읽고 말한" 것) — **계획서 17장**
+  - 좌표는 눈대중 금지. `tools/막힌칸.py` 가 스프라이트 알파로 재서 `BLOCKED` 를 뽑는다
+- ⏸️ **7 배포 ← 다음 할 일.** Vercel · 함수 시간 상한 실측이 관문
 
 ### 이어서 작업할 때 (새 세션·새 PC)
 
@@ -64,9 +73,17 @@ cd ~/projects/Deep-research-agent
 - **원격**: `github.com/GojoSuperman/Deep-research-agent` (비공개, 2026-09-22 개설). PC 이동 전 push.
 - **실행 옵션**: `--no-assign` `--no-zone` `--no-role` `--no-redelegate` `--sections N` `--budget N`
   `--save runs/이름.json` `--quiet`
-- **웹앱 보기**: `python3 .superpowers/서버.py web 8732` (백그라운드) → http://127.0.0.1:8732
+- **웹앱 보기**: `.venv/bin/python tools/dev_server.py 8734` (백그라운드) → http://127.0.0.1:8734
   캐시를 끄는 서버다. 보통 `http.server` 로 띄우면 브라우저가 옛 모듈을 쥐고 있어 수정이 안 보인다.
-- **소품 추가**: `blender -b -P tools/render_iso.py -- <models> <out>` → `python tools/보정.py <out> web/assets/furniture`
+  **`/api/live` 도 이 서버가 받는다** (Vercel 과 같은 핸들러). 개발 중에는 화면의 키 칸을
+  비워 둬도 `.env.local` 키로 돈다 — 이 관대함은 `dev_server.py` 에만 있다.
+- **소품 추가**: 3D 원본은 `/mnt/c/Users/minah/blender-iso/models/` (노트북 Windows 쪽).
+  `"/mnt/c/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b -P render_iso.py -- models out <이름>`
+  → `.venv/bin/python tools/보정.py <out> web/assets/furniture`
+  → **소품을 놓거나 옮겼으면 `.venv/bin/python tools/막힌칸.py` 를 돌려 `config.js` 의 `BLOCKED` 를 갱신한다**
+- **화면 손볼 때**: `index.html` 의 인라인 모듈은 문법 검사만으로 부족하다. 편집 후
+  **① HTML 의 id ↔ JS 의 `getElementById` 대조 ② 정의 없이 호출되는 함수** 를 확인한다
+  (치환 범위를 넓게 잡아 설정 코드 블록을 통째로 지운 적이 있다 — 문법은 멀쩡했고 화면만 비었다)
 
 ## 작업 규칙
 
