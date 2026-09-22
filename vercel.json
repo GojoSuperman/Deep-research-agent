@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "web",
+  "functions": {
+    "api/live.py": {
+      "maxDuration": 300,
+      "includeFiles": "{data/**,pipeline/**}"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/live",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-transform"
+        },
+        {
+          "key": "X-Accel-Buffering",
+          "value": "no"
+        }
+      ]
+    }
+  ]
+}

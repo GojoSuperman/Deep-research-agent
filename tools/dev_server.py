@@ -52,7 +52,7 @@ class Handler(SimpleHTTPRequestHandler):
             started["status"] = status
             started["headers"] = headers
 
-        body = live.app(environ, start_response)
+        body = live.wsgi_app(environ, start_response)
         code = int(started["status"].split()[0])
         self.send_response(code)
         for k, v in started["headers"]:

@@ -1,5 +1,5 @@
-langchain-core==1.6.4
-langchain-openai==1.6.3
+# 파이프라인이 실제로 쓰는 것만. langchain-core 는 langgraph 가 끌어온다.
+# (langchain-openai 는 쓰지 않는다 — LLM 호출은 openai 클라이언트를 직접 쓴다)
 langgraph==1.2.12
 openai==3.17.0
 python-dotenv==1.2.3

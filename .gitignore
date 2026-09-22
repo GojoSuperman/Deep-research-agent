@@ -31,3 +31,5 @@ build/
 
 # 도구 상태 폴더
 .bkit/
+.vercel
+.env*

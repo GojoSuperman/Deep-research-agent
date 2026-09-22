@@ -9,6 +9,7 @@ Vercel 함수가 같은 함수를 부른다. 7단계에서 배포 껍데기만 �
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import queue
 import threading
@@ -138,8 +139,8 @@ HEADERS = [
 ]
 
 
-def app(environ, start_response):
-    """WSGI 껍데기 — 로컬 서버와 Vercel 이 공유한다."""
+def wsgi_app(environ, start_response):
+    """WSGI 껍데기 — 로컬 개발 서버(tools/dev_server.py)가 쓴다."""
     if environ.get("REQUEST_METHOD") != "POST":
         start_response("405 Method Not Allowed", [("Content-Type", "text/plain; charset=utf-8")])
         return [b"POST only"]
@@ -154,3 +155,54 @@ def app(environ, start_response):
     key = environ.get("HTTP_X_API_KEY", "")
     start_response("200 OK", HEADERS)
     return (chunk.encode("utf-8") for chunk in stream(question, settings, key))
+
+
+# ── Vercel 용 ASGI ────────────────────────────────────────
+# Vercel 의 Python 런타임은 모듈의 `app` 을 찾는다. WSGI 로 내보내면 스트리밍이
+# 버퍼링될 수 있어, SSE 는 ASGI 로 내보낸다 (프레임워크 없이 프로토콜만 따른다).
+async def app(scope, receive, send):
+    if scope["type"] != "http":
+        return
+    if scope.get("method") != "POST":
+        await _send_json(send, 405, {"message": "POST only"})
+        return
+
+    body = b""
+    while True:
+        message = await receive()
+        if message["type"] == "http.disconnect":
+            return
+        body += message.get("body", b"")
+        if not message.get("more_body"):
+            break
+
+    try:
+        question, settings = parse(json.loads(body or b"{}"))
+    except (ValueError, TypeError, json.JSONDecodeError) as e:
+        await _send_json(send, 400, {"message": str(e)[:200]})
+        return
+
+    headers = {k.lower(): v for k, v in
+               ((h.decode(), v.decode()) for h, v in scope.get("headers", []))}
+    key = headers.get("x-api-key", "")
+
+    await send({"type": "http.response.start", "status": 200,
+                "headers": [(k.encode(), v.encode()) for k, v in HEADERS]})
+    # 블로킹 제너레이터를 스레드에서 돌려 이벤트 루프를 막지 않는다
+    loop = asyncio.get_running_loop()
+    gen = stream(question, settings, key)
+    sentinel = object()
+    while True:
+        chunk = await loop.run_in_executor(None, lambda: next(gen, sentinel))
+        if chunk is sentinel:
+            break
+        await send({"type": "http.response.body", "body": chunk.encode("utf-8"),
+                    "more_body": True})
+    await send({"type": "http.response.body", "body": b"", "more_body": False})
+
+
+async def _send_json(send, status: int, payload: dict) -> None:
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    await send({"type": "http.response.start", "status": status,
+                "headers": [(b"content-type", b"application/json; charset=utf-8")]})
+    await send({"type": "http.response.body", "body": body})
