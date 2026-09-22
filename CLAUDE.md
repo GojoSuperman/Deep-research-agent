@@ -28,15 +28,30 @@
 서고 6분류: 측정 11 · 유형론 11 · 성격심리 11 · 유사사례 7 · 편향 6 · 관계 6
 ```
 
-## 현재 상태
+## 현재 상태 (2026-09-22 갱신)
 
-- ✅ 0 주제·코퍼스 확정 — `data/corpus.json` 생성·검증 완료
-- ✅ 0b 에셋 확보 — `web/assets/` 220파일 1.3MB
-- ✅ 계획서 · `.gitignore`
-- ⏸️ **1 걸어 다니는 뼈대 ← 다음 할 일.** 빈 노드 6개로 한 바퀴 돌려 전부 0 찍기
-- ⏸️ 2 노드 채우기 → 3 `emit()` 삽입 → 4 녹화 12편 → 5 시각화 → 6 라이브 → 7 배포
+- ✅ 0 주제·코퍼스 확정 · 0b 에셋 · 계획서
+- ✅ **1~3 파이프라인 완성** — 6노드가 한국어 보고서를 만든다 (커밋 `277aeea`)
+  - 기준선: 근거율 73~96% · 허위인용 0 · 출처불일치 0 · 격리율 1.9% · 편당 ₩40
+  - 실측 기록은 **계획서 13장**에 (프롬프트 A/B, 잡은 버그 2개, 안 고친 것 4개)
+- ⏸️ **4 녹화 12편 ← 다음 할 일.** 질문 3 × 설정 4 → `runs/*.json` (예상 ₩500 · 10분)
+- ⏸️ 5 시각화 → 6 라이브 → 7 배포
 
-**순서 엄수**: 파이프라인 → 녹화 → 시각화. 시각화부터 만들면 이벤트 스펙이 계속 바뀐다.
+### 이어서 작업할 때 (새 세션·새 PC)
+
+```bash
+cd ~/projects/Deep-research-agent
+.venv/bin/python -m pipeline.setkey --check     # 키 확인. ❌ 면 아래로 키 재입력
+.venv/bin/python -m pipeline.run                # 한 바퀴 (₩40 · 40초)
+```
+
+- **venv**: Python 3.12 (`uv venv --python 3.12 .venv` + `uv pip install -r requirements.txt`).
+  시스템 기본은 3.14라 라이브러리 호환 문제로 낮춰 잡았다.
+- **키**: `.env.local`(권한 600, git 제외)에만 있다. **git 으로 안 따라온다.**
+  새 PC·새 클론이면 다시 넣는다 → `python -m pipeline.setkey --from-clipboard`
+  (`!` 프리픽스 실행은 tty 가 없어 대화형 입력이 막힌다. 클립보드나 `--from-file` 을 쓴다.)
+- **실행 옵션**: `--no-assign` `--no-zone` `--no-role` `--no-redelegate` `--sections N` `--budget N`
+  `--save runs/이름.json` `--quiet`
 
 ## 작업 규칙
 
