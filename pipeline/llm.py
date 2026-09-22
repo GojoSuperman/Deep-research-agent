@@ -8,6 +8,7 @@ from __future__ import annotations
 import json
 import os
 import threading
+from contextlib import contextmanager
 from functools import lru_cache
 from pathlib import Path
 
@@ -51,9 +52,36 @@ def load_env(path: Path = ENV_PATH) -> bool:
     return False
 
 
+# 라이브 모드(6단계)에서 방문자 키를 담는 자리. 한 번에 한 실행만 허용한다.
+# 노드들은 llm.ask(key=...) 를 쓰지 않으므로 키를 여기 한 곳에 얹어 전달한다.
+_visitor_lock = threading.Lock()
+_visitor_key: str | None = None
+
+
+@contextmanager
+def use_key(key: str | None):
+    """이 블록 안의 모든 호출이 이 키를 쓴다. 빠져나가면 지운다.
+
+    방문자 키는 메모리에만 두고 로그·파일 어디에도 남기지 않는다 (계획서 8.2).
+    """
+    global _visitor_key
+    with _visitor_lock:
+        _visitor_key = key or None
+    try:
+        yield
+    finally:
+        with _visitor_lock:
+            _visitor_key = None
+        if key:
+            _client.cache_clear()   # 방문자 키를 캐시에 남기지 않는다
+
+
 def api_key(explicit: str | None = None) -> str | None:
     if explicit:
         return explicit
+    with _visitor_lock:
+        if _visitor_key:
+            return _visitor_key
     load_env()
     return os.getenv("OPENAI_API_KEY") or None
 
