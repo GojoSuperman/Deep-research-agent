@@ -118,7 +118,9 @@ function paint(ctx, reads, labels, walls, actors) {
     }
   }
 
-  for (const a of actors) {
+  // 캐릭터는 깊이순으로 가구 사이에 끼워 그린다 (앞뒤가 맞아야 방 안을 걷는 것처럼 보인다)
+  const cast = [...actors].sort((a, b) => (a.col + a.row) - (b.col + b.row));
+  for (const a of cast) {
     const f = foot(a.col, a.row, box.origin);
     drawActor(ctx, n => got(n, "characters"), a.role, a.state || "idle", f.x, f.y);
   }
@@ -177,7 +179,26 @@ function drawLabels(ctx, items, actors, origin) {
   for (const a of actors) {
     const f = foot(a.col, a.row, origin);
     tag(f.x, f.y - 120, CAST[a.role]?.label || a.role);
+    if (a.say) say(ctx, f.x, f.y - 150, a.say);
   }
+  ctx.restore();
+}
+
+/** 말풍선 — 지금 무엇을 하는지 한 줄 */
+function say(ctx, x, y, text) {
+  const t = text.length > 26 ? text.slice(0, 25) + "…" : text;
+  ctx.save();
+  ctx.font = "16px sans-serif";
+  ctx.textAlign = "center";
+  const w = ctx.measureText(t).width + 18;
+  ctx.fillStyle = "rgba(255,255,255,.93)";
+  ctx.strokeStyle = "rgba(0,0,0,.18)";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.roundRect(x - w / 2, y - 22, w, 26, 8);
+  ctx.fill(); ctx.stroke();
+  ctx.fillStyle = "#1a1a1a";
+  ctx.fillText(t, x, y - 4);
   ctx.restore();
 }
 

@@ -12,108 +12,175 @@
   html,body{height:100%}
   body{margin:0;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;
        font:15px/1.6 -apple-system,"Noto Sans KR",sans-serif;overflow:hidden}
-  header{padding:12px 20px;border-bottom:1px solid var(--line);
-         display:flex;gap:14px;align-items:center;flex-wrap:wrap;flex:none}
-  h1{font-size:1.05rem;margin:0;font-weight:700}
-  .step{font-size:.8rem;color:var(--mut)}
-  .ctrl{display:flex;gap:12px;align-items:center;margin-left:auto;font-size:.85rem;flex-wrap:wrap}
-  label{display:flex;gap:6px;align-items:center;cursor:pointer;user-select:none}
-  button{font:inherit;font-size:.85rem;padding:4px 10px;border:1px solid var(--line);
+  header{padding:10px 18px;border-bottom:1px solid var(--line);
+         display:flex;gap:12px;align-items:center;flex-wrap:wrap;flex:none}
+  h1{font-size:1.02rem;margin:0;font-weight:700}
+  .q{font-size:.8rem;color:var(--mut);max-width:38ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ctrl{display:flex;gap:10px;align-items:center;margin-left:auto;font-size:.85rem;flex-wrap:wrap}
+  button{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);
          background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
   button:hover{border-color:var(--acc);color:var(--acc)}
-  select{font:inherit;font-size:.85rem;padding:4px 6px;border:1px solid var(--line);
+  button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+  select{font:inherit;font-size:.85rem;padding:5px 8px;border:1px solid var(--line);
          background:var(--panel);color:var(--fg);border-radius:6px}
-  #stage{flex:1;min-height:0;padding:12px 20px}
+  label{display:flex;gap:6px;align-items:center;cursor:pointer;user-select:none}
+  #stage{flex:1;min-height:0;padding:10px 18px;position:relative}
   #wrap{position:relative;width:100%;height:100%;background:var(--panel);
         border:1px solid var(--line);border-radius:8px;overflow:hidden}
   canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
   canvas.drag{cursor:grabbing}
-  #hint{position:absolute;left:12px;bottom:10px;font-size:.76rem;color:var(--mut);
-        background:color-mix(in srgb,var(--panel) 86%,transparent);padding:3px 8px;border-radius:5px}
-  #status{padding:8px 20px 12px;font-size:.82rem;color:var(--mut);text-align:center;flex:none}
-  #status b{color:var(--acc)}
+  #phase{position:absolute;left:14px;top:12px;font-weight:700;font-size:.95rem;
+         background:color-mix(in srgb,var(--panel) 90%,transparent);padding:6px 12px;border-radius:7px}
+  #dash{position:absolute;right:14px;top:12px;width:250px;font-size:.8rem;
+        background:color-mix(in srgb,var(--panel) 93%,transparent);border:1px solid var(--line);
+        border-radius:8px;padding:10px 12px;display:none}
+  #dash h3{margin:0 0 6px;font-size:.82rem;color:var(--acc)}
+  #dash table{width:100%;border-collapse:collapse}
+  #dash td{padding:2px 0}
+  #dash td:last-child{text-align:right;font-weight:700}
+  #dash .bad{color:#c0392b}
+  #bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:color-mix(in srgb,var(--line) 60%,transparent)}
+  #bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .1s linear}
+  #hint{position:absolute;left:14px;bottom:14px;font-size:.75rem;color:var(--mut)}
+  #status{padding:6px 18px 10px;font-size:.8rem;color:var(--mut);text-align:center;flex:none}
   .err{color:#c0392b}
 </style>
 </head>
 <body>
 <header>
   <h1>딥리서치 연구소</h1>
-  <span class="step">5단계 — 연구소와 등장인물</span>
+  <span class="q" id="question">녹화를 고르세요</span>
   <div class="ctrl">
-    <button id="fit" title="화면에 맞춤 (F)">맞춤</button>
-    <span id="zoomV" style="min-width:3.4em;text-align:right;color:var(--mut)">45%</span>
-    <label><input id="labels" type="checkbox" checked> 좌표·이름표</label>
-    <label><input id="walls" type="checkbox" checked> 벽</label>
-    <label><input id="actorsOn" type="checkbox" checked> 캐릭터</label>
-    <select id="state" title="캐릭터 상태"></select>
-    <label><input id="filled" type="checkbox"> 서가 채움</label>
+    <select id="run"></select>
+    <button id="play">▶ 재생</button>
+    <button id="reset">처음으로</button>
+    <select id="speed">
+      <option value="0.5">0.5×</option>
+      <option value="1">1×</option>
+      <option value="2">2×</option>
+      <option value="4">4×</option>
+    </select>
+    <button id="fit">맞춤</button>
+    <label><input id="labels" type="checkbox" checked> 이름표</label>
   </div>
 </header>
 <div id="stage"><div id="wrap">
   <canvas id="lab"></canvas>
-  <div id="hint">끌어서 이동 · 휠로 확대/축소 · F 맞춤</div>
+  <div id="phase"></div>
+  <div id="dash"></div>
+  <div id="hint">끌어서 이동 · 휠로 확대/축소 · Space 재생/멈춤</div>
+  <div id="bar"><i></i></div>
 </div></div>
 <div id="status">에셋 읽는 중…</div>
 
 <script type="module">
-import { draw, preload, actorSpots } from "./src/renderer.js";
+import { draw, preload, actorSpots, fitView } from "./src/renderer.js";
 import { createView } from "./src/view.js";
-import { ZONES } from "./src/config.js";
-import { STATES } from "./src/actors.js";
+import { load, createPlayer } from "./src/player.js";
 
 const canvas = document.getElementById("lab");
 const status = document.getElementById("status");
+const $run = document.getElementById("run");
+const $play = document.getElementById("play");
+const $speed = document.getElementById("speed");
 const $labels = document.getElementById("labels");
-const $filled = document.getElementById("filled");
-const $walls = document.getElementById("walls");
-const $actorsOn = document.getElementById("actorsOn");
-const $state = document.getElementById("state");
-const $zoomV = document.getElementById("zoomV");
-for (const [k, v] of Object.entries(STATES)) {
+const $question = document.getElementById("question");
+const $phase = document.getElementById("phase");
+const $dash = document.getElementById("dash");
+const $bar = document.querySelector("#bar i");
+
+const RUNS = [];
+for (const q of ["단일", "다갈래", "관계"])
+  for (const s of ["기본", "배정구역끔", "역할끔", "재위임끔"])
+    RUNS.push(`${q}-${s}`);
+for (const n of RUNS) {
   const o = document.createElement("option");
-  o.value = k; o.textContent = v.label; $state.appendChild(o);
+  o.value = n; o.textContent = n.replace("-", " · ");
+  $run.appendChild(o);
 }
+$run.value = "다갈래-기본";
 
-let ready = false, frame = null;
+const cam = createView(canvas, () => render());
+let player = null, playing = false, last = 0, ready = false;
 
-function reads() {
-  // '서가 채움'은 읽은 횟수에 따라 스프라이트가 바뀌는지 보려는 시험용 값이다
-  return $filled.checked
-    ? Object.fromEntries(ZONES.map((z, i) => [z.name, i % 3 === 0 ? 0 : i % 3 === 1 ? 1 : 3]))
-    : {};
-}
-
-const cam = createView(canvas, () => schedule());
-
-function schedule() {
-  if (!ready || frame) return;
-  frame = requestAnimationFrame(() => { frame = null; render(); });
+async function pick(name) {
+  playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
+  const res = await fetch(`runs/${name}.json`);
+  const run = await res.json();
+  $question.textContent = run.question;
+  player = createPlayer(load(run));
+  $dash.style.display = "none";
+  render();
 }
 
 function render() {
-  const v = cam.v;
-  $zoomV.textContent = Math.round(v.scale * 100) + "%";
-  const r = draw(canvas, { ...v, labels: $labels.checked, walls: $walls.checked,
-    reads: reads(),
-    actors: $actorsOn.checked ? actorSpots().map(a => ({ ...a, state: $state.value })) : [] });
+  if (!ready) return;
+  const st = player?.state;
+  const actors = st
+    ? [{ ...st.coord }, ...st.actors]
+    : [{ role: "coord", col: 2, row: 1, state: "idle" }, ...actorSpots().slice(1)];
+  const r = draw(canvas, {
+    ...cam.v, labels: $labels.checked, walls: true,
+    reads: st?.reads || {}, actors,
+  });
+  $phase.textContent = st?.phase || "";
+  $bar.style.width = ((player?.progress || 0) * 100) + "%";
+  if (st?.metrics) showDash(st.metrics);
   status.innerHTML = r.missing.length
-    ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>`
-    : `장면 <b>${Math.round(r.box.width)}×${Math.round(r.box.height)}</b> · 격자 14×8 ·
-       타일 256×128 · 서고 6 · 조사관 4`;
+    ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>` : "";
 }
 
-document.getElementById("fit").onclick = () => cam.fit();
-addEventListener("keydown", e => {
-  if (e.target.tagName === "INPUT") return;
-  if (e.key.toLowerCase() === "f") cam.fit();
-});
-[$labels, $filled, $walls, $actorsOn, $state].forEach(el => el.addEventListener("change", schedule));
-addEventListener("resize", schedule);
+function showDash(m) {
+  const net = m["그물"];
+  const row = (k, v, bad) => `<tr><td>${k}</td><td class="${bad ? "bad" : ""}">${v}</td></tr>`;
+  $dash.innerHTML = `<h3>계기판</h3><table>
+    ${row("근거율", (m["근거율"] * 100).toFixed(0) + "%")}
+    ${row("인용 0곳 절", m["인용0곳절수"], m["인용0곳절수"] > 0)}
+    ${row("허위 인용", m["허위인용"], m["허위인용"] > 0)}
+    ${row("출처 불일치", m["출처불일치"], m["출처불일치"] > 0)}
+    ${row("최다 문서 편중", (m["최다문서편중"] * 100).toFixed(0) + "%")}
+    ${row("중복률", (m["중복률"] * 100).toFixed(0) + "%")}
+    ${row("격리율", (m["격리율"] * 100).toFixed(1) + "%")}
+    ${row("그물", net["통과"] ? "통과" : "탈락", !net["통과"])}
+  </table>`;
+  $dash.style.display = "block";
+}
 
-preload().then(({ total, missing }) => {
+function loop(now) {
+  requestAnimationFrame(loop);
+  const dt = Math.min((now - last) / 1000, 0.1);
+  last = now;
+  if (!playing || !player) return;
+  if (player.tick(dt * Number($speed.value))) {
+    playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
+  }
+  render();
+}
+
+$run.onchange = () => pick($run.value);
+$play.onclick = () => {
+  if (!player) return;
+  if (player.done) return;
+  playing = !playing;
+  $play.textContent = playing ? "⏸ 멈춤" : "▶ 재생";
+  $play.classList.toggle("on", playing);
+};
+document.getElementById("reset").onclick = () => pick($run.value);
+document.getElementById("fit").onclick = () => cam.fit();
+$labels.onchange = render;
+addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+  if (e.code === "Space") { e.preventDefault(); $play.click(); }
+  else if (e.key.toLowerCase() === "f") cam.fit();
+});
+addEventListener("resize", render);
+
+preload().then(async ({ total, missing }) => {
   ready = true;
   cam.fit();
+  await pick($run.value);
   if (missing) status.innerHTML = `<span class="err">스프라이트 ${missing}/${total} 못 읽음</span>`;
+  requestAnimationFrame(loop);
 });
 </script>
 </body>
