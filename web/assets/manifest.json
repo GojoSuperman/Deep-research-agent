@@ -1,0 +1,109 @@
+{
+ "license": "CC0-1.0",
+ "author": "Kenney (kenney.nl)",
+ "dirs": {
+  "characters": {
+   "count": 104,
+   "groups": {
+    "body": 24,
+    "hand": 36,
+    "face": 12,
+    "part": 14,
+    "misc": 18
+   },
+   "colors": [
+    "blue",
+    "green",
+    "pink",
+    "purple",
+    "red",
+    "yellow"
+   ],
+   "bodies": [
+    "circle",
+    "rhombus",
+    "square",
+    "squircle"
+   ],
+   "faces": [
+    "face_a",
+    "face_b",
+    "face_c",
+    "face_d",
+    "face_e",
+    "face_f",
+    "face_g",
+    "face_h",
+    "face_i",
+    "face_j",
+    "face_k",
+    "face_l"
+   ],
+   "hands": [
+    "closed",
+    "open",
+    "peace",
+    "point",
+    "rock",
+    "thumb",
+    "yellow_closed",
+    "yellow_open",
+    "yellow_peace",
+    "yellow_point",
+    "yellow_rock",
+    "yellow_thumb"
+   ]
+  },
+  "library": {
+   "count": 88,
+   "objects": [
+    "bookStand",
+    "bookStandEmpty",
+    "bookcaseBooks",
+    "bookcaseBooksLadder",
+    "bookcaseEmpty",
+    "bookcaseGlass",
+    "bookcaseHalfBooks",
+    "bookcaseWideBooks",
+    "bookcaseWideBooksDesk",
+    "candleStand",
+    "displayCase",
+    "displayCaseBooks",
+    "floorCarpet",
+    "floorCarpetEnd",
+    "floorCarpetSmall",
+    "libraryChair",
+    "longTable",
+    "longTableChairs",
+    "longTableDecoratedChairs",
+    "longTableDecoratedChairsBooks",
+    "wallBooks",
+    "wallDoorway"
+   ],
+   "directions": [
+    "N",
+    "E",
+    "W",
+    "S"
+   ]
+  },
+  "floor": {
+   "count": 28,
+   "objects": [
+    "block",
+    "blockHalf",
+    "column",
+    "doorway",
+    "floor",
+    "floorHalf",
+    "floorQuarter"
+   ],
+   "directions": [
+    "N",
+    "E",
+    "W",
+    "S"
+   ]
+  }
+ }
+}

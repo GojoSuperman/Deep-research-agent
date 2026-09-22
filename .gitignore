@@ -1,0 +1,33 @@
+# ── 시크릿 (절대 커밋 금지) ──────────────────────────
+.env
+.env.local
+.env.*.local
+.mcp.json
+.claude/settings.local.json
+.claude/.credentials.json
+*.pem
+*.key
+id_rsa*
+*.p12
+*.pfx
+
+# ── 의존성 ────────────────────────────────────────
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ── 빌드·배포 ─────────────────────────────────────
+.vercel/
+dist/
+build/
+
+# ── 작업용 ────────────────────────────────────────
+.DS_Store
+*.log
+.superpowers/
+
+# 도구 상태 폴더
+.bkit/
