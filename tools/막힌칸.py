@@ -42,30 +42,36 @@ def covered(rect) -> list[tuple[int, int]]:
             if x0 <= foot(c, r)[0] <= x1 and y0 <= foot(c, r)[1] <= y1]
 
 
-def parse_config() -> list[tuple[str, int, int, str, str, float, float]]:
-    """config.js 의 PROPS·ZONES 를 읽는다. 화면에 올라가는 소품(dy 있는 것)은 뺀다."""
+def parse_config() -> list[tuple[str, int, int, str, str, float, float, float, float]]:
+    """config.js 의 PROPS·ZONES 를 읽는다. 책상 위 소품(layer 1.2)은 뺀다.
+
+    예전에는 "dy 가 있으면 책상 위"로 봤다. 벽에 붙이려고 dx·dy 를 준 책장·소파가 그 규칙에
+    걸려 막힌 칸에서 통째로 빠졌다 (캐릭터가 소파를 뚫고 걸을 뻔했다). 층으로 가른다.
+    """
     src = (ROOT / "web/src/config.js").read_text(encoding="utf-8")
     out = []
     block = src[src.index("export const PROPS"):src.index("// 조사관 의자")]
     for line in block.splitlines():
         m = re.search(r'id:\s*"(\w+)".*?col:\s*(\d+),\s*row:\s*(\d+),\s*sprite:\s*"(\w+)"', line)
-        if not m or "dy:" in line or "walk: true" in line:
+        if not m or re.search(r"layer:\s*1\.2", line) or "walk: true" in line:
             continue        # 책상 위 소품과, 사람이 올라서는 의자는 막지 않는다
         face = (re.search(r'face:\s*"(\w+)"', line) or [None, "_SE"])[1]
         scale = float((re.search(r'scale:\s*([\d.]+)', line) or [None, 1])[1])
-        out.append((m[1], int(m[2]), int(m[3]), m[4], face, scale, 1.0))
+        dx = float((re.search(r'dx:\s*(-?[\d.]+)', line) or [None, 0])[1])
+        dy = float((re.search(r'dy:\s*(-?[\d.]+)', line) or [None, 0])[1])
+        out.append((m[1], int(m[2]), int(m[3]), m[4], face, scale, 1.0, dx, dy))
     zones = re.findall(r'\{ name: "(\S+?)",\s*col:\s*(\d+),\s*row:\s*(\d+) \}', src)
     shelf = re.search(r'SHELF_SPRITE = "(\w+)"', src)[1]
     sx = float(re.search(r'SHELF_SCALE = \{ x: ([\d.]+)', src)[1])
     for name, c, r in zones:
-        out.append((name, int(c), int(r), shelf, "_SE", sx, 1.0))
+        out.append((name, int(c), int(r), shelf, "_SE", sx, 1.0, 0.0, 0.0))
     return out
 
 
 def main() -> None:
     blocked: set[tuple[int, int]] = set()
-    for name, c, r, sprite, face, k, ky in parse_config():
-        cells = covered(screen_rect(c, r, sprite, face, k, ky))
+    for name, c, r, sprite, face, k, ky, dx, dy in parse_config():
+        cells = covered(screen_rect(c, r, sprite, face, k, ky, dx, dy))
         blocked |= set(cells)
         print(f"  {name:<10} 앵커({c},{r}) → {cells}")
     cells = sorted(blocked, key=lambda t: (t[1], t[0]))
