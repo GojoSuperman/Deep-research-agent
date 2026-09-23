@@ -1,0 +1,184 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "성격이 비슷한 사람끼리 실제로 더 잘 맞는가?",
+ "목차": [
+  "성격과 상호작용의 관계",
+  "성격 유형의 이론적 배경",
+  "성격 심리학의 기초",
+  "성격의 측정 방법"
+ ],
+ "시작문서": "Assortative mating",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Assortative mating",
+   "library": "관계",
+   "source_chars": 15660,
+   "memo_chars": 316,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 291,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Construct validity",
+   "library": "측정",
+   "source_chars": 15243,
+   "memo_chars": 263,
+   "relevant": true
+  },
+  {
+   "doc": "Personality",
+   "library": "성격심리",
+   "source_chars": 24066,
+   "memo_chars": 326,
+   "relevant": true
+  },
+  {
+   "doc": "Personality type",
+   "library": "성격심리",
+   "source_chars": 15273,
+   "memo_chars": 243,
+   "relevant": true
+  },
+  {
+   "doc": "Extraversion and introversion",
+   "library": "유형론",
+   "source_chars": 43405,
+   "memo_chars": 298,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Factor analysis",
+   "library": "측정",
+   "source_chars": 74533,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Gordon Allport",
+   "library": "성격심리",
+   "source_chars": 13525,
+   "memo_chars": 268,
+   "relevant": true
+  },
+  {
+   "doc": "Hans Eysenck",
+   "library": "성격심리",
+   "source_chars": 29000,
+   "memo_chars": 268,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 334,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "성격과 상호작용의 관계",
+   "text": "인간의 동질적 짝짓기(assortative mating)는 두 가지 유형으로 나뉜다: 유전적 동질적 짝짓기와 사회적 동질적 짝짓기 «Assortative mating». 유전적 동질적 짝짓기는 유전형과 표현형에 기반한 짝짓기를 의미하며, 이는 신체적 특성 간의 상관관계를 통해 나타난다. 예를 들어, 1903년 Pearson과 동료들은 1000쌍의 부부에서 신장, 팔 길이, 왼쪽 팔 길이 간의 강한 상관관계를 보고하였다 «Assortative mating». 사회적 동질적 짝짓기는 사회적, 문화적 요인에 기반한 짝짓기로, 유사한 사회적 지위, 교육 수준, 경제적 배경을 가진 사람들끼리의 짝짓기가 일반적이다 «Assortative mating». 이러한 경향은 세대를 거치며 불평등을 초래할 수 있다 «Assortative mating». 성격이 비슷한 사람들끼리의 상호작용은 이러한 동질적 짝짓기의 일환으로 볼 수 있으며, 이는 개인의 행동 및 관계 형성에 영향을 미친다. 성격 특성이 직장 및 관계의 성공, 정신 건강, 행복, 장수와 관련이 있다는 연구 결과도 있다 «Personality». 따라서 성격이 비슷한 사람들끼리의 상호작용은 긍정적인 결과를 가져올 가능성이 높다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "성격 유형의 이론적 배경",
+   "text": "성격 유형은 개인을 심리적으로 분류하는 것으로, 성격 특성과는 다르다 «Personality type». 성격 유형 이론은 인간 성격의 다양성을 소수의 유형으로 설명하는 것이 불가능하다고 여겨지며, 대신 성격 특성 모델이 권장된다 «Personality type». 예를 들어, MBTI와 NEO PI를 비교한 연구에서는 성격 특성 측정이 성격 장애를 더 잘 예측한다고 보고되었다 «Personality type». 칼 융(Carl Jung)의 심리적 유형 이론은 개인의 판단을 결정짓는 심리적 유형의 존재를 강조하며, 이는 성격 유형 이론의 기초가 된다 «Personality type». 성격 유형 이론은 성격의 복잡성을 단순화하려는 시도로 볼 수 있지만, 이론적 논란이 많다 «Personality type». 성격 유형이 개인의 행동과 관계 형성에 미치는 영향은 연구자들에 의해 지속적으로 탐구되고 있으며, 이는 성격 심리학의 중요한 주제 중 하나이다 «Personality psychology».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "성격 심리학의 기초",
+   "text": "성격 심리학은 개인의 성격과 그 변이를 연구하는 심리학의 한 분야로, 성격은 개인이 가진 동적이고 조직적인 특성의 집합으로 정의된다 «Personality psychology». 성격은 환경, 인지, 감정, 동기 및 행동에 영향을 미치며, 개인의 기대, 자아 개념, 가치 및 태도에 강한 영향을 미친다 «Personality psychology». 성격 연구는 일반적으로 두 가지 주요 방법인 법칙적(nomothetic) 접근과 개별적(idiographic) 접근으로 나뉜다 «Personality psychology». 법칙적 접근은 많은 사람에게 적용 가능한 일반 법칙을 찾고, 개별적 접근은 특정 개인의 독특한 측면을 이해하려고 한다 «Personality psychology». 주요 이론으로는 성격 특성 이론, 정신역동 이론, 인본주의 이론, 생물학적 이론 등이 있으며, 이들은 성격의 다양한 측면을 설명하는 데 기여하고 있다 «Personality psychology». 성격 심리학의 연구는 개인의 행동 차이를 설명하려고 하며, 이는 직장 및 관계의 성공, 정신 건강, 행복, 장수와 관련이 있다 «Personality».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "성격의 측정 방법",
+   "text": "성격 측정 도구로는 16PF(16 성격 요인 질문지), Big Five Inventory(BFI), Minnesota Multiphasic Personality Inventory(MMPI-2), Rorschach Inkblot test 등이 있다 «16PF Questionnaire». 16PF는 레이먼드 B. 캐틀(Raymond B. Cattell), 모리스 타츠오카(Maurice Tatsuoka), 허버트 에버(Herbert Eber)에 의해 개발된 자기보고식 성격 검사로, 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있다 «16PF Questionnaire». 16PF는 16개의 주요 성격 요인과 5개의 글로벌 성격 요인을 측정하며, 이 요인들은 개인의 독특한 성격 프로필을 다층적으로 설명할 수 있다 «16PF Questionnaire». 성격 측정의 구성 타당성(construct validity)은 측정이 의도한 개념을 얼마나 잘 반영하는지를 평가하는 것으로, 심리학 및 사회과학에서 중요하다 «Construct validity». Paul Meehl과 Lee Cronbach이 1955년에 처음으로 이 용어를 사용하였으며, 구성 타당성은 세 가지 측면(실질적, 구조적, 외적)을 포함한다 «Construct validity». Messick는 1989년에 구성 타당성을 통합된 다면적 개념으로 재정의하며, 여섯 가지 측면(결과적, 내용적, 실질적, 구조적, 외적, 일반화 가능성)을 제시하였다 «Construct validity». 이러한 측정 방법들은 성격 연구의 기초를 형성하며, 개인의 행동 및 성격 특성을 이해하는 데 기여한다 «Personality psychology».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 성격과 상호작용의 관계\n\n인간의 동질적 짝짓기(assortative mating)는 두 가지 유형으로 나뉜다: 유전적 동질적 짝짓기와 사회적 동질적 짝짓기 «Assortative mating». 유전적 동질적 짝짓기는 유전형과 표현형에 기반한 짝짓기를 의미하며, 이는 신체적 특성 간의 상관관계를 통해 나타난다. 예를 들어, 1903년 Pearson과 동료들은 1000쌍의 부부에서 신장, 팔 길이, 왼쪽 팔 길이 간의 강한 상관관계를 보고하였다 «Assortative mating». 사회적 동질적 짝짓기는 사회적, 문화적 요인에 기반한 짝짓기로, 유사한 사회적 지위, 교육 수준, 경제적 배경을 가진 사람들끼리의 짝짓기가 일반적이다 «Assortative mating». 이러한 경향은 세대를 거치며 불평등을 초래할 수 있다 «Assortative mating». 성격이 비슷한 사람들끼리의 상호작용은 이러한 동질적 짝짓기의 일환으로 볼 수 있으며, 이는 개인의 행동 및 관계 형성에 영향을 미친다. 성격 특성이 직장 및 관계의 성공, 정신 건강, 행복, 장수와 관련이 있다는 연구 결과도 있다 «Personality». 따라서 성격이 비슷한 사람들끼리의 상호작용은 긍정적인 결과를 가져올 가능성이 높다.\n\n## 성격 유형의 이론적 배경\n\n성격 유형은 개인을 심리적으로 분류하는 것으로, 성격 특성과는 다르다 «Personality type». 성격 유형 이론은 인간 성격의 다양성을 소수의 유형으로 설명하는 것이 불가능하다고 여겨지며, 대신 성격 특성 모델이 권장된다 «Personality type». 예를 들어, MBTI와 NEO PI를 비교한 연구에서는 성격 특성 측정이 성격 장애를 더 잘 예측한다고 보고되었다 «Personality type». 칼 융(Carl Jung)의 심리적 유형 이론은 개인의 판단을 결정짓는 심리적 유형의 존재를 강조하며, 이는 성격 유형 이론의 기초가 된다 «Personality type». 성격 유형 이론은 성격의 복잡성을 단순화하려는 시도로 볼 수 있지만, 이론적 논란이 많다 «Personality type». 성격 유형이 개인의 행동과 관계 형성에 미치는 영향은 연구자들에 의해 지속적으로 탐구되고 있으며, 이는 성격 심리학의 중요한 주제 중 하나이다 «Personality psychology».\n\n## 성격 심리학의 기초\n\n성격 심리학은 개인의 성격과 그 변이를 연구하는 심리학의 한 분야로, 성격은 개인이 가진 동적이고 조직적인 특성의 집합으로 정의된다 «Personality psychology». 성격은 환경, 인지, 감정, 동기 및 행동에 영향을 미치며, 개인의 기대, 자아 개념, 가치 및 태도에 강한 영향을 미친다 «Personality psychology». 성격 연구는 일반적으로 두 가지 주요 방법인 법칙적(nomothetic) 접근과 개별적(idiographic) 접근으로 나뉜다 «Personality psychology». 법칙적 접근은 많은 사람에게 적용 가능한 일반 법칙을 찾고, 개별적 접근은 특정 개인의 독특한 측면을 이해하려고 한다 «Personality psychology». 주요 이론으로는 성격 특성 이론, 정신역동 이론, 인본주의 이론, 생물학적 이론 등이 있으며, 이들은 성격의 다양한 측면을 설명하는 데 기여하고 있다 «Personality psychology». 성격 심리학의 연구는 개인의 행동 차이를 설명하려고 하며, 이는 직장 및 관계의 성공, 정신 건강, 행복, 장수와 관련이 있다 «Personality».\n\n## 성격의 측정 방법\n\n성격 측정 도구로는 16PF(16 성격 요인 질문지), Big Five Inventory(BFI), Minnesota Multiphasic Personality Inventory(MMPI-2), Rorschach Inkblot test 등이 있다 «16PF Questionnaire». 16PF는 레이먼드 B. 캐틀(Raymond B. Cattell), 모리스 타츠오카(Maurice Tatsuoka), 허버트 에버(Herbert Eber)에 의해 개발된 자기보고식 성격 검사로, 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있다 «16PF Questionnaire». 16PF는 16개의 주요 성격 요인과 5개의 글로벌 성격 요인을 측정하며, 이 요인들은 개인의 독특한 성격 프로필을 다층적으로 설명할 수 있다 «16PF Questionnaire». 성격 측정의 구성 타당성(construct validity)은 측정이 의도한 개념을 얼마나 잘 반영하는지를 평가하는 것으로, 심리학 및 사회과학에서 중요하다 «Construct validity». Paul Meehl과 Lee Cronbach이 1955년에 처음으로 이 용어를 사용하였으며, 구성 타당성은 세 가지 측면(실질적, 구조적, 외적)을 포함한다 «Construct validity». Messick는 1989년에 구성 타당성을 통합된 다면적 개념으로 재정의하며, 여섯 가지 측면(결과적, 내용적, 실질적, 구조적, 외적, 일반화 가능성)을 제시하였다 «Construct validity». 이러한 측정 방법들은 성격 연구의 기초를 형성하며, 개인의 행동 및 성격 특성을 이해하는 데 기여한다 «Personality psychology».",
+ "metrics": {
+  "근거율": 0.8276,
+  "출처불일치": 1,
+  "출처불일치문장": [
+   {
+    "절": "성격의 측정 방법",
+    "문장": "성격 측정 도구로는 16PF(16 성격 요인 질문지), Big Five Inventory(BFI), Minnesota Multiphasic Personality Inventory(MMPI-2), Rorschach I",
+    "인용": [
+     "16PF Questionnaire"
+    ],
+    "원문에없음": [
+     "Inkblot",
+     "MMPI",
+     "Minnesota",
+     "Multiphasic",
+     "Rorschach"
+    ]
+   }
+  ],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 6,
+  "최다문서편중": 0.2917,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 3,
+  "서고분포": {
+   "성격심리": 17,
+   "관계": 4,
+   "측정": 3
+  },
+  "문장수": 29,
+  "인용수": 24,
+  "읽은문서수": 12,
+  "보고서자수": 2611,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 98117,
+  "completion": 4616
+ },
+ "cost_krw": 24,
+ "초": 47.3,
+ "회차": 2
+}

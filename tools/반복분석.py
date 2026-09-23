@@ -98,7 +98,26 @@ def main() -> int:
         agree = "기대대로" if same and signs[0] == want else ("기대와 반대" if same else "")
         arrows = " ".join({1: "↑", -1: "↓", 0: "="}[x] for x in signs)
         print(f"  {label:42} 질문별 {arrows} · 범위 분리 {apart}/3 → {verdict} {agree}")
+    team_vs_solo()
     return 0
+
+
+def team_vs_solo() -> None:
+    """팀(기본) 3회 vs 혼자 3회 — 혼자는 runs/대조군-{질문}.json + runs/반복/대조군-{질문}-{k}.json"""
+    print("\n── 팀(기본) vs 혼자 — 근거율 3회씩, 흔들림 폭, 그물 통과")
+    for q in QUESTIONS:
+        solo_files = [ROOT / "runs" / f"대조군-{q}.json"] + sorted((ROOT / "runs" / "반복").glob(f"대조군-{q}-*.json"))
+        solo = [json.loads(f.read_text(encoding="utf-8")) for f in solo_files if f.exists()]
+        team = runs_of(q, "기본")
+        if len(solo) < 2:
+            continue
+        t = [r["metrics"]["근거율"] for r in team]
+        s_ = [r["metrics"]["근거율"] for r in solo]
+        passed = lambda rs: sum(1 for r in rs if r["metrics"]["그물"]["통과"])
+        who = "팀" if mean(t) > mean(s_) else "혼자"
+        overlap = "겹침" if min(t) <= max(s_) and min(s_) <= max(t) else "분리"
+        print(f"  {q:4} 팀 {cell(t)} · 혼자 {cell(s_)} → 평균 {who} 쪽, 범위 {overlap} · "
+              f"폭 {max(t) - min(t):.2f}/{max(s_) - min(s_):.2f} · 그물 {passed(team)}/{len(team)} vs {passed(solo)}/{len(solo)}")
 
 
 if __name__ == "__main__":

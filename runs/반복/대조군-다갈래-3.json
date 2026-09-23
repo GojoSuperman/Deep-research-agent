@@ -1,0 +1,195 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+ "목차": [
+  "MBTI 궁합론의 이론적 근거",
+  "심리학계의 평가와 비판",
+  "유사 이론과의 비교",
+  "MBTI의 실용성과 한계"
+ ],
+ "시작문서": "Myers–Briggs Type Indicator",
+ "예산": 15,
+ "실제로읽은건수": 15,
+ "reads": [
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 260,
+   "relevant": true
+  },
+  {
+   "doc": "Barnum effect",
+   "library": "편향",
+   "source_chars": 8065,
+   "memo_chars": 272,
+   "relevant": true
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 288,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 231,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 274,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 290,
+   "relevant": true
+  },
+  {
+   "doc": "Construct validity",
+   "library": "측정",
+   "source_chars": 15243,
+   "memo_chars": 284,
+   "relevant": true
+  },
+  {
+   "doc": "Factor analysis",
+   "library": "측정",
+   "source_chars": 74533,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 269,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Blood type personality theory",
+   "library": "유사사례",
+   "source_chars": 13810,
+   "memo_chars": 238,
+   "relevant": true
+  },
+  {
+   "doc": "Self-fulfilling prophecy",
+   "library": "편향",
+   "source_chars": 22618,
+   "memo_chars": 235,
+   "relevant": true
+  },
+  {
+   "doc": "Assortative mating",
+   "library": "관계",
+   "source_chars": 15660,
+   "memo_chars": 335,
+   "relevant": true
+  },
+  {
+   "doc": "Enneagram of Personality",
+   "library": "유형론",
+   "source_chars": 15321,
+   "memo_chars": 357,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "MBTI 궁합론의 이론적 근거",
+   "text": "MBTI는 16개의 심리적 유형으로 개인을 분류하는 자가 보고식 질문지로, 카를 융의 심리적 유형 이론에 기초하고 있다 «Myers–Briggs Type Indicator». 그러나 MBTI는 신뢰성과 타당성이 낮고, 연구 결과는 대개 방법론적으로 약하거나 비과학적이다 «Myers–Briggs Type Indicator». 펜실베이니아 대학교의 아담 그랜트 교수는 MBTI의 측정 특성이 직업 성과나 결혼 만족도와 같은 상황에서 예측력을 거의 갖추지 못한다고 주장했다 «Myers–Briggs Type Indicator». 이러한 점에서 MBTI는 심리학계에서 유용하다고 여겨지지 않으며, 많은 연구가 MBTI의 유효성을 지지하지 않는다 «Myers–Briggs Type Indicator>. 성격심리학은 개인의 성격과 그 변화를 연구하는 심리학의 한 분야로, 개인의 행동, 사고, 감정, 동기 및 행동에 영향을 미치는 독특한 특성의 집합을 설명한다 «Personality psychology». MBTI는 고정된 특성으로 사람들의 행동을 설명하는 전통적인 모델의 일환으로 볼 수 있다 «Personality psychology». 이와 같은 이론적 배경은 MBTI 궁합론의 기초를 형성하지만, 그 신뢰성에 대한 의문은 여전히 존재한다 «Myers–Briggs Type Indicator>.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "심리학계의 평가와 비판",
+   "text": "MBTI는 심리학계에서 비판받고 있으며, 그 신뢰성과 타당성에 대한 의문이 제기되고 있다 «Myers–Briggs Type Indicator». 연구자들은 MBTI가 개인의 성격을 정확하게 반영하지 못한다고 주장하며, 이는 성격의 복잡성을 간과하는 경향이 있다 «Myers–Briggs Type Indicator>. 또한, Barnum 효과는 개인의 성격에 대한 모호하고 일반적인 설명이 개인에게 맞춤형으로 느껴지게 하여 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 이로 인해 MBTI와 같은 성격 테스트의 수용성이 높아지지만, 이는 과학적 근거가 부족한 결과이다 «Barnum effect>. 확증 편향은 개인이 기존 신념을 확인하는 정보만을 선택하고 해석하는 경향을 의미하며, 이는 MBTI의 결과를 신뢰하는 사람들에게 영향을 미칠 수 있다 «Confirmation bias». 이러한 심리적 경향은 MBTI 궁합론의 신뢰성을 더욱 저하시킬 수 있다 «Cognitive bias>. 심리학자들은 MBTI의 결과가 실제로 개인의 행동이나 관계에 미치는 영향이 미미하다고 지적하고 있다 «Myers–Briggs Type Indicator>.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "유사 이론과의 비교",
+   "text": "MBTI 궁합론은 여러 유사 이론과 비교될 수 있으며, 그 중 일부는 과학적으로 검증되지 않았다 «Enneagram of Personality». 예를 들어, 혈액형 성격 이론은 개인의 혈액형이 성격, 기질 및 타인과의 궁합을 예측할 수 있다는 비과학적 신념으로 여겨진다 «Blood type personality theory». 일본의 사회 심리학자 나와타 켄고는 성격의 총 변동성 중 0.3% 미만이 혈액형으로 설명된다고 밝혔다 «Blood type personality theory>. 또한, 점성술은 현대 과학계에서 비과학적으로 여겨지며, 그 주장은 실험적으로 반증되었다 «Astrology>. 점성술 신자들은 확인 편향으로 인해 예언이 맞았던 경우만 기억하고 틀렸던 경우는 잊는 경향이 있다 «Astrology>. 이러한 유사 이론들은 MBTI 궁합론과 유사한 방식으로 개인의 성격을 설명하려 하지만, 과학적 근거가 부족하다는 점에서 비판받고 있다 «Enneagram of Personality>.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "MBTI의 실용성과 한계",
+   "text": "MBTI는 개인의 성격을 이해하고 관계를 개선하는 데 도움을 줄 수 있는 도구로 사용되기도 한다 «Myers–Briggs Type Indicator>. 그러나 그 실용성은 제한적이며, 신뢰성과 타당성이 낮다는 비판이 따른다 «Myers–Briggs Type Indicator>. MBTI의 결과는 개인의 행동이나 관계에 미치는 영향이 미미하다는 연구 결과가 있다 «Myers–Briggs Type Indicator>. 자기충족적 예언은 개인의 믿음이나 기대가 예언의 실현에 영향을 미친다는 개념으로, MBTI 결과가 개인의 행동에 영향을 미칠 수 있는 가능성을 시사한다 «Self-fulfilling prophecy>. 그러나 이러한 영향은 과학적으로 검증되지 않았으며, MBTI의 결과가 실제로 개인의 성격을 정확하게 반영하지 못한다는 점에서 한계가 있다 «Myers–Briggs Type Indicator>. 따라서 MBTI는 성격 이해의 한 도구로 활용될 수 있지만, 그 결과를 맹신하는 것은 위험할 수 있다 «Myers–Briggs Type Indicator>.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## MBTI 궁합론의 이론적 근거\n\nMBTI는 16개의 심리적 유형으로 개인을 분류하는 자가 보고식 질문지로, 카를 융의 심리적 유형 이론에 기초하고 있다 «Myers–Briggs Type Indicator». 그러나 MBTI는 신뢰성과 타당성이 낮고, 연구 결과는 대개 방법론적으로 약하거나 비과학적이다 «Myers–Briggs Type Indicator». 펜실베이니아 대학교의 아담 그랜트 교수는 MBTI의 측정 특성이 직업 성과나 결혼 만족도와 같은 상황에서 예측력을 거의 갖추지 못한다고 주장했다 «Myers–Briggs Type Indicator». 이러한 점에서 MBTI는 심리학계에서 유용하다고 여겨지지 않으며, 많은 연구가 MBTI의 유효성을 지지하지 않는다 «Myers–Briggs Type Indicator>. 성격심리학은 개인의 성격과 그 변화를 연구하는 심리학의 한 분야로, 개인의 행동, 사고, 감정, 동기 및 행동에 영향을 미치는 독특한 특성의 집합을 설명한다 «Personality psychology». MBTI는 고정된 특성으로 사람들의 행동을 설명하는 전통적인 모델의 일환으로 볼 수 있다 «Personality psychology». 이와 같은 이론적 배경은 MBTI 궁합론의 기초를 형성하지만, 그 신뢰성에 대한 의문은 여전히 존재한다 «Myers–Briggs Type Indicator>.\n\n## 심리학계의 평가와 비판\n\nMBTI는 심리학계에서 비판받고 있으며, 그 신뢰성과 타당성에 대한 의문이 제기되고 있다 «Myers–Briggs Type Indicator». 연구자들은 MBTI가 개인의 성격을 정확하게 반영하지 못한다고 주장하며, 이는 성격의 복잡성을 간과하는 경향이 있다 «Myers–Briggs Type Indicator>. 또한, Barnum 효과는 개인의 성격에 대한 모호하고 일반적인 설명이 개인에게 맞춤형으로 느껴지게 하여 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 이로 인해 MBTI와 같은 성격 테스트의 수용성이 높아지지만, 이는 과학적 근거가 부족한 결과이다 «Barnum effect>. 확증 편향은 개인이 기존 신념을 확인하는 정보만을 선택하고 해석하는 경향을 의미하며, 이는 MBTI의 결과를 신뢰하는 사람들에게 영향을 미칠 수 있다 «Confirmation bias». 이러한 심리적 경향은 MBTI 궁합론의 신뢰성을 더욱 저하시킬 수 있다 «Cognitive bias>. 심리학자들은 MBTI의 결과가 실제로 개인의 행동이나 관계에 미치는 영향이 미미하다고 지적하고 있다 «Myers–Briggs Type Indicator>.\n\n## 유사 이론과의 비교\n\nMBTI 궁합론은 여러 유사 이론과 비교될 수 있으며, 그 중 일부는 과학적으로 검증되지 않았다 «Enneagram of Personality». 예를 들어, 혈액형 성격 이론은 개인의 혈액형이 성격, 기질 및 타인과의 궁합을 예측할 수 있다는 비과학적 신념으로 여겨진다 «Blood type personality theory». 일본의 사회 심리학자 나와타 켄고는 성격의 총 변동성 중 0.3% 미만이 혈액형으로 설명된다고 밝혔다 «Blood type personality theory>. 또한, 점성술은 현대 과학계에서 비과학적으로 여겨지며, 그 주장은 실험적으로 반증되었다 «Astrology>. 점성술 신자들은 확인 편향으로 인해 예언이 맞았던 경우만 기억하고 틀렸던 경우는 잊는 경향이 있다 «Astrology>. 이러한 유사 이론들은 MBTI 궁합론과 유사한 방식으로 개인의 성격을 설명하려 하지만, 과학적 근거가 부족하다는 점에서 비판받고 있다 «Enneagram of Personality>.\n\n## MBTI의 실용성과 한계\n\nMBTI는 개인의 성격을 이해하고 관계를 개선하는 데 도움을 줄 수 있는 도구로 사용되기도 한다 «Myers–Briggs Type Indicator>. 그러나 그 실용성은 제한적이며, 신뢰성과 타당성이 낮다는 비판이 따른다 «Myers–Briggs Type Indicator>. MBTI의 결과는 개인의 행동이나 관계에 미치는 영향이 미미하다는 연구 결과가 있다 «Myers–Briggs Type Indicator>. 자기충족적 예언은 개인의 믿음이나 기대가 예언의 실현에 영향을 미친다는 개념으로, MBTI 결과가 개인의 행동에 영향을 미칠 수 있는 가능성을 시사한다 «Self-fulfilling prophecy>. 그러나 이러한 영향은 과학적으로 검증되지 않았으며, MBTI의 결과가 실제로 개인의 성격을 정확하게 반영하지 못한다는 점에서 한계가 있다 «Myers–Briggs Type Indicator>. 따라서 MBTI는 성격 이해의 한 도구로 활용될 수 있지만, 그 결과를 맹신하는 것은 위험할 수 있다 «Myers–Briggs Type Indicator>.",
+ "metrics": {
+  "근거율": 0.3846,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 1,
+  "인용0곳절": [
+   "MBTI의 실용성과 한계"
+  ],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 9,
+  "최다문서편중": 0.4,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 4,
+  "서고분포": {
+   "유형론": 5,
+   "성격심리": 2,
+   "편향": 2,
+   "유사사례": 1
+  },
+  "문장수": 26,
+  "인용수": 10,
+  "읽은문서수": 15,
+  "보고서자수": 2389,
+  "그물": {
+   "통과": false,
+   "사유": [
+    "인용 0곳 절"
+   ]
+  }
+ },
+ "usage": {
+  "calls": 17,
+  "prompt": 121522,
+  "completion": 4788
+ },
+ "cost_krw": 30,
+ "초": 55.4,
+ "회차": 3
+}

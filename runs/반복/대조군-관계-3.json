@@ -1,0 +1,171 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "성격이 비슷한 사람끼리 실제로 더 잘 맞는가?",
+ "목차": [
+  "성격과 호환성의 관계를 다루는 절",
+  "성격 유형 이론을 다루는 절",
+  "성격 심리학의 기초를 다루는 절",
+  "성격 테스트의 신뢰성을 다루는 절"
+ ],
+ "시작문서": "Assortative mating",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Assortative mating",
+   "library": "관계",
+   "source_chars": 15660,
+   "memo_chars": 299,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 260,
+   "relevant": true
+  },
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 281,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 280,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Blood type personality theory",
+   "library": "유사사례",
+   "source_chars": 13810,
+   "memo_chars": 312,
+   "relevant": true
+  },
+  {
+   "doc": "Self-fulfilling prophecy",
+   "library": "편향",
+   "source_chars": 22618,
+   "memo_chars": 218,
+   "relevant": true
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 230,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 265,
+   "relevant": true
+  },
+  {
+   "doc": "Halo effect",
+   "library": "편향",
+   "source_chars": 31902,
+   "memo_chars": 260,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Enneagram of Personality",
+   "library": "유형론",
+   "source_chars": 15321,
+   "memo_chars": 345,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "성격과 호환성의 관계",
+   "text": "인간의 선택적 짝짓기(assortative mating)는 유전적 요인과 사회적 요인에 기반하여 이루어진다 «Assortative mating». 유전적 선택적 짝짓기는 개인의 신체적 특성, 예를 들어 키와 팔 길이와 같은 요소들이 부부 간에 유사성을 보인다는 연구 결과가 있다 «Assortative mating». 사회적 선택적 짝짓기는 유사한 사회적 지위와 경제적 배경을 가진 사람들끼리 결혼하는 경향을 나타내며, 이는 세대 간 불평등을 초래할 수 있다 «Assortative mating». 이러한 선택적 짝짓기는 성격의 호환성과도 관련이 있으며, 비슷한 성격을 가진 사람들이 서로를 더 선호하는 경향이 있을 수 있다. 성격이 비슷한 사람들 간의 관계는 일반적으로 더 높은 만족도를 보일 수 있으며, 이는 성격의 유사성이 관계의 질에 긍정적인 영향을 미친다는 것을 시사한다. 그러나 성격의 유사성이 항상 긍정적인 결과를 가져오는 것은 아니며, 때로는 갈등을 유발할 수도 있다. 따라서 성격과 호환성의 관계는 복잡하며, 다양한 요인들이 상호작용하는 결과로 나타난다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "성격 유형 이론",
+   "text": "성격심리학은 개인의 성격과 그 변화를 연구하는 분야로, 성격은 개인의 동적이고 조직적인 특성의 집합으로 정의된다 «Personality psychology». 성격 유형 이론은 개인의 성격을 분류하고 이해하는 데 도움을 주며, MBTI와 같은 여러 모델이 존재한다. MBTI는 16개의 심리적 유형으로 개인을 분류하는 자기 보고식 질문지로, 카를 융의 심리적 유형 이론에 기반하고 있다 «Myers–Briggs Type Indicator». 그러나 MBTI는 낮은 신뢰성과 유효성을 지니며, 많은 연구가 이론적 근거 부족과 편향된 결과를 보여준다 «Myers–Briggs Type Indicator». 16PF(16개 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로, 16개의 주요 성격 요인을 측정한다 «16PF Questionnaire». 이러한 성격 유형 이론들은 개인의 성격을 이해하고, 성격 간의 호환성을 평가하는 데 중요한 역할을 한다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "성격 심리학의 기초",
+   "text": "성격심리학은 개인의 차이를 심리적 힘으로 설명하고자 하며, 다양한 관점에서 성격을 연구한다 «Personality psychology». 기질적 관점, 심리역동적 관점, 인본주의적 관점, 생물학적 관점, 행동주의적 관점, 진화론적 관점, 사회학습적 관점 등이 포함된다 «Personality psychology». 성격 연구는 경험적으로 주도되며, 요인분석(factor analysis)과 같은 통계적 방법에 기반하여 성격의 다양한 측면을 평가한다 «Personality psychology». 성격의 형성과 변화는 환경, 인지, 감정, 동기 및 행동의 상호작용에 의해 영향을 받는다. 이러한 기초 지식은 성격과 호환성의 관계를 이해하는 데 필수적이다. 성격 심리학의 다양한 이론들은 개인의 성격을 이해하고, 성격 간의 상호작용을 분석하는 데 중요한 기초를 제공한다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "성격 테스트의 신뢰성",
+   "text": "성격 테스트는 개인의 성격을 평가하는 도구로 널리 사용되지만, 그 신뢰성과 유효성에 대한 논란이 존재한다. MBTI는 낮은 신뢰성과 유효성을 지니며, 재검사 신뢰도가 낮아 많은 응답자가 5주 후 다른 유형으로 분류되었다 «Myers–Briggs Type Indicator». 16PF는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로, 국제적으로 널리 사용되고 있다 «16PF Questionnaire». 그러나 혈액형 성격 이론은 비과학적 신념으로 간주되며, 혈액형이 성격의 변동성을 거의 설명하지 못한다는 연구 결과가 있다 «Blood type personality theory». 성격 테스트의 신뢰성은 개인의 신념과 기대에 영향을 받을 수 있으며, 이는 자기충족적 예언(self-fulfilling prophecy)과 관련이 있다 «Self-fulfilling prophecy». 따라서 성격 테스트의 결과를 해석할 때는 신뢰성과 유효성을 고려해야 하며, 개인의 성격을 이해하는 데 있어 다양한 요인들을 종합적으로 평가해야 한다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 성격과 호환성의 관계\n\n인간의 선택적 짝짓기(assortative mating)는 유전적 요인과 사회적 요인에 기반하여 이루어진다 «Assortative mating». 유전적 선택적 짝짓기는 개인의 신체적 특성, 예를 들어 키와 팔 길이와 같은 요소들이 부부 간에 유사성을 보인다는 연구 결과가 있다 «Assortative mating». 사회적 선택적 짝짓기는 유사한 사회적 지위와 경제적 배경을 가진 사람들끼리 결혼하는 경향을 나타내며, 이는 세대 간 불평등을 초래할 수 있다 «Assortative mating». 이러한 선택적 짝짓기는 성격의 호환성과도 관련이 있으며, 비슷한 성격을 가진 사람들이 서로를 더 선호하는 경향이 있을 수 있다. 성격이 비슷한 사람들 간의 관계는 일반적으로 더 높은 만족도를 보일 수 있으며, 이는 성격의 유사성이 관계의 질에 긍정적인 영향을 미친다는 것을 시사한다. 그러나 성격의 유사성이 항상 긍정적인 결과를 가져오는 것은 아니며, 때로는 갈등을 유발할 수도 있다. 따라서 성격과 호환성의 관계는 복잡하며, 다양한 요인들이 상호작용하는 결과로 나타난다.\n\n## 성격 유형 이론\n\n성격심리학은 개인의 성격과 그 변화를 연구하는 분야로, 성격은 개인의 동적이고 조직적인 특성의 집합으로 정의된다 «Personality psychology». 성격 유형 이론은 개인의 성격을 분류하고 이해하는 데 도움을 주며, MBTI와 같은 여러 모델이 존재한다. MBTI는 16개의 심리적 유형으로 개인을 분류하는 자기 보고식 질문지로, 카를 융의 심리적 유형 이론에 기반하고 있다 «Myers–Briggs Type Indicator». 그러나 MBTI는 낮은 신뢰성과 유효성을 지니며, 많은 연구가 이론적 근거 부족과 편향된 결과를 보여준다 «Myers–Briggs Type Indicator». 16PF(16개 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로, 16개의 주요 성격 요인을 측정한다 «16PF Questionnaire». 이러한 성격 유형 이론들은 개인의 성격을 이해하고, 성격 간의 호환성을 평가하는 데 중요한 역할을 한다.\n\n## 성격 심리학의 기초\n\n성격심리학은 개인의 차이를 심리적 힘으로 설명하고자 하며, 다양한 관점에서 성격을 연구한다 «Personality psychology». 기질적 관점, 심리역동적 관점, 인본주의적 관점, 생물학적 관점, 행동주의적 관점, 진화론적 관점, 사회학습적 관점 등이 포함된다 «Personality psychology». 성격 연구는 경험적으로 주도되며, 요인분석(factor analysis)과 같은 통계적 방법에 기반하여 성격의 다양한 측면을 평가한다 «Personality psychology». 성격의 형성과 변화는 환경, 인지, 감정, 동기 및 행동의 상호작용에 의해 영향을 받는다. 이러한 기초 지식은 성격과 호환성의 관계를 이해하는 데 필수적이다. 성격 심리학의 다양한 이론들은 개인의 성격을 이해하고, 성격 간의 상호작용을 분석하는 데 중요한 기초를 제공한다.\n\n## 성격 테스트의 신뢰성\n\n성격 테스트는 개인의 성격을 평가하는 도구로 널리 사용되지만, 그 신뢰성과 유효성에 대한 논란이 존재한다. MBTI는 낮은 신뢰성과 유효성을 지니며, 재검사 신뢰도가 낮아 많은 응답자가 5주 후 다른 유형으로 분류되었다 «Myers–Briggs Type Indicator». 16PF는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로, 국제적으로 널리 사용되고 있다 «16PF Questionnaire». 그러나 혈액형 성격 이론은 비과학적 신념으로 간주되며, 혈액형이 성격의 변동성을 거의 설명하지 못한다는 연구 결과가 있다 «Blood type personality theory». 성격 테스트의 신뢰성은 개인의 신념과 기대에 영향을 받을 수 있으며, 이는 자기충족적 예언(self-fulfilling prophecy)과 관련이 있다 «Self-fulfilling prophecy». 따라서 성격 테스트의 결과를 해석할 때는 신뢰성과 유효성을 고려해야 하며, 개인의 성격을 이해하는 데 있어 다양한 요인들을 종합적으로 평가해야 한다.",
+ "metrics": {
+  "근거율": 0.56,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 6,
+  "최다문서편중": 0.2857,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 5,
+  "서고분포": {
+   "성격심리": 6,
+   "관계": 3,
+   "유형론": 3,
+   "유사사례": 1,
+   "편향": 1
+  },
+  "문장수": 25,
+  "인용수": 14,
+  "읽은문서수": 12,
+  "보고서자수": 2082,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 98150,
+  "completion": 4169
+ },
+ "cost_krw": 24,
+ "초": 44.4,
+ "회차": 3
+}

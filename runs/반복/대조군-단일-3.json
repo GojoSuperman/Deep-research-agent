@@ -1,0 +1,170 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "바넘 효과란 무엇인가?",
+ "목차": [
+  "바넘 효과의 정의와 개념",
+  "바넘 효과의 심리적 기초",
+  "바넘 효과의 사례와 응용",
+  "바넘 효과와 성격 심리학의 관계"
+ ],
+ "시작문서": "Barnum effect",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Barnum effect",
+   "library": "편향",
+   "source_chars": 8065,
+   "memo_chars": 370,
+   "relevant": true
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 268,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 296,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 309,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 259,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Graphology",
+   "library": "유사사례",
+   "source_chars": 14163,
+   "memo_chars": 282,
+   "relevant": true
+  },
+  {
+   "doc": "Effect size",
+   "library": "측정",
+   "source_chars": 92098,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 234,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 297,
+   "relevant": true
+  },
+  {
+   "doc": "Construct validity",
+   "library": "측정",
+   "source_chars": 15243,
+   "memo_chars": 275,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "바넘 효과의 정의와 개념",
+   "text": "바넘 효과(Barnum effect)는 개인이 자신에게 맞춰진 것처럼 느끼는 모호하고 일반적인 성격 설명에 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 이 현상은 심리학자 베르트람 포러(Bertram Forer)에 의해 1949년에 '개인 검증의 오류(fallacy of personal validation)'라는 이름으로 처음 설명되었다 «Barnum effect». 포러의 실험에서는 39명의 학생에게 동일한 성격 설명을 제공했음에도 평균 4.30의 정확도를 기록하였다 «Barnum effect». 이는 사람들이 긍정적인 피드백을 부정적인 피드백보다 더 자주 수용하는 '폴리안나 원칙(Pollyanna principle)'을 확인하는 데 기여한다 «Barnum effect». 바넘 효과는 개인이 모호한 진술을 자신에게 특별히 의미 있는 것으로 해석하는 경향을 설명하며, 이는 개인이 자신에게 맞춰진 것처럼 보이는 성격 설명에 높은 정확도 평가를 부여하는 현상으로 나타난다 «Graphology». 이러한 경향은 성격 테스트의 유효성을 검증하기 어렵게 만든다 «Graphology».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "바넘 효과의 심리적 기초",
+   "text": "바넘 효과는 확증 편향(confirmation bias)과 인지 편향(cognitive bias)과 밀접한 관련이 있다 «Confirmation bias». 확증 편향은 개인이 기존 신념을 확인하거나 지지하는 정보를 찾고 해석하며 기억하는 경향을 의미한다 «Confirmation bias». 이 편향은 개인의 신념에 대한 과신을 초래하고, 반대 증거에도 불구하고 신념을 유지하거나 강화하는 데 기여한다 «Confirmation bias». 인지 편향은 판단에서의 비합리적인 경향을 나타내며, 개인이 입력에 대한 인식을 통해 '주관적 현실'을 형성한다 «Cognitive bias». 이러한 편향은 때때로 지각 왜곡, 부정확한 판단, 비논리적 해석을 초래할 수 있다 «Cognitive bias». 아모스 트버스키(Amos Tversky)와 대니얼 카너먼(Daniel Kahneman)은 1972년에 인지 편향 개념을 도입하였고, 이는 인간의 판단과 결정이 합리적 선택 이론과 어떻게 다른지를 보여준다 «Cognitive bias». 바넘 효과는 이러한 심리적 기초를 통해 개인이 모호한 성격 설명을 자신에게 맞는 것으로 해석하게 만든다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "바넘 효과의 사례와 응용",
+   "text": "바넘 효과는 점성술과 같은 분야에서 두드러지게 나타난다 «Astrology». 현대 점성술은 개인의 성격을 설명하고 중요한 사건을 예측하는 시스템과 관련이 있으며, 이는 바넘 효과의 예시로 볼 수 있다 «Astrology». 점성술은 과학적 검증이 없으며, 많은 연구자들이 이를 비판해왔다 «Astrology». 예를 들어, 1985년 Nature에 발표된 연구에서는 28명의 점성술사가 100개 이상의 출생 차트를 심리적 프로필과 일치시키는 데 실패하였다 «Astrology». 또한, MBTI(Myers-Briggs Type Indicator)는 바넘 효과로 인해 참가자들이 결과의 정확성을 과대평가하는 경향이 있다 «Myers–Briggs Type Indicator». 심리학자 아담 그랜트는 MBTI의 유효성에 대한 연구가 부족하다고 지적하며, 이 검사가 직업 성과나 결혼 생활의 만족도를 예측하는 데 거의 도움이 되지 않는다고 주장하였다 «Myers–Briggs Type Indicator». 이러한 사례들은 바넘 효과가 개인의 성격 이해와 관련된 다양한 분야에서 어떻게 나타나는지를 보여준다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "바넘 효과와 성격 심리학의 관계",
+   "text": "바넘 효과는 성격 심리학과의 관계에서도 중요한 역할을 한다 «Personality psychology». 성격심리학은 개인의 성격과 그 변화를 연구하는 심리학의 한 분야로, 개인의 차이를 심리적 요인으로 설명한다 «Personality psychology». 성격은 개인이 가진 동적이고 조직적인 특성의 집합으로, 환경, 인지, 감정, 동기 및 행동에 독특한 영향을 미친다 «Personality psychology». 성격 연구는 경험적 데이터에 기반하며, 요인분석(factor analysis)과 같은 다변량 통계 모델을 사용한다 «Personality psychology». 바넘 효과는 성격 테스트 방법의 유효성을 검증하기 어렵게 만들며, 이는 성격 심리학의 연구 결과에 영향을 미칠 수 있다 «Graphology». 예를 들어, 16PF(16 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있지만, 바넘 효과로 인해 그 결과의 해석이 왜곡될 수 있다 «16PF Questionnaire». 따라서 바넘 효과는 성격 심리학의 연구와 응용에 있어 중요한 고려사항이 된다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 바넘 효과의 정의와 개념\n\n바넘 효과(Barnum effect)는 개인이 자신에게 맞춰진 것처럼 느끼는 모호하고 일반적인 성격 설명에 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 이 현상은 심리학자 베르트람 포러(Bertram Forer)에 의해 1949년에 '개인 검증의 오류(fallacy of personal validation)'라는 이름으로 처음 설명되었다 «Barnum effect». 포러의 실험에서는 39명의 학생에게 동일한 성격 설명을 제공했음에도 평균 4.30의 정확도를 기록하였다 «Barnum effect». 이는 사람들이 긍정적인 피드백을 부정적인 피드백보다 더 자주 수용하는 '폴리안나 원칙(Pollyanna principle)'을 확인하는 데 기여한다 «Barnum effect». 바넘 효과는 개인이 모호한 진술을 자신에게 특별히 의미 있는 것으로 해석하는 경향을 설명하며, 이는 개인이 자신에게 맞춰진 것처럼 보이는 성격 설명에 높은 정확도 평가를 부여하는 현상으로 나타난다 «Graphology». 이러한 경향은 성격 테스트의 유효성을 검증하기 어렵게 만든다 «Graphology».\n\n## 바넘 효과의 심리적 기초\n\n바넘 효과는 확증 편향(confirmation bias)과 인지 편향(cognitive bias)과 밀접한 관련이 있다 «Confirmation bias». 확증 편향은 개인이 기존 신념을 확인하거나 지지하는 정보를 찾고 해석하며 기억하는 경향을 의미한다 «Confirmation bias». 이 편향은 개인의 신념에 대한 과신을 초래하고, 반대 증거에도 불구하고 신념을 유지하거나 강화하는 데 기여한다 «Confirmation bias». 인지 편향은 판단에서의 비합리적인 경향을 나타내며, 개인이 입력에 대한 인식을 통해 '주관적 현실'을 형성한다 «Cognitive bias». 이러한 편향은 때때로 지각 왜곡, 부정확한 판단, 비논리적 해석을 초래할 수 있다 «Cognitive bias». 아모스 트버스키(Amos Tversky)와 대니얼 카너먼(Daniel Kahneman)은 1972년에 인지 편향 개념을 도입하였고, 이는 인간의 판단과 결정이 합리적 선택 이론과 어떻게 다른지를 보여준다 «Cognitive bias». 바넘 효과는 이러한 심리적 기초를 통해 개인이 모호한 성격 설명을 자신에게 맞는 것으로 해석하게 만든다 «Barnum effect».\n\n## 바넘 효과의 사례와 응용\n\n바넘 효과는 점성술과 같은 분야에서 두드러지게 나타난다 «Astrology». 현대 점성술은 개인의 성격을 설명하고 중요한 사건을 예측하는 시스템과 관련이 있으며, 이는 바넘 효과의 예시로 볼 수 있다 «Astrology». 점성술은 과학적 검증이 없으며, 많은 연구자들이 이를 비판해왔다 «Astrology». 예를 들어, 1985년 Nature에 발표된 연구에서는 28명의 점성술사가 100개 이상의 출생 차트를 심리적 프로필과 일치시키는 데 실패하였다 «Astrology». 또한, MBTI(Myers-Briggs Type Indicator)는 바넘 효과로 인해 참가자들이 결과의 정확성을 과대평가하는 경향이 있다 «Myers–Briggs Type Indicator». 심리학자 아담 그랜트는 MBTI의 유효성에 대한 연구가 부족하다고 지적하며, 이 검사가 직업 성과나 결혼 생활의 만족도를 예측하는 데 거의 도움이 되지 않는다고 주장하였다 «Myers–Briggs Type Indicator». 이러한 사례들은 바넘 효과가 개인의 성격 이해와 관련된 다양한 분야에서 어떻게 나타나는지를 보여준다 «Barnum effect».\n\n## 바넘 효과와 성격 심리학의 관계\n\n바넘 효과는 성격 심리학과의 관계에서도 중요한 역할을 한다 «Personality psychology». 성격심리학은 개인의 성격과 그 변화를 연구하는 심리학의 한 분야로, 개인의 차이를 심리적 요인으로 설명한다 «Personality psychology». 성격은 개인이 가진 동적이고 조직적인 특성의 집합으로, 환경, 인지, 감정, 동기 및 행동에 독특한 영향을 미친다 «Personality psychology». 성격 연구는 경험적 데이터에 기반하며, 요인분석(factor analysis)과 같은 다변량 통계 모델을 사용한다 «Personality psychology». 바넘 효과는 성격 테스트 방법의 유효성을 검증하기 어렵게 만들며, 이는 성격 심리학의 연구 결과에 영향을 미칠 수 있다 «Graphology». 예를 들어, 16PF(16 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있지만, 바넘 효과로 인해 그 결과의 해석이 왜곡될 수 있다 «16PF Questionnaire». 따라서 바넘 효과는 성격 심리학의 연구와 응용에 있어 중요한 고려사항이 된다 «Barnum effect».",
+ "metrics": {
+  "근거율": 1.0,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 4,
+  "최다문서편중": 0.2593,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 4,
+  "서고분포": {
+   "편향": 13,
+   "유사사례": 7,
+   "성격심리": 5,
+   "유형론": 2
+  },
+  "문장수": 27,
+  "인용수": 27,
+  "읽은문서수": 12,
+  "보고서자수": 2408,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 101765,
+  "completion": 4121
+ },
+ "cost_krw": 25,
+ "초": 47.6,
+ "회차": 3
+}
