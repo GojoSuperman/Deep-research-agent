@@ -59,6 +59,7 @@ export function createView(canvas, onChange) {
   /** 연출용 — null 이면 방 전체로 돌아간다 */
   function focus(spot) {
     touched = false;
+    omega = spot?.omega ?? OMEGA;
     goal = spot ? aim(spot.col, spot.row, spot.span ?? 7) : fitView(canvas);
     note();
   }
@@ -70,13 +71,14 @@ export function createView(canvas, onChange) {
    * OMEGA 4.4 = 예전 보간(2.6)과 같은 0.9초 안에 90% 도달.
    */
   const OMEGA = 4.4;
+  let omega = OMEGA;         // 연출마다 다를 수 있다 — spot.omega (회의로 모일 때 1.8 ≈ 2.2초)
   const vel = { scale: 0, x: 0, y: 0 };
   const stop = () => { vel.scale = vel.x = vel.y = 0; };
   function spring(cur, to, key, dt) {
-    const x = OMEGA * dt, e = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
+    const x = omega * dt, e = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
     const change = cur - to;
-    const temp = (vel[key] + OMEGA * change) * dt;
-    vel[key] = (vel[key] - OMEGA * temp) * e;
+    const temp = (vel[key] + omega * change) * dt;
+    vel[key] = (vel[key] - omega * temp) * e;
     return to + (change + temp) * e;
   }
   function step(dt) {

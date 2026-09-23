@@ -7,6 +7,8 @@
 import { ZONES, DESKS, MEETING, COORD_SEAT, COORD_HOME, BLOCKED, GRID } from "./config.js";
 import { name } from "./actors.js";
 import { docKo } from "./docs.js";
+import { planTalk, startLine, readLine, fixLine, doneLine, reportLine, reviewClose,
+         synthTalk, evalTalk, endLine } from "./speech.js";
 
 // ── 길찾기 ────────────────────────────────────────────────
 // 소품이 덮은 칸(BLOCKED, 실측)을 피해 돌아간다. 직선으로 가면 탁자와 책상을 관통한다.
@@ -64,38 +66,20 @@ const GLOBAL = new Set(["run.start", "plan.done", "dispatch", "review", "synthes
 
 const zoneSpot = name => ZONES.find(z => z.name === name);
 
+// 회의 탁자 — 모이는 걸음(약 2초)에 맞춰 **천천히** 당긴다. omega 1.8 ≈ 2.2초에 90%.
+// 같은 객체를 쓴다 — 화면은 focus 가 바뀌었는지를 객체로 판단한다.
+const MEETING_VIEW = { col: 1, row: 2.5, span: 4.6, omega: 1.8 };
+
 const num = n => (n ?? 0).toLocaleString("ko-KR");
 
-// 말풍선 타자 — 초당 글자 수와, 한 줄을 다 친 뒤 머무는 시간
-const CPS = 26;
-const HOLD = 0.75;
-
-/** 소장이 회의에서 할 말. 목차를 한 줄씩 읽어 준다. */
-export function planLines(ev, cfg = {}) {
-  const 목차 = ev.목차 || [];
-  const 배정 = cfg.배정 !== false, 역할 = cfg.역할 !== false;
-  // 배정을 끄면 소장이 시작 문서를 고르지 않는다 — 목록 앞에서부터 기계적으로 집힌다.
-  // 그런데도 "이 서고로 가세요"라고 말하면 거짓말이 된다 (실측: 절 주제와 서고가 따로 논다).
-  if (!배정) {
-    return [
-      `질문을 ${목차.length}갈래로 나눴습니다`,
-      ...목차.map((s, i) => `${name(i)} — 「${s.절}」`),
-      "이번엔 시작 문서를 정해 주지 않습니다",
-      "목록에 있는 대로 집어 가세요 — 어디에 닿을지는 모릅니다",
-    ];
-  }
-  // 한 절에 한 줄. 이름을 앞에 불러 주면 흩어진 뒤에도 누가 무엇을 맡았는지 따라갈 수 있다.
-  // 조사(은/는)를 붙이지 않는 어순으로 쓴다 — 이름마다 받침이 달라 틀리기 쉽다.
-  return [
-    `질문을 ${목차.length}갈래로 나눴습니다`,
-    ...목차.map((s, i) => `${name(i)} — 「${s.절}」 (${s.서고} 서고)`),
-    역할 ? "맡은 눈으로 보세요 — 큰그림·비교·원인·시간순"
-         : "이번엔 따로 역할을 주지 않습니다. 각자 알아서 보세요",
-    "서로 무엇을 읽는지 모른 채 각자 다녀옵니다",
-  ];
-}
-
-
+// 말풍선 타자 — 초당 글자 수와, 한 줄을 다 친 뒤 머무는 시간.
+// 26자/초 · 0.75초였을 때 "따라 읽기 버겁다"는 피드백 — 실측 읽기 속도 중앙 12자/초, 다 친 뒤 1.0초.
+// 캐릭터 움직임도 같이 봐야 하니 소설 읽듯 빠르게 읽을 수 없다.
+// 18자/초 · 1.0+길이×0.015 → 읽기 중앙 8.9자/초, 다 친 뒤 1.5초 (12편, 끊긴 대사 0).
+// 더 느리게(14자/초) 하면 재생이 80% 길어진다 — 편당 71초 → 102초에서 멈췄다.
+const CPS = 18;
+/** 다 친 뒤 머무는 시간 — 긴 줄은 더 오래 둔다 */
+const hold = text => 1.0 + text.length * 0.015;
 
 /**
  * 자막 — 의미 이벤트 한 개를 방문자의 말로 옮긴다 (계획서 4.2 번역 규칙의 말 버전).
@@ -131,9 +115,9 @@ export function caption(ev) {
         : `「${ev.절}」은 근거를 한 곳도 못 찾았습니다.`;
     case "review":
       if (!ev.빈칸?.length) return "점검 통과 — 근거 없는 절이 없습니다.";
-      if (!ev.종료) return `「${ev.빈칸.join("」 「")}」에 근거가 없습니다 — 서고로 되돌려 보냅니다.`;
+      if (!ev.종료) return `「${ev.빈칸.join("」 「")}」의 근거가 없거나 모자랍니다 — 서고로 되돌려 보냅니다.`;
       if (ev.종료 === "재위임 끔")
-        return `「${ev.빈칸.join("」 「")}」이 비었지만 되돌려 보내지 않습니다 — 재위임을 끈 실험입니다.`;
+        return `「${ev.빈칸.join("」 「")}」의 근거가 없거나 모자라지만 되돌려 보내지 않습니다 — 재위임을 끈 실험입니다.`;
       return `「${ev.빈칸.join("」 「")}」은 ${ev.종료} — 빈 채로 종합합니다.`;
     case "synthesize":
       return `소장이 절들을 모아 보고서 ${num(ev.보고서자수)}자를 썼습니다 — 원문은 보지 않고 앞머리만 봅니다.`;
@@ -270,7 +254,7 @@ export function createPlayer(loaded, onEvent) {
   /** 지금 말하는 사람이 다 쳤고 잠깐 머물렀으면 다음 차례로 */
   function turn() {
     if (!speaker) return;
-    const done = speaker.sayT >= speaker.sayFull.length / CPS + HOLD;
+    const done = speaker.sayT >= speaker.sayFull.length / CPS + hold(speaker.sayFull);
     if (done) nextLine();
   }
   /** 회의 탁자로 모은다 — 소장은 상석, 조사관은 양옆. */
@@ -307,17 +291,19 @@ export function createPlayer(loaded, onEvent) {
       case "run.start":
         state.node = "start";
         state.settings = ev.설정 || {};
+        state.question = ev.question || "";
         state.phase = "질문을 받았다";
         state.coord.state = "point";
         gather(DUR["run.start"] * 0.8);          // 다 같이 회의 탁자로
-        state.focus = { col: 1, row: 2.5, span: 4.6 };
+        state.focus = MEETING_VIEW;
         state.actors.forEach(x => { x.state = "idle"; x.say = ""; });
+        talk([["coord", "다들 잠깐 모여 볼까요?"]]);
         break;
       case "plan.done":
         state.node = "plan";
         state.phase = `목차 ${ev.목차.length}절`;
         state.coord.state = "point";
-        talk(planLines(ev, state.settings).map(t => ["coord", t]));
+        talk(planTalk(ev, state.settings, state.question));
         break;
       case "dispatch":
         state.node = "dispatch";
@@ -336,11 +322,8 @@ export function createPlayer(loaded, onEvent) {
         state.node = "research";
         if (a) {
           a.state = "idle";
-          const 역할 = ev.역할 && ev.역할 !== "담당" ? `${ev.역할} · ` : "";
-          // 배정이 꺼지면 시작 문서는 소장이 고른 것이 아니다. 말도 그렇게 해야 한다.
-          setSay(a, state.settings?.배정 === false
-            ? `목록에서 집었습니다 — ${docKo(ev.시작문서)}`
-            : `${역할}${docKo(ev.시작문서)}부터 봅니다`);
+          // 배정이 꺼지면 시작 문서는 소장이 고른 것이 아니다. 말도 그렇게 한다 (speech.js)
+          setSay(a, startLine(ev, state.settings));
         }
         break;
       case "researcher.read": {
@@ -349,19 +332,19 @@ export function createPlayer(loaded, onEvent) {
         const z = zoneSpot(ev.서고);
         if (z) moveTo(a, z.col, z.row + 1, durOf(ev) * 0.55);   // 기계 앞에 선다
         a.state = ev.관련 ? "reading" : "skip";
-        setSay(a, ev.관련 ? `${docKo(ev.문서)} 읽는 중` : `${docKo(ev.문서)} — 관련 없음`);
+        setSay(a, readLine(ev));
         if (ev.관련) state.reads[ev.서고] = (state.reads[ev.서고] || 0) + 1;
         break;
       }
       case "researcher.fix":
-        if (a) { a.state = "alarm"; setSay(a, "안 읽은 문서를 인용했습니다 — 다시 씁니다"); }
+        if (a) { a.state = "alarm"; setSay(a, fixLine(ev)); }
         break;
       case "researcher.done":
         if (who != null) lastDone[who] = ev;
         if (a) {
           moveTo(a, a.home.col, a.home.row, DUR["researcher.done"] * 0.55);
           a.state = ev.충분 ? "done" : "short";
-          setSay(a, ev.충분 ? `출처 ${ev.인용}곳` : ev.부족 || "부족합니다");
+          setSay(a, doneLine(ev));
           if (ev.인용 === 0) a.state = "alarm";
         }
         break;
@@ -371,30 +354,11 @@ export function createPlayer(loaded, onEvent) {
         state.coord.state = ev.빈칸?.length ? "short" : "enough";
         state.sentBack = !!(ev.빈칸?.length && !ev.종료);
         gather(DUR["review"] * 0.75);            // 탁자에 다시 모여 소장에게 보고한다
-        state.focus = { col: 1, row: 2.5, span: 4.6 };
+        state.focus = MEETING_VIEW;
         // 조사관이 한 사람씩 보고하고, 소장이 마지막에 정리한다
-        const 빈칸 = new Set(ev.빈칸 || []);
-        const lines = Object.keys(lastDone).map(Number).sort().map(i => {
-          const d = lastDone[i];
-          return [i, d.인용
-            ? `「${d.절}」 ${num(d.자수)}자 · 출처 ${d.인용}곳 찾았습니다`
-            : `「${d.절}」 근거를 못 찾았습니다`];
-        });
-        // 종료 사유를 봐야 한다. 빈칸이 있어도 바퀴를 다 썼거나 재위임을 끈 실험이면
-        // **되돌려 보내지 않는다** — 그런데도 "다시 다녀오세요"라고 말하면 거짓말이 된다.
-        const 빈칸목록 = [...빈칸].map(t => `「${t}」`).join(" ");
-        if (!ev.빈칸?.length) {
-          lines.push(["coord", "모든 절에 근거가 붙었습니다. 제가 정리하겠습니다"]);
-        } else if (!ev.종료) {
-          lines.push(["coord", `${빈칸목록} 가 비었습니다`]);
-          lines.push(["coord", "다시 다녀와 주세요"]);
-        } else if (ev.종료 === "재위임 끔") {
-          lines.push(["coord", `${빈칸목록} 가 비었습니다`]);
-          lines.push(["coord", "이번엔 다시 보내지 않는 실험입니다. 이대로 정리합니다"]);
-        } else {
-          lines.push(["coord", `${빈칸목록} 는 끝내 못 채웠습니다`]);
-          lines.push(["coord", `${ev.종료} — 이대로 정리하겠습니다`]);
-        }
+        const lines = Object.keys(lastDone).map(Number).sort().map(i => [i, reportLine(lastDone[i])]);
+        // 종료 사유를 봐야 한다 — 되돌려 보내지 않는데 "다시 다녀오세요"라고 하면 거짓말 (speech.js)
+        lines.push(...reviewClose(ev, t => index.get(t), t => lastDone[index.get(t)]?.인용 || 0));
         talk(lines);
         break;
       }
@@ -402,8 +366,7 @@ export function createPlayer(loaded, onEvent) {
         state.node = "synth";
         state.phase = `종합 — ${ev.보고서자수}자`;
         state.coord.state = "point";
-        talk([["coord", `${ev.절수}개 절을 한 편으로 묶었습니다 — ${num(ev.보고서자수)}자`],
-              ["coord", "저는 원문을 안 봤습니다. 각자 요약만 받았습니다"]]);
+        talk(synthTalk(ev));
         break;
       case "evaluate": {
         state.node = "evaluate";
@@ -411,17 +374,14 @@ export function createPlayer(loaded, onEvent) {
         state.metrics = ev.metrics;
         const m = ev.metrics || {}, net = m.그물 || {};
         state.coord.state = net.통과 ? "done" : "alarm";
-        talk([
-          ["coord", `근거가 달린 문장 ${Math.round((m.근거율 || 0) * 100)}% · 지어낸 출처 ${m.허위인용 ?? 0}곳`],
-          ["coord", net.통과 ? "읽어 볼 가치: 통과입니다" : `읽어 볼 가치: 탈락 — ${(net.사유 || []).join(" · ")}`],
-        ]);
+        talk(evalTalk(m));
         break;
       }
       case "run.end":
         state.node = "end";
         state.phase = "끝";
         state.coord.state = "idle";
-        talk([["coord", "수고하셨습니다. 보고서를 띄우겠습니다"]]);
+        talk([["coord", endLine(state.question)]]);
         homeTimer = -1;        // 말이 끝나면 1.5초 뒤 각자 자리로
         break;
     }
@@ -531,6 +491,9 @@ export function createPlayer(loaded, onEvent) {
         const ev = lanes[i].shift();
         busy[i] = { ev, t: 0, dur: durOf(ev) };
         begin(ev, i);
+        // 조사관 대사는 다음 이벤트가 오면 지워진다 — 다 치고 읽을 틈이 생길 때까지 이벤트를 붙잡는다
+        const said = state.actors[i].sayFull;
+        if (said) busy[i].dur = Math.max(busy[i].dur, said.length / CPS + hold(said));
       }
     }
 

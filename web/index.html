@@ -287,6 +287,7 @@ import { createView } from "./src/view.js";
 import { load, createPlayer, caption } from "./src/player.js";
 import * as live from "./src/live.js";
 import { docKo } from "./src/docs.js";
+import { ZONES } from "./src/config.js";
 
 const canvas = document.getElementById("lab");
 
@@ -394,6 +395,7 @@ const cam = createView(canvas, () => render());
 let player = null, playing = false, last = 0, ready = false;
 let mode = "replay", session = null, report = "";
 let shown = undefined;      // 지금 카메라가 따라가는 연출 목표
+let followed;               // 따라가기 중 마지막으로 겨눈 자리 (SHELF_VIEW 또는 null)
 
 async function pick(name) {
   playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
@@ -544,39 +546,32 @@ function showDash(m) {
 }
 
 /**
- * 카메라 자리 — **두 단계로만 끊는다.**
- *   걷는 중  → 줌아웃 (어디서 어디로 가는지 보여야 한다)
- *   멈춰 있음 → 줌인  (책상에 모였거나 서고에서 읽는 중 — 무엇을 하는지 보여야 한다)
- * 배율을 연속으로 따라가게 했더니 계속 들썩여서 어지러웠다.
+ * 조사 중 카메라 — **두 자리뿐이다: 방 전체, 서고 줄.**
+ *   누군가 서고에서 일하고 있으면 → 서고 줄 (자리 고정)
+ *   아니면(책상에 있거나 오가는 중)  → 방 전체
+ * 예전에는 걷는 사람·읽는 사람을 매 프레임 따라 담았다. 조사관 넷이 따로 움직이니
+ * 한 번 재생에 줌 목표가 26번 바뀌고 20번 방향이 뒤집혔다 ("이유 없이 줌이 된다").
+ * 서고 줄 자리를 고정하면 누가 오가든 화면이 흔들리지 않는다.
  */
-const CAM = { 이동: 13, 정지: 4.5, 서고: 4.2 };
-
-/** 이 사람들을 담는 카메라 자리 */
-function boxOf(list, min, pad) {
-  const xs = list.map(a => a.col - a.row), ys = list.map(a => a.col + a.row);
-  const spread = Math.max(Math.max(...xs) - Math.min(...xs),
-                          (Math.max(...ys) - Math.min(...ys)) * 1.6) + pad;
-  return {
-    col: list.reduce((s, a) => s + a.col, 0) / list.length,
-    row: list.reduce((s, a) => s + a.row, 0) / list.length,
-    span: Math.min(CAM.이동, Math.max(min, spread)),
-  };
-}
+const SHELF_VIEW = (() => {
+  const xs = ZONES.map(z => z.col);
+  const col = (Math.min(...xs) + Math.max(...xs)) / 2;
+  // 겨누는 점을 서고 줄보다 왼쪽 아래(col −1, row +0.6)로 — 화면 왼쪽 위 진행 패널이 왼쪽 서고를 가렸다
+  return { col: col - 1, row: 1.3, span: xs.length + 2.5, omega: 2.4 };
+})();
+const SHELF_LINGER = 1.5;     // 서고 사이를 옮겨 가는 잠깐 동안은 방 전체로 빠지지 않는다
 
 function followSpot(st) {
-  // ① 서고에서 읽는 사람이 있으면 **그 서고**를 본다. 한 명뿐이어도 그렇다
-  //    (재위임 바퀴엔 한 사람만 다녀온다 — 그때가 오히려 제일 봐야 할 장면이다).
   // **도착한** 사람만 센다. 걷는 도중에도 상태는 이미 "읽는 중"이라,
-  // 이걸 빼면 서고로 가는 내내 줌인이 걸려 화면이 끌려다닌다.
-  const readers = st.actors.filter(a => !a.target && (a.state === "reading" || a.state === "skip"));
-  if (readers.length) {
-    const b = boxOf(readers, CAM.서고, 1.2);
-    return { ...b, row: b.row - 0.6 };      // 기계와 게이지가 화면에 들어오게 살짝 위로
-  }
-  // ② 걷는 중이면 물러선다 — 어디서 어디로 가는지 보여야 한다
-  if (st.actors.some(a => a.target)) return boxOf(st.actors, CAM.이동, 1.5);
-  // ③ 멈춰 있으면 당긴다 (책상에 모인 상태)
-  return boxOf(st.actors, CAM.정지, 1.5);
+  // 이걸 빼면 서고로 가는 내내 줌인이 걸려 걸어가는 모습이 화면 밖으로 잘린다.
+  const busy = st.actors.filter(a => a.state === "reading" || a.state === "skip");
+  const atShelf = busy.some(a => !a.target);
+  // 마지막으로 서고에서 본 시각은 재생 상태에 둔다 — 전역에 두면 녹화를 바꿨을 때 남는다
+  const inShelf = st.elapsed - (st.shelfSeen ?? -Infinity) < SHELF_LINGER;
+  // 이미 서고 줄을 보고 있으면, 다음 서고로 **옮겨 가는** 사람도 붙잡아 둔다
+  // (한 사람만 도는 재위임 바퀴에서 서고 사이 걸음이 1.5초를 넘어 0.1초 빠졌다 돌아왔다)
+  if (atShelf || (inShelf && busy.length)) st.shelfSeen = st.elapsed;
+  return st.elapsed - (st.shelfSeen ?? -Infinity) < SHELF_LINGER ? SHELF_VIEW : null;   // null = 방 전체
 }
 
 // 카메라가 마지막으로 향한 자리. 창 크기가 바뀌면 이걸 기준으로 다시 잡는다.
@@ -621,7 +616,11 @@ function loop(now) {
   // 연출이 카메라 목표를 바꿨을 때만 카메라에 알린다.
   // 따라다니기(follow)는 값이 매 프레임 바뀌므로 매번 갱신한다 — 실제 이동은 view 가 부드럽게 한다.
   const want = player.state.focus;
-  if (want?.follow) { shown = want; aim(followSpot(player.state)); }
+  // 따라가기는 자리가 **바뀔 때만** 카메라에 알린다 — 매 프레임 넣으면 끌어 둔 화면도 빼앗는다
+  if (want?.follow) {
+    const spot = followSpot(player.state);
+    if (shown !== want || spot !== followed) { shown = want; followed = spot; aim(spot); }
+  }
   else if (want !== shown) { shown = want; aim(want); }
   maybeAutoReport();
   if (player.tick(dt * (mode === "live" ? 1 : Number($speed.value)))) {
