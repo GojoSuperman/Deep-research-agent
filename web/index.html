@@ -23,6 +23,7 @@
   .ctrl{display:flex;gap:10px;align-items:center;margin-left:auto;font-size:.85rem;flex-wrap:wrap}
   /* 탭 — 왼쪽 패널에 무엇을 띄울지 고른다 */
   .tabs{display:flex;gap:4px;margin-left:14px}
+  #sfx{flex:none;font-size:.8rem;padding:5px 10px}
   .tabs button{border-radius:8px 8px 0 0;padding:7px 16px;font-weight:700;border-bottom-color:transparent}
   button{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);
          background:var(--panel);color:var(--fg);border-radius:6px;cursor:pointer}
@@ -185,6 +186,7 @@
     <b>“MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가”</b>를 파고드는 딥리서치 에이전트입니다.
     영문 위키백과 <b>52건</b>만 읽고, 조사관 넷이 나눠 조사해 <b>근거를 단 한국어 보고서</b>를 씁니다.
   </p>
+  <button id="sfx" title="말풍선이 타자로 찍힐 때 나는 소리를 켜고 끕니다">🔊 소리</button>
 </header>
 <div id="main">
 <div id="info">
@@ -288,6 +290,7 @@ import { load, createPlayer, caption } from "./src/player.js";
 import * as live from "./src/live.js";
 import { docKo } from "./src/docs.js";
 import { ZONES } from "./src/config.js";
+import { unlock, setMuted, isMuted, resetStats, stats } from "./src/sfx.js";
 
 const canvas = document.getElementById("lab");
 
@@ -398,6 +401,7 @@ let shown = undefined;      // 지금 카메라가 따라가는 연출 목표
 let followed;               // 따라가기 중 마지막으로 겨눈 자리 (SHELF_VIEW 또는 null)
 
 async function pick(name) {
+  resetStats();                       // 효과음 계수기 — 한 편 단위로 센다
   playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
   const res = await fetch(`runs/${name}.json`);
   const run = await res.json();
@@ -674,6 +678,7 @@ function startLive() {
   // 키가 비어도 보낸다 — 판단은 서버 몫이다.
   // (로컬 개발 서버는 .env.local 키로 대신 돌고, 배포판은 "API 키가 없다"를 돌려준다)
 
+  resetStats();                       // 효과음 계수기 — 한 편 단위로 센다
   setReport("", "");
   $question.textContent = question;
   $dash.style.display = "none";
@@ -703,15 +708,29 @@ function startLive() {
   });
 }
 
+// ── 효과음 스위치 ─────────────────────────────────────────
+// AudioContext 는 사용자가 누른 순간에만 만든다 — 자동재생 정책 때문이기도 하고,
+// 화면만 열어 둔 방문자에게 소리 장치를 잡아 두지 않기 위해서다.
+const $sfx = document.getElementById("sfx");
+const drawSfx = () => {
+  $sfx.textContent = isMuted() ? "🔇 소리" : "🔊 소리";
+  $sfx.classList.toggle("on", !isMuted());
+};
+$sfx.onclick = () => { setMuted(!isMuted()); if (!isMuted()) unlock(); drawSfx(); };
+drawSfx();
+// 실측용 — 콘솔에서 __sfx() 로 이번 편에 몇 번 울렸는지 본다
+window.__sfx = stats;
+
 document.getElementById("tReplay").onclick = () => setTab("replay");
 document.getElementById("tLive").onclick = () => setTab("live");
 document.getElementById("tSet").onclick = () => setTab("settings");
-$go.onclick = startLive;
+$go.onclick = () => { unlock(); startLive(); };
 $q.addEventListener("keydown", e => { if (e.key === "Enter") startLive(); });
 document.getElementById("reportClose").onclick = () => $reportBox.close();
 
 $run.onchange = () => pick($run.value);
 $play.onclick = () => {
+  unlock();
   if (!player) return;
   if (player.done) return;
   playing = !playing;

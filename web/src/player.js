@@ -7,6 +7,7 @@
 import { ZONES, DESKS, MEETING, COORD_SEAT, COORD_HOME, BLOCKED, GRID } from "./config.js";
 import { name } from "./actors.js";
 import { docKo } from "./docs.js";
+import { blip } from "./sfx.js";
 import { planTalk, startLine, readLine, fixLine, doneLine, reportLine, reviewClose,
          synthTalk, evalTalk, endLine } from "./speech.js";
 
@@ -80,6 +81,11 @@ const num = n => (n ?? 0).toLocaleString("ko-KR");
 const CPS = 18;
 /** 다 친 뒤 머무는 시간 — 긴 줄은 더 오래 둔다 */
 const hold = text => 1.0 + text.length * 0.015;
+
+// 효과음 — 3글자마다, 최소 간격 55ms. 18자/초면 초당 약 6회다.
+// 글자마다 울리면 18회/초라 「기계음」이 되고, 5글자마다면 말이 뚝뚝 끊겨 들린다.
+const BLIP_EVERY = 3;
+const BLIP_GAP = 0.055;
 
 /**
  * 자막 — 의미 이벤트 한 개를 방문자의 말로 옮긴다 (계획서 4.2 번역 규칙의 말 버전).
@@ -219,6 +225,7 @@ export function createPlayer(loaded, onEvent) {
     a.sayFull = text || "";
     a.say = "";
     a.sayT = 0;
+    a.blipAt = 0;
   }
   /**
    * 대화 — [[누구, 할 말], …] 을 **한 사람씩 차례로** 친다.
@@ -244,11 +251,31 @@ export function createPlayer(loaded, onEvent) {
   /** 아직 할 말이 남았나 — 배리어가 이걸 기다린다 */
   const talking = () => !!speaker || convo.length > 0;
 
-  /** 타자 진행 */
+  /** 타자 진행 — 글자가 늘어난 만큼 소리도 낸다 */
   function type(a, dt) {
     if (!a.sayFull) return;
     a.sayT += dt;
+    const before = a.say.length;
     a.say = a.sayFull.slice(0, Math.floor(a.sayT * CPS));
+    sound(a, before);
+  }
+
+  /**
+   * 말풍선 효과음 — 글자마다 울리면 18자/초라 귀가 피곤하다.
+   * BLIP_EVERY 글자마다 · 직전 소리에서 BLIP_GAP 초 지났을 때만 운다.
+   * 공백과 줄바꿈으로 끝나는 자리는 건너뛴다 (띄어쓰기에서 울면 말이 끊겨 들린다).
+   */
+  function sound(a, before) {
+    if (a.say.length <= before) return;
+    a.blipAt = a.blipAt || 0;
+    if (a.say.length - a.blipAt < BLIP_EVERY) return;
+    // 간격은 줄마다 0 으로 돌아가는 sayT 가 아니라 **재생 시계**로 잰다.
+    // 줄이 바뀌는 순간 두 소리가 붙는 것을 막는다.
+    if (state.elapsed - (a.blipT ?? -1) < BLIP_GAP) return;
+    a.blipAt = a.say.length;
+    if (/\s/.test(a.say[a.say.length - 1])) return;   // 자리는 넘기되 소리는 내지 않는다
+    a.blipT = state.elapsed;
+    blip(a.role);
   }
 
   /** 지금 말하는 사람이 다 쳤고 잠깐 머물렀으면 다음 차례로 */
