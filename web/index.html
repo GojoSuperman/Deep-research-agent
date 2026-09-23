@@ -588,7 +588,8 @@ new ResizeObserver(() => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     if (!ready) return;
-    if (cam.touched()) { render(); return; }     // 사람이 잡은 화면은 그대로 둔다
+    // 사람이 잡은 화면은 보던 자리와 확대 비율을 지키되, 창이 커진 만큼 같이 커진다
+    if (cam.touched()) { cam.rescale(); render(); return; }
     if (lastSpot) cam.focus(lastSpot); else cam.fit();
     render();
   }, 80);

@@ -11,10 +11,37 @@ export function createView(canvas, onChange) {
   let goal = null;
   let touched = false;      // 사람이 끌거나 휠을 굴렸나 — 그러면 자동 맞춤을 멈춘다
 
+  // 마지막으로 본 캔버스 크기와 그때의 맞춤 배율.
+  // 창이 바뀌었을 때 "얼마나 커졌나"를 재는 기준이다.
+  let seen = null;
+  const note = () => { seen = { vw: canvas.clientWidth, vh: canvas.clientHeight,
+                                fit: fitView(canvas).scale }; };
+
   function fit() {
     goal = null;
     touched = false;
     Object.assign(v, fitView(canvas));
+    note();
+    emit();
+  }
+
+  /**
+   * 창 크기가 바뀌었을 때 — 사람이 잡아 둔 화면도 창을 따라 같이 커지고 작아진다.
+   * 확대 비율과 보고 있던 지점은 그대로 두고, 창이 커진 비율만큼만 배율을 곱한다.
+   * 이게 없으면 한 번 휠을 굴린 뒤로는 창을 늘려도 사무실이 그 크기에 머문다.
+   */
+  function rescale() {
+    const vw = canvas.clientWidth, vh = canvas.clientHeight;
+    if (!vw || !vh) return;
+    if (!seen || !seen.vw || !seen.vh) { note(); return; }
+    const k = fitView(canvas).scale / seen.fit;
+    // 바뀌기 전 화면 한가운데에 있던 장면 지점 — 바뀐 뒤에도 가운데에 둔다
+    const px = (seen.vw / 2 - v.pan.x) / v.scale;
+    const py = (seen.vh / 2 - v.pan.y) / v.scale;
+    v.scale *= k;
+    v.pan.x = vw / 2 - px * v.scale;
+    v.pan.y = vh / 2 - py * v.scale;
+    note();
     emit();
   }
 
@@ -32,6 +59,7 @@ export function createView(canvas, onChange) {
   function focus(spot) {
     touched = false;
     goal = spot ? aim(spot.col, spot.row, spot.span ?? 7) : fitView(canvas);
+    note();
   }
 
   /** 매 프레임 목표로 당긴다 */
@@ -78,5 +106,5 @@ export function createView(canvas, onChange) {
     emit();
   }, { passive: false });
 
-  return { v, fit, focus, step, touched: () => touched };
+  return { v, fit, focus, step, rescale, touched: () => touched };
 }
