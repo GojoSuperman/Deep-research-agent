@@ -795,12 +795,15 @@ for (const [group, list] of EXAMPLES) {
 }
 
 // ── 설정 (API 키) ────────────────────────────────────────
+const LOCAL = ["127.0.0.1", "localhost"].includes(location.hostname);
 const $setState = document.getElementById("setState");
 function showKeyState(saved) {
   const k = $key.value.trim();
   $keyState.innerHTML = k
     ? `키 ${live.mask(k)} 준비됨${$remember.checked ? " · 이 브라우저에 저장함" : ""}`
-    : `키 없음 — <b>설정</b> 탭에서 넣으세요 (로컬 개발 서버는 비워도 됩니다)`;
+    : `키 없음 — <b>설정</b> 탭에서 넣으세요`
+      // 키 없이 도는 관대함은 dev_server.py 에만 있다 — 배포본 방문자에게 이 말을 하면 거짓말이다
+      + (LOCAL ? " (로컬 개발 서버는 비워도 됩니다)" : "");
   $setState.textContent = saved || (k ? `${live.mask(k)} 사용 중` : "키 없음");
 }
 document.getElementById("set-save").onclick = () => {
