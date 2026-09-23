@@ -1,0 +1,527 @@
+{
+  "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+  "settings": {
+    "sections": 4,
+    "budget": 3,
+    "assign": true,
+    "zone": true,
+    "role": false,
+    "redelegate": true
+  },
+  "metrics": {
+    "근거율": 0.9375,
+    "출처불일치": 0,
+    "출처불일치문장": [],
+    "인용0곳절수": 0,
+    "인용0곳절": [],
+    "허위인용": 0,
+    "허위인용문서": [],
+    "읽고안쓴문서": 5,
+    "최다문서편중": 0.2,
+    "중복률": 0.4167,
+    "격리율": 0.0194,
+    "인용서고수": 4,
+    "서고분포": {
+      "편향": 10,
+      "유사사례": 9,
+      "성격심리": 7,
+      "유형론": 4
+    },
+    "문장수": 32,
+    "인용수": 30,
+    "읽은문서수": 12,
+    "보고서자수": 3014,
+    "그물": {
+      "통과": true,
+      "사유": []
+    }
+  },
+  "report": "# MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?\n\n이 보고서는 MBTI 궁합론의 심리학적 근거와 심리학계의 평가를 살펴보고, 유사한 성격 이론과의 비교를 통해 MBTI의 신뢰성을 검토한다. 또한, MBTI 궁합론이 성격 이론에 기반하여 개인 간의 관계를 설명하려는 시도를 분석하고, 이에 대한 비판과 대안을 제시한다. 각 절에서는 MBTI의 이론적 배경과 그에 대한 심리학계의 반응을 체계적으로 정리하고 있다.\n\n## MBTI 궁합론의 심리학적 근거\n\nMBTI는 칼 융의 심리적 유형 이론에 기반하여 16개의 성격 유형을 제시한다 «Myers–Briggs Type Indicator». 그러나 MBTI는 신뢰성과 타당성에서 심각한 결함이 있으며, 연구 결과에 따르면 MBTI의 유효성을 지지하는 대부분의 연구는 MBTI 재단이 운영하는 센터에서 발표되어 독립성이 결여되어 있다 «Myers–Briggs Type Indicator». 심리학계에서는 MBTI가 예측력이 부족하여 심리적 실무나 연구에 유용하지 않다고 평가하고 있다 «Myers–Briggs Type Indicator». 아담 그랜트 교수는 MBTI에 대한 증거가 없다고 주장하였다 «Myers–Briggs Type Indicator». 또한, 바넘 효과는 개인의 성격에 대한 모호하고 일반적인 설명이 특정 개인에게 맞춤화된 것처럼 느껴지게 만든다 «Barnum effect». 이는 MBTI와 같은 성격 테스트가 비과학적 신념과 관행으로 수용되는 이유를 설명할 수 있다 «Barnum effect».\n\n## 심리학계의 MBTI 평가\n\n심리학계는 MBTI와 같은 성격 유형 이론을 유사과학으로 간주할 수 있다 «Pseudoscience». 유사과학은 과학적 방법론과 일치하지 않는 주장이나 믿음으로, 실험적 증거가 부족하고 반증 가능성이 결여되어 있다 «Pseudoscience». 심리학자들은 MBTI가 개인의 성격을 정확하게 설명하지 못하며, 그 결과가 과학적으로 검증되지 않았다고 비판한다 «Pseudoscience». 또한, 유사과학은 종종 개인적 경험이나 주관적 믿음에 의존하며, 이는 과학적 사고와 대조된다 «Pseudoscience». 확증 편향은 개인이 기존 신념을 강화하기 위해 정보를 선택적으로 검색하고 해석하며 기억하는 경향을 의미한다 «Confirmation bias». 심리학 연구에서는 사람들이 자신의 신념을 지지하는 정보만을 선호하고 반대되는 정보를 무시하는 경향이 강하게 나타난다고 보고되었다 «Confirmation bias». 이러한 편향은 과학 연구에서 귀납적 추론에 기반한 체계적인 오류를 발생시킬 수 있다 «Confirmation bias». MBTI 궁합론은 이러한 인지 편향의 영향을 받을 수 있으며, 이는 개인이 자신의 성격 유형에 대한 믿음을 강화하는 심리적 요인으로 작용할 수 있다 «Confirmation bias».\n\n## 유사한 성격 이론과의 비교\n\n혈액형 성격 이론은 혈액형이 개인의 성격과 기질, 타인과의 궁합을 예측한다고 주장하는 비과학적 신념이다 «Blood type personality theory». 일본의 후루카와 다케지는 '혈액형을 통한 기질 연구'라는 논문을 발표했으나, 연구의 표본 수가 적어 일반화에 실패했다 «Blood type personality theory». 일본의 사회 심리학자 나와타 켄고는 10,000명 이상의 조사에서 혈액형이 성격의 변동성을 0.3%도 설명하지 못한다고 밝혔다 «Blood type personality theory». 그러나 일본과 한국의 일부 연구자들은 혈액형과 성격 간의 통계적 유의미성을 발견했다고 주장한다 «Blood type personality theory». 이러한 결과는 자아 실현적 예언(self-fulfilling prophecy)으로 설명되기도 한다 «Blood type personality theory». 바넘 효과는 개인에게 맞춰진 것처럼 보이는 모호하고 일반적인 성격 설명에 대해 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 이는 점술, 점성술, 성격 테스트와 같은 여러 분야에서 활용되며, 사람들은 이러한 설명을 자신에게 개인적으로 적용할 수 있다고 느낀다 «Barnum effect». 연구자 Bertram Forer는 1949년에 이를 '개인 검증의 오류'라고 명명했으며, 1956년 Paul E. Meehl이 'Barnum 효과'라는 용어를 만들었다 «Barnum effect». 이 효과는 주관적 검증의 예시로, 사람들이 모호한 성격 피드백을 수용하는 경향을 설명한다 «Barnum effect».\n\n## 심리학적 비판과 대안\n\nMBTI 궁합론은 성격 이론(trait theory)에 기반하여 개인의 성격 유형이 서로 다른 사람들과의 관계에서 어떻게 작용하는지를 설명하려고 한다 «Trait theory». 그러나 성격 이론은 문화적 차이를 무시하고 개인의 특성에 집중하는 경향이 있어 비판을 받는다 «Trait theory». MBTI는 성격 유형을 네 가지 이분법으로 나누어 설명하지만, 이러한 접근은 개인의 복잡한 성격을 단순화하는 경향이 있다 «Trait theory». 또한, Eysenck의 세 가지 요인 모델은 성격 특성이 유전적 요인에 기인한다고 주장하지만, 이는 모든 성격 특성을 설명하지 못한다 «Trait theory». 반면, 다섯 가지 요인 모델은 유전과 환경의 역할을 인정하지만 명확한 인과적 설명을 제공하지 않는다 «Trait theory». 16PF(16 성격 요인 질문지)는 성격을 측정하는 임상 도구로, 성격 구조가 계층적이라는 주장을 뒷받침하며, 이는 성격 연구에서 중요한 기초가 된다 «16PF Questionnaire». 16PF의 타당성은 60개 이상의 연구에 의해 지지받고 있으며, 이는 MBTI와 같은 성격 검사와 비교할 때 더 포괄적인 접근을 제공한다 «16PF Questionnaire». 이러한 이유로 MBTI 궁합론은 심리학계에서 비판받고 있으며, 대안으로 더 과학적이고 포괄적인 성격 평가 도구가 필요하다는 주장이 제기되고 있다 «16PF Questionnaire$.\n",
+  "usage": {
+    "calls": 26,
+    "prompt": 158799,
+    "completion": 6627
+  },
+  "built": "2026-09-23",
+  "label": {
+    "질문": "다갈래",
+    "설정": "역할끔",
+    "회차": 2
+  },
+  "events": [
+    {
+      "v": 1,
+      "type": "run.start",
+      "ts": 0.0,
+      "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+      "설정": {
+        "절수": 4,
+        "절예산": 3,
+        "배정": true,
+        "구역": true,
+        "역할": false,
+        "재위임": true
+      }
+    },
+    {
+      "v": 1,
+      "type": "plan.done",
+      "ts": 2.909,
+      "목차": [
+        {
+          "절": "MBTI 궁합론의 심리학적 근거",
+          "역할": "담당",
+          "시작문서": "Myers–Briggs Type Indicator",
+          "서고": "유형론"
+        },
+        {
+          "절": "심리학계의 MBTI 평가",
+          "역할": "담당",
+          "시작문서": "Pseudoscience",
+          "서고": "유사사례"
+        },
+        {
+          "절": "유사한 성격 이론과의 비교",
+          "역할": "담당",
+          "시작문서": "Blood type personality theory",
+          "서고": "유사사례"
+        },
+        {
+          "절": "심리학적 비판과 대안",
+          "역할": "담당",
+          "시작문서": "Trait theory",
+          "서고": "성격심리"
+        }
+      ],
+      "교정": []
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 2.91,
+      "바퀴": 1,
+      "인원": 4,
+      "배치": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.912,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "역할": "담당",
+      "시작문서": "Myers–Briggs Type Indicator",
+      "피하기": [
+        "Pseudoscience",
+        "Blood type personality theory",
+        "Trait theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.929,
+      "절": "심리학계의 MBTI 평가",
+      "역할": "담당",
+      "시작문서": "Pseudoscience",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Blood type personality theory",
+        "Trait theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.936,
+      "절": "유사한 성격 이론과의 비교",
+      "역할": "담당",
+      "시작문서": "Blood type personality theory",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Trait theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.948,
+      "절": "심리학적 비판과 대안",
+      "역할": "담당",
+      "시작문서": "Trait theory",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Blood type personality theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 5.774,
+      "절": "유사한 성격 이론과의 비교",
+      "문서": "Blood type personality theory",
+      "서고": "유사사례",
+      "원문자수": 13810,
+      "메모자수": 326,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 6.402,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Pseudoscience",
+      "서고": "유사사례",
+      "원문자수": 46850,
+      "메모자수": 229,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 6.76,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "Myers–Briggs Type Indicator",
+      "서고": "유형론",
+      "원문자수": 31278,
+      "메모자수": 300,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 6.877,
+      "절": "심리학적 비판과 대안",
+      "문서": "Trait theory",
+      "서고": "성격심리",
+      "원문자수": 8310,
+      "메모자수": 344,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 9.375,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Cognitive bias",
+      "서고": "편향",
+      "원문자수": 19562,
+      "메모자수": 300,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 9.562,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "Barnum effect",
+      "서고": "편향",
+      "원문자수": 8065,
+      "메모자수": 339,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.415,
+      "절": "심리학적 비판과 대안",
+      "문서": "Big Five personality traits",
+      "서고": "성격심리",
+      "원문자수": 91312,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.969,
+      "절": "유사한 성격 이론과의 비교",
+      "문서": "Big Five personality traits",
+      "서고": "성격심리",
+      "원문자수": 91312,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 13.26,
+      "절": "유사한 성격 이론과의 비교",
+      "문서": "Barnum effect",
+      "서고": "편향",
+      "원문자수": 8065,
+      "메모자수": 292,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 13.355,
+      "절": "심리학적 비판과 대안",
+      "문서": "16PF Questionnaire",
+      "서고": "성격심리",
+      "원문자수": 31102,
+      "메모자수": 370,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 15.013,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "Astrology",
+      "서고": "유사사례",
+      "원문자수": 55332,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 17.331,
+      "절": "심리학적 비판과 대안",
+      "자수": 722,
+      "인용": 7,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 17.468,
+      "절": "유사한 성격 이론과의 비교",
+      "자수": 820,
+      "인용": 9,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 18.212,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Confirmation bias",
+      "서고": "편향",
+      "원문자수": 56495,
+      "메모자수": 309,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 18.631,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "자수": 509,
+      "인용": 6,
+      "충분": false,
+      "부족": "MBTI 궁합론에 대한 구체적인 논의가 부족하다."
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 21.639,
+      "절": "심리학계의 MBTI 평가",
+      "자수": 528,
+      "인용": 7,
+      "충분": false,
+      "부족": "MBTI 궁합론에 대한 구체적인 심리학계의 평가가 부족하다."
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 21.64,
+      "절수": 4,
+      "빈칸": [
+        "MBTI 궁합론의 심리학적 근거",
+        "심리학계의 MBTI 평가"
+      ],
+      "종료": null
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 21.641,
+      "바퀴": 2,
+      "인원": 2,
+      "배치": [
+        0,
+        1
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 21.642,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "역할": "담당",
+      "시작문서": "Myers–Briggs Type Indicator",
+      "피하기": [
+        "Pseudoscience",
+        "Blood type personality theory",
+        "Trait theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 21.648,
+      "절": "심리학계의 MBTI 평가",
+      "역할": "담당",
+      "시작문서": "Pseudoscience",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Blood type personality theory",
+        "Trait theory"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 24.407,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Astrology",
+      "서고": "유사사례",
+      "원문자수": 55332,
+      "메모자수": 293,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 25.064,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "16PF Questionnaire",
+      "서고": "성격심리",
+      "원문자수": 31102,
+      "메모자수": 242,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 26.512,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Carl Jung",
+      "서고": "유형론",
+      "원문자수": 93023,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 27.714,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "Big Five personality traits",
+      "서고": "성격심리",
+      "원문자수": 91312,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 29.048,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Enneagram of Personality",
+      "서고": "유형론",
+      "원문자수": 15321,
+      "메모자수": 282,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 30.695,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "문서": "Carl Jung",
+      "서고": "유형론",
+      "원문자수": 93023,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 32.462,
+      "절": "심리학계의 MBTI 평가",
+      "자수": 632,
+      "인용": 8,
+      "충분": false,
+      "부족": "MBTI 궁합론에 대한 구체적인 심리학계의 평가가 더 필요하다."
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 33.649,
+      "절": "MBTI 궁합론의 심리학적 근거",
+      "자수": 509,
+      "인용": 6,
+      "충분": false,
+      "부족": "MBTI 궁합론에 대한 구체적인 논의가 부족하다."
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 33.651,
+      "절수": 4,
+      "빈칸": [
+        "MBTI 궁합론의 심리학적 근거",
+        "심리학계의 MBTI 평가"
+      ],
+      "종료": "2바퀴 소진"
+    },
+    {
+      "v": 1,
+      "type": "synthesize",
+      "ts": 35.122,
+      "절수": 4,
+      "보고서자수": 3014,
+      "머리말자수": 201
+    },
+    {
+      "v": 1,
+      "type": "evaluate",
+      "ts": 35.124,
+      "metrics": {
+        "근거율": 0.9375,
+        "출처불일치": 0,
+        "출처불일치문장": [],
+        "인용0곳절수": 0,
+        "인용0곳절": [],
+        "허위인용": 0,
+        "허위인용문서": [],
+        "읽고안쓴문서": 5,
+        "최다문서편중": 0.2,
+        "중복률": 0.4167,
+        "격리율": 0.0194,
+        "인용서고수": 4,
+        "서고분포": {
+          "편향": 10,
+          "유사사례": 9,
+          "성격심리": 7,
+          "유형론": 4
+        },
+        "문장수": 32,
+        "인용수": 30,
+        "읽은문서수": 12,
+        "보고서자수": 3014,
+        "그물": {
+          "통과": true,
+          "사유": []
+        }
+      }
+    },
+    {
+      "v": 1,
+      "type": "run.end",
+      "ts": 35.124
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+  "settings": {
+    "sections": 4,
+    "budget": 3,
+    "assign": true,
+    "zone": true,
+    "role": true,
+    "redelegate": true
+  },
+  "metrics": {
+    "근거율": 0.7241,
+    "출처불일치": 0,
+    "출처불일치문장": [],
+    "인용0곳절수": 0,
+    "인용0곳절": [],
+    "허위인용": 0,
+    "허위인용문서": [],
+    "읽고안쓴문서": 5,
+    "최다문서편중": 0.1905,
+    "중복률": 0.2,
+    "격리율": 0.0195,
+    "인용서고수": 5,
+    "서고분포": {
+      "유형론": 7,
+      "편향": 5,
+      "유사사례": 4,
+      "성격심리": 4,
+      "측정": 1
+    },
+    "문장수": 29,
+    "인용수": 21,
+    "읽은문서수": 15,
+    "보고서자수": 2665,
+    "그물": {
+      "통과": true,
+      "사유": []
+    }
+  },
+  "report": "# MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?\n\n이 보고서는 MBTI 궁합론의 이론적 근거와 심리학계의 평가를 살펴보고, MBTI와 성격 이론의 관계 및 대안적 접근에 대해 논의합니다. 각 절에서는 MBTI의 기초 이론과 그에 대한 비판, 그리고 현대 심리학의 관점에서의 성격 이해 방식을 다룹니다. 이를 통해 MBTI가 심리학에서 어떻게 자리 잡고 있는지를 분석하고자 합니다.\n\n## MBTI 궁합론의 이론적 근거\n\nMBTI는 스위스 정신과 의사 칼 융의 1921년 이론에 기반하고 있으며, 개인은 네 가지 주요 심리적 기능(감각, 직관, 감정, 사고)을 통해 세상을 경험한다고 주장한다 «Myers–Briggs Type Indicator». MBTI는 16개의 독특한 성격 유형을 생성하며, 각 유형은 네 가지 범주에서 하나의 선호도를 가진다 «Myers–Briggs Type Indicator». 그러나 MBTI는 심리학계에서 유용성이 낮고 예측력이 부족하다고 평가받고 있으며, 많은 연구가 이론적 근거의 부족과 신뢰성 문제를 지적하고 있다 «Myers–Briggs Type Indicator». 예를 들어, 1991년 미국 국립과학원 위원회는 MBTI의 사용에 대한 충분한 연구가 없다고 결론지었다 «Myers–Briggs Type Indicator». 바넘 효과는 개인의 성격에 대한 모호하고 일반적인 설명이 특정 개인에게 맞춰진 것처럼 느껴지는 심리적 현상이다 «Barnum effect». 이는 성격 테스트와 같은 일부 심리적 평가의 수용을 설명하는 데 기여할 수 있다 «Barnum effect».\n\n## 심리학계의 MBTI 평가\n\nMBTI는 유사과학으로 간주되며, 이는 과학적 방법과 호환되지 않는 주장으로 정의된다 «Pseudoscience». 심리학계에서는 유사과학적 주장들이 실험적 증거에 의해 반박된 후에도 지속적으로 고수되는 경향이 있다 «Pseudoscience». 이러한 주장은 검증 가능성이 결여되어 있으며, 이는 과학적 방법론에 따라 반증될 수 있어야 한다 «Pseudoscience». 또한, 확증 편향은 사람들이 기존 신념을 지지하는 정보를 선호하고 반대 정보를 무시하는 경향을 나타낸다 «Confirmation bias». 이러한 편향은 MBTI와 같은 성격 유형 이론의 수용에 영향을 미칠 수 있다 «Confirmation bias». 인지 편향은 판단에서 비합리성이나 왜곡을 초래할 수 있으며, 이는 심리학계에서 비판의 대상이 되고 있다 «Cognitive bias». 따라서 MBTI 궁합론은 심리학적 근거가 부족하며, 과학적 기준을 충족하지 못하는 주장으로 평가된다 «Pseudoscience».\n\n## MBTI와 성격 이론의 관계\n\n칼 융(Carl Jung)은 집단무의식(collective unconscious)이라는 개념을 제안하며, 인간의 무의식이 선천적으로 이해되는 원형(archetype)으로 구성되어 있다고 주장하였다. 그는 집단무의식이 개인의 삶에 깊은 영향을 미친다고 보았으며, 이는 신화와 같은 공통 주제가 전 세계에서 나타나는 이유를 설명하는 데 도움을 준다고 하였다 «Collective unconscious». 외향성과 내향성은 인간 성격 이론의 중심 특성 차원으로, 칼 융에 의해 심리학에 도입되었다. 외향성은 사교성, 수다스러움, 높은 에너지와 관련이 있으며, 내향성은 내성적 사고, 자제, 혼자 활동하는 것을 선호하는 것과 관련이 있다 «Extraversion and introversion». 현대 성격 모델은 이러한 개념을 다양한 형태로 포함하고 있다. 한스 아이젠크(Hans Eysenck)는 성격 이론의 현대 과학적 이론에 주요 기여를 하였으며, 그의 연구는 성격 구조의 차원 모델을 개발하는 데 중점을 두었다. 그는 외향성과 신경증(neuroticism)이라는 두 가지 성격 차원을 설명하였으며, 이는 고대 그리스 의사 갈렌이 제안한 네 가지 성격 유형과 유사한 점이 있다 «Hans Eysenck». 아이젠크는 후에 정신병(psychoticism)이라는 세 번째 차원을 추가하였고, 그의 연구는 성격의 유전적 기초에 대한 초기 연구 중 하나로 평가된다 «Hans Eysenck».\n\n## MBTI의 대안적 접근\n\nMBTI는 성격 유형을 네 가지 이분법으로 나누어 개인의 성격을 설명하려고 한다. 그러나 MBTI의 이론적 기초는 심리학계에서 비판받고 있다. 예를 들어, MBTI는 외향성과 내향성을 고정된 범주로 나누지만, 현대 심리학에서는 이 두 특성을 연속적인 차원으로 이해한다 «Extraversion and introversion». 또한, MBTI의 신뢰성과 타당성에 대한 연구는 부족하며, 이는 심리적 개념의 신뢰성을 높이는 데 필요한 구성 타당성(construct validity) 평가와 관련이 있다 «Construct validity». 반면, 16PF는 성격의 기본 차원을 측정하기 위해 요인 분석(factor analysis)을 사용하여 개발되었으며, 성격의 다차원적 구조를 반영한다 «16PF Questionnaire». 16PF는 개인의 행동 예측에 유용한 도구로 평가받고 있으며, 이는 MBTI와의 중요한 차별점이다 «16PF Questionnaire». 따라서 MBTI의 대안적 접근으로 16PF와 같은 성격 검사가 제안될 수 있다. 이러한 대안적 접근은 성격을 보다 정교하게 이해하고 예측하는 데 기여할 수 있다.\n",
+  "usage": {
+    "calls": 25,
+    "prompt": 173616,
+    "completion": 5912
+  },
+  "built": "2026-09-23",
+  "label": {
+    "질문": "다갈래",
+    "설정": "기본",
+    "회차": 3
+  },
+  "events": [
+    {
+      "v": 1,
+      "type": "run.start",
+      "ts": 0.0,
+      "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+      "설정": {
+        "절수": 4,
+        "절예산": 3,
+        "배정": true,
+        "구역": true,
+        "역할": true,
+        "재위임": true
+      }
+    },
+    {
+      "v": 1,
+      "type": "plan.done",
+      "ts": 2.74,
+      "목차": [
+        {
+          "절": "MBTI 궁합론의 이론적 근거",
+          "역할": "큰그림 담당",
+          "시작문서": "Myers–Briggs Type Indicator",
+          "서고": "유형론"
+        },
+        {
+          "절": "심리학계의 MBTI 평가",
+          "역할": "비교 담당",
+          "시작문서": "Pseudoscience",
+          "서고": "유사사례"
+        },
+        {
+          "절": "MBTI와 성격 이론의 관계",
+          "역할": "인물 담당",
+          "시작문서": "Carl Jung",
+          "서고": "유형론"
+        },
+        {
+          "절": "MBTI의 대안적 접근",
+          "역할": "원인 담당",
+          "시작문서": "Big Five personality traits",
+          "서고": "성격심리"
+        }
+      ],
+      "교정": []
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 2.741,
+      "바퀴": 1,
+      "인원": 4,
+      "배치": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.743,
+      "절": "MBTI 궁합론의 이론적 근거",
+      "역할": "큰그림 담당",
+      "시작문서": "Myers–Briggs Type Indicator",
+      "피하기": [
+        "Pseudoscience",
+        "Carl Jung",
+        "Big Five personality traits"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.749,
+      "절": "심리학계의 MBTI 평가",
+      "역할": "비교 담당",
+      "시작문서": "Pseudoscience",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Carl Jung",
+        "Big Five personality traits"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.757,
+      "절": "MBTI와 성격 이론의 관계",
+      "역할": "인물 담당",
+      "시작문서": "Carl Jung",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Big Five personality traits"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 2.769,
+      "절": "MBTI의 대안적 접근",
+      "역할": "원인 담당",
+      "시작문서": "Big Five personality traits",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Carl Jung"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 4.964,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Pseudoscience",
+      "서고": "유사사례",
+      "원문자수": 46850,
+      "메모자수": 262,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 5.412,
+      "절": "MBTI 궁합론의 이론적 근거",
+      "문서": "Myers–Briggs Type Indicator",
+      "서고": "유형론",
+      "원문자수": 31278,
+      "메모자수": 295,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 5.448,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Carl Jung",
+      "서고": "유형론",
+      "원문자수": 93023,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 6.084,
+      "절": "MBTI의 대안적 접근",
+      "문서": "Big Five personality traits",
+      "서고": "성격심리",
+      "원문자수": 91312,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 7.298,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Cognitive bias",
+      "서고": "편향",
+      "원문자수": 19562,
+      "메모자수": 270,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 7.842,
+      "절": "MBTI 궁합론의 이론적 근거",
+      "문서": "Barnum effect",
+      "서고": "편향",
+      "원문자수": 8065,
+      "메모자수": 320,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.223,
+      "절": "MBTI의 대안적 접근",
+      "문서": "16PF Questionnaire",
+      "서고": "성격심리",
+      "원문자수": 31102,
+      "메모자수": 290,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.829,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Analytical psychology",
+      "서고": "유형론",
+      "원문자수": 57424,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.859,
+      "절": "MBTI 궁합론의 이론적 근거",
+      "문서": "Astrology",
+      "서고": "유사사례",
+      "원문자수": 55332,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 9.656,
+      "절": "심리학계의 MBTI 평가",
+      "문서": "Confirmation bias",
+      "서고": "편향",
+      "원문자수": 56495,
+      "메모자수": 279,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.066,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Astrology",
+      "서고": "유사사례",
+      "원문자수": 55332,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 10.066,
+      "절": "MBTI와 성격 이론의 관계",
+      "자수": 0,
+      "인용": 0,
+      "충분": false,
+      "부족": "읽은 문서가 모두 이 절과 관련이 없었다."
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.36,
+      "절": "MBTI의 대안적 접근",
+      "문서": "Construct validity",
+      "서고": "측정",
+      "원문자수": 15243,
+      "메모자수": 298,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 11.788,
+      "절": "MBTI 궁합론의 이론적 근거",
+      "자수": 556,
+      "인용": 6,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 12.978,
+      "절": "심리학계의 MBTI 평가",
+      "자수": 500,
+      "인용": 7,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 13.948,
+      "절": "MBTI의 대안적 접근",
+      "자수": 697,
+      "인용": 8,
+      "충분": false,
+      "부족": "MBTI와 16PF의 비교나 MBTI의 대안적 접근에 대한 구체적인 논의가 부족하다."
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 13.949,
+      "절수": 4,
+      "빈칸": [
+        "MBTI와 성격 이론의 관계",
+        "MBTI의 대안적 접근"
+      ],
+      "종료": null
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 13.949,
+      "바퀴": 2,
+      "인원": 2,
+      "배치": [
+        2,
+        3
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 13.95,
+      "절": "MBTI와 성격 이론의 관계",
+      "역할": "인물 담당",
+      "시작문서": "Carl Jung",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Big Five personality traits"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 13.956,
+      "절": "MBTI의 대안적 접근",
+      "역할": "원인 담당",
+      "시작문서": "Big Five personality traits",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Pseudoscience",
+        "Carl Jung"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 16.06,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Collective unconscious",
+      "서고": "유형론",
+      "원문자수": 25878,
+      "메모자수": 256,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 17.053,
+      "절": "MBTI의 대안적 접근",
+      "문서": "Extraversion and introversion",
+      "서고": "유형론",
+      "원문자수": 43405,
+      "메모자수": 369,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 18.354,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Extraversion and introversion",
+      "서고": "유형론",
+      "원문자수": 43405,
+      "메모자수": 281,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 20.661,
+      "절": "MBTI와 성격 이론의 관계",
+      "문서": "Hans Eysenck",
+      "서고": "성격심리",
+      "원문자수": 29000,
+      "메모자수": 309,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 20.797,
+      "절": "MBTI의 대안적 접근",
+      "문서": "Analytical psychology",
+      "서고": "유형론",
+      "원문자수": 57424,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 23.459,
+      "절": "MBTI의 대안적 접근",
+      "문서": "Factor analysis",
+      "서고": "측정",
+      "원문자수": 74533,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 24.555,
+      "절": "MBTI와 성격 이론의 관계",
+      "자수": 719,
+      "인용": 4,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 26.748,
+      "절": "MBTI의 대안적 접근",
+      "자수": 575,
+      "인용": 4,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 26.749,
+      "절수": 4,
+      "빈칸": [],
+      "종료": "빈 칸 없음"
+    },
+    {
+      "v": 1,
+      "type": "synthesize",
+      "ts": 28.246,
+      "절수": 4,
+      "보고서자수": 2665,
+      "머리말자수": 184
+    },
+    {
+      "v": 1,
+      "type": "evaluate",
+      "ts": 28.249,
+      "metrics": {
+        "근거율": 0.7241,
+        "출처불일치": 0,
+        "출처불일치문장": [],
+        "인용0곳절수": 0,
+        "인용0곳절": [],
+        "허위인용": 0,
+        "허위인용문서": [],
+        "읽고안쓴문서": 5,
+        "최다문서편중": 0.1905,
+        "중복률": 0.2,
+        "격리율": 0.0195,
+        "인용서고수": 5,
+        "서고분포": {
+          "유형론": 7,
+          "편향": 5,
+          "유사사례": 4,
+          "성격심리": 4,
+          "측정": 1
+        },
+        "문장수": 29,
+        "인용수": 21,
+        "읽은문서수": 15,
+        "보고서자수": 2665,
+        "그물": {
+          "통과": true,
+          "사유": []
+        }
+      }
+    },
+    {
+      "v": 1,
+      "type": "run.end",
+      "ts": 28.249
+    }
+  ]
+}
