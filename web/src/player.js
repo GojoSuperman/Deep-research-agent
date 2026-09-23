@@ -441,15 +441,32 @@ export function createPlayer(loaded, onEvent) {
   }
 
   function moveTo(a, col, row, dur = 1.2) {
-    if (a.col === col && a.row === row && !a.path?.length) return;
+    if (a.col === col && a.row === row && !a.target) return;
     const near = landing(col, row);
-    a.path = route(a, near);
-    if (near.col !== col || near.row !== row) a.path.push({ col, row });   // 마지막 한 걸음
-    a.from = { col: a.col, row: a.row };
-    a.target = a.path.shift() || null;
+    const path = route(a, near);
+    if (near.col !== col || near.row !== row) path.push({ col, row });   // 마지막 한 걸음
+    if (!path.length) { a.target = null; return; }
+    // 경로 전체를 한 줄(꺾은선)로 — 칸마다 따로 걸으면 칸 경계에서 멈칫한다
+    const pts = [{ col: a.col, row: a.row }, ...path];
+    const cum = [0];
+    for (let i = 1; i < pts.length; i++)
+      cum.push(cum[i - 1] + Math.hypot(pts[i].col - pts[i - 1].col, pts[i].row - pts[i - 1].row));
+    a.walk = { pts, cum, len: cum[cum.length - 1],
+               // 남은 칸 수로 시간을 정한다 — 멀리 가는 사람이 더 오래 걷는다 (칸당 최소 0.18초)
+               dur: Math.max(0.18, dur / path.length) * path.length };
+    a.target = path[path.length - 1];
+    a.path = [];
     a.walkT = 0;
-    // 남은 칸 수로 시간을 나눈다 — 멀리 가는 사람이 더 오래 걷는다
-    a.walkDur = Math.max(0.18, dur / (a.path.length + 1));
+  }
+
+  /** 걸은 거리 — 짧게 가속, 등속, 짧게 감속 (사다리꼴 속도).
+   *  경로 전체에 한 번만 건다. 칸마다 걸면 칸 사이에서 속도가 0으로 떨어진다. */
+  function walked(t, T, L) {
+    const ta = Math.min(0.25, T / 3);
+    const v = L / (T - ta);
+    if (t <= ta) return v * t * t / (2 * ta);
+    if (t >= T - ta) return L - v * (T - t) ** 2 / (2 * ta);
+    return v * (t - ta / 2);
   }
 
   /** 걷기는 이벤트와 무관하게 흐른다.
@@ -457,18 +474,20 @@ export function createPlayer(loaded, onEvent) {
    *  걸음을 이벤트 타이머에 매어 두면 그 자리에 멈춰 선다. */
   function walk(a, dt) {
     if (!a.target) return;
-    a.walkT += dt;
-    const k = Math.min(1, a.walkT / a.walkDur);
-    // 한 칸씩 걷는 중에는 등속, 첫 칸과 마지막 칸만 부드럽게
-    const last = !a.path?.length;
-    const e = last ? k * k * (3 - 2 * k) : k;
-    a.col = a.from.col + (a.target.col - a.from.col) * e;
-    a.row = a.from.row + (a.target.row - a.from.row) * e;
-    if (k >= 1) {
+    const w = a.walk;
+    a.walkT = Math.min(a.walkT + dt, w.dur);
+    const d = walked(a.walkT, w.dur, w.len);
+    let i = 1;
+    while (i < w.cum.length - 1 && w.cum[i] < d) i++;
+    const seg = w.cum[i] - w.cum[i - 1];
+    const k = seg > 0 ? (d - w.cum[i - 1]) / seg : 1;
+    a.col = w.pts[i - 1].col + (w.pts[i].col - w.pts[i - 1].col) * k;
+    a.row = w.pts[i - 1].row + (w.pts[i].row - w.pts[i - 1].row) * k;
+    if (a.walkT >= w.dur) {
       a.col = a.target.col; a.row = a.target.row;
       a.from = { col: a.col, row: a.row };
-      a.target = a.path?.length ? a.path.shift() : null;
-      a.walkT = 0;
+      a.target = null;
+      a.walk = null;
     }
   }
 

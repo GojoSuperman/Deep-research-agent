@@ -19,6 +19,7 @@ export function createView(canvas, onChange) {
 
   function fit() {
     goal = null;
+    stop();
     touched = false;
     Object.assign(v, fitView(canvas));
     note();
@@ -62,24 +63,40 @@ export function createView(canvas, onChange) {
     note();
   }
 
-  /** 매 프레임 목표로 당긴다 */
+  /**
+   * 매 프레임 목표로 당긴다 — 속도를 기억하는 스프링(임계 감쇠).
+   * 남은 거리의 일정 비율씩 당기면 첫 프레임이 가장 빨라서, 멈춰 있던 화면이 '툭' 튀어 나갔다
+   * (실측: 정지 → 다음 프레임 10~39px). 스프링은 천천히 출발해 가속하고 넘치지 않고 붙는다.
+   * OMEGA 4.4 = 예전 보간(2.6)과 같은 0.9초 안에 90% 도달.
+   */
+  const OMEGA = 4.4;
+  const vel = { scale: 0, x: 0, y: 0 };
+  const stop = () => { vel.scale = vel.x = vel.y = 0; };
+  function spring(cur, to, key, dt) {
+    const x = OMEGA * dt, e = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
+    const change = cur - to;
+    const temp = (vel[key] + OMEGA * change) * dt;
+    vel[key] = (vel[key] - OMEGA * temp) * e;
+    return to + (change + temp) * e;
+  }
   function step(dt) {
     if (!goal) return false;
-    const k = 1 - Math.exp(-dt * 2.6);
-    v.scale += (goal.scale - v.scale) * k;
-    v.pan.x += (goal.pan.x - v.pan.x) * k;
-    v.pan.y += (goal.pan.y - v.pan.y) * k;
+    v.scale = spring(v.scale, goal.scale, "scale", dt);
+    v.pan.x = spring(v.pan.x, goal.pan.x, "x", dt);
+    v.pan.y = spring(v.pan.y, goal.pan.y, "y", dt);
     if (Math.abs(goal.scale - v.scale) < 1e-4 &&
-        Math.abs(goal.pan.x - v.pan.x) < 0.5 && Math.abs(goal.pan.y - v.pan.y) < 0.5) {
+        Math.abs(goal.pan.x - v.pan.x) < 0.5 && Math.abs(goal.pan.y - v.pan.y) < 0.5 &&
+        Math.abs(vel.x) < 1 && Math.abs(vel.y) < 1) {
       Object.assign(v, goal, { pan: { ...goal.pan } });
       goal = null;
+      stop();
     }
     return true;
   }
 
   let drag = null;
   canvas.addEventListener("pointerdown", e => {
-    goal = null; touched = true;      // 사람이 잡으면 연출은 손을 뗀다
+    goal = null; touched = true; stop();      // 사람이 잡으면 연출은 손을 뗀다
     drag = { id: e.pointerId, x: e.clientX - v.pan.x, y: e.clientY - v.pan.y };
     canvas.setPointerCapture(e.pointerId);
     canvas.classList.add("drag");
@@ -95,7 +112,7 @@ export function createView(canvas, onChange) {
 
   canvas.addEventListener("wheel", e => {
     e.preventDefault();
-    goal = null; touched = true;
+    goal = null; touched = true; stop();
     const r = canvas.getBoundingClientRect();
     const mx = e.clientX - r.left, my = e.clientY - r.top;
     const next = Math.min(2.5, Math.max(0.12, v.scale * Math.exp(-e.deltaY * 0.0012)));
