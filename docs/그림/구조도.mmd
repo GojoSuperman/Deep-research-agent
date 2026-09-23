@@ -1,0 +1,28 @@
+flowchart TD
+    START([질문]) --> PLAN
+
+    PLAN["① plan<br/>목차 n절 · 역할 · 시작 문서 배정<br/><i>문서 카드 52장을 본다</i>"]
+    DISPATCH["② dispatch<br/>이번 바퀴에 내보낼 절을 고른다<br/><i>1바퀴 전원 · 2바퀴부터 빈 절만</i>"]
+    R1["③ researcher A"]
+    R2["③ researcher B"]
+    RN["③ researcher n"]
+    REVIEW["④ review<br/>인용 0곳인 절을 찾는다"]
+    SYNTH["⑤ synthesize<br/>절을 이어붙이고 머리말만 쓴다<br/><i>절 본문은 한 글자도 안 고친다</i>"]
+    EVAL["⑥ evaluate<br/>지표 7개 + 그물 판정"]
+
+    PLAN --> DISPATCH
+    DISPATCH -. "Send 팬아웃" .-> R1 & R2 & RN
+    R1 & R2 & RN --> REVIEW
+    REVIEW -- "빈 절 있음 · 바퀴 상한 안" --> DISPATCH
+    REVIEW -- "done" --> SYNTH
+    SYNTH --> EVAL --> FIN([보고서 + 지표])
+
+    subgraph ST["State — 리듀서가 붙은 칸이 병렬의 합류점이다"]
+        direction LR
+        S1["sections · settings · round"]
+        S2["drafts<br/><i>merge_drafts — 절 번호로 덮어쓴다</i>"]
+        S3["reads · coord_chars<br/><i>operator.add — 모든 바퀴 누적</i>"]
+        S4["gaps · assigned · report · metrics"]
+    end
+
+    R1 & R2 & RN -. "원고만 올라간다<br/>원문은 아래 남는다" .-> S2
