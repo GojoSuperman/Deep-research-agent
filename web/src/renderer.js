@@ -83,7 +83,83 @@ export async function preload() {
   return { total: jobs.length, missing: done.filter(x => !x).length };
 }
 
-function paint(ctx, reads, labels, walls, actors) {
+/**
+ * 바닥 한 장 — 바닥 타일은 수백 장이지만 늘 똑같고, 늘 맨 아래 깔린다.
+ * 매 프레임 타일을 하나씩 칠하면 그게 프레임 시간의 대부분이었다 (가구 전부 6fps → 바닥만 빼도 29fps).
+ * 그래서 화면 해상도에 맞춘 한 장으로 미리 구워 두고 매 프레임 그 한 장만 붙인다.
+ * 해상도는 √2 배 계단으로 잡는다 — 카메라가 줌하는 동안 계단을 넘을 때만 다시 굽는다.
+ */
+/** 화면 해상도(배율×DPR)를 √2 배 계단으로 올려 잡는다. 원본(1)보다 크게는 굽지 않는다. */
+const level = res => Math.min(1, 2 ** (Math.ceil(Math.log2(res) * 2) / 2));
+
+/**
+ * 스프라이트 사본 — 투명 여백을 잘라내고 화면 해상도로 미리 줄여 둔다.
+ * 가구 원본은 384×768 인데 대부분 투명이다. 그걸 매 프레임 원본에서 줄여 칠하던 것이
+ * 한 프레임 약 80ms 였다 (캔버스가 CPU 로 그려지는 상태에서 실측).
+ * 사본은 (스프라이트, 계단) 마다 한 번만 굽는다.
+ */
+const trims = new Map();       // img → { x, y, w, h } 원본 좌표의 불투명 영역
+const bakes = new Map();       // img → Map(lvl → canvas)
+function trimOf(img) {
+  let t = trims.get(img);
+  if (t) return t;
+  const c = document.createElement("canvas");
+  c.width = img.width; c.height = img.height;
+  const g = c.getContext("2d", { willReadFrequently: true });
+  g.drawImage(img, 0, 0);
+  const a = g.getImageData(0, 0, c.width, c.height).data;
+  let x0 = c.width, y0 = c.height, x1 = -1, y1 = -1;
+  for (let y = 0; y < c.height; y++)
+    for (let x = 0; x < c.width; x++)
+      if (a[(y * c.width + x) * 4 + 3]) {
+        if (x < x0) x0 = x; if (x > x1) x1 = x;
+        if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
+  t = x1 < 0 ? { x: 0, y: 0, w: 1, h: 1 } : { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 };
+  trims.set(img, t);
+  return t;
+}
+function spriteOf(img, lvl) {
+  let m = bakes.get(img);
+  if (!m) bakes.set(img, (m = new Map()));
+  let c = m.get(lvl);
+  if (c) return c;
+  const t = trimOf(img);
+  c = document.createElement("canvas");
+  c.width = Math.max(1, Math.ceil(t.w * lvl)); c.height = Math.max(1, Math.ceil(t.h * lvl));
+  const g = c.getContext("2d");
+  g.imageSmoothingEnabled = true;
+  g.imageSmoothingQuality = "high";
+  g.drawImage(img, t.x, t.y, t.w, t.h, 0, 0, c.width, c.height);
+  m.set(lvl, c);
+  return c;
+}
+
+let floorBake = null;          // { res, img, x, y, w, h, canvas }
+function floorLayer(res, origin, img) {
+  const lvl = level(res);
+  if (floorBake && floorBake.res === lvl && floorBake.img === img) return floorBake;
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const spots = [];
+  for (let row = 0; row < GRID.rows; row++)
+    for (let col = 0; col < GRID.cols; col++) {
+      const p = spriteTopLeft(col, row, origin);
+      spots.push(p);
+      x0 = Math.min(x0, p.x); y0 = Math.min(y0, p.y);
+      x1 = Math.max(x1, p.x + img.width); y1 = Math.max(y1, p.y + img.height);
+    }
+  const c = floorBake?.canvas || document.createElement("canvas");
+  c.width = Math.ceil((x1 - x0) * lvl); c.height = Math.ceil((y1 - y0) * lvl);
+  const g = c.getContext("2d");
+  g.clearRect(0, 0, c.width, c.height);
+  g.imageSmoothingEnabled = true;
+  g.imageSmoothingQuality = "high";
+  for (const p of spots)
+    g.drawImage(img, (p.x - x0) * lvl, (p.y - y0) * lvl, img.width * lvl, img.height * lvl);
+  return (floorBake = { res: lvl, img, x: x0, y: y0, w: x1 - x0, h: y1 - y0, canvas: c });
+}
+
+function paint(ctx, reads, labels, walls, actors, res) {
   const box = sceneBox();
   // 바닥은 평면이라 서로 가리지 않는다. **먼저 전부 깔고** 나머지를 깊이순으로 올린다.
   // 깊이순에 섞으면 앞 타일이 뒤 오브젝트의 다리를 덮는다 (캐비닛 다리가 잘려 보이던 원인).
@@ -96,7 +172,14 @@ function paint(ctx, reads, labels, walls, actors) {
        .sort((a, b) => depth(a.col, a.row, a.layer) - depth(b.col, b.row, b.layer)));
 
   const missing = new Set();
+  const floorImg = got("floorFull" + FACE, FURN);
+  if (floorImg) {
+    const f = floorLayer(res, box.origin, floorImg);
+    ctx.drawImage(f.canvas, f.x, f.y, f.w, f.h);
+  } else missing.add("floorFull" + FACE);
+  const lvl = level(res);
   for (const it of items) {
+    if (it.base === "floorFull") continue;          // 위에서 한 장으로 깔았다
     const img = got(it.sprite, FURN);
     if (!img) { missing.add(it.sprite); continue; }
     const p = spriteTopLeft(it.col, it.row, box.origin);
@@ -106,15 +189,18 @@ function paint(ctx, reads, labels, walls, actors) {
     // 키울 때도 발이 놓인 자리는 그대로 — 바닥 앵커를 기준으로 확대한다
     const ax = p.x + img.width / 2, ay = p.y + img.height - TILE.H / 2;
     const dx = ax - (img.width / 2) * k, dy = ay - (img.height - TILE.H / 2) * ky;
-    const w = img.width * k, h = img.height * ky;
+    const w = img.width * k;
+    // 잘라낸 사본을 원래 자리에 — 여백만큼 안쪽으로 들여 그린다
+    const t = trimOf(img), bake = spriteOf(img, lvl);
+    const tx = t.x * k, ty = t.y * ky, tw = t.w * k, th = t.h * ky;
     if (it.flip) {
       ctx.save();
       ctx.translate(dx + w, dy);
       ctx.scale(-1, 1);
-      ctx.drawImage(img, 0, 0, w, h);
+      ctx.drawImage(bake, tx, ty, tw, th);
       ctx.restore();
     } else {
-      ctx.drawImage(img, dx, dy, w, h);
+      ctx.drawImage(bake, dx + tx, dy + ty, tw, th);
     }
   }
 
@@ -179,7 +265,7 @@ function drawLabels(ctx, items, actors, origin) {
   for (const a of actors) {
     const f = foot(a.col, a.row, origin);
     tag(f.x, f.y - 122, CAST[a.role]?.label || a.role);
-    if (a.say) say(ctx, f.x, f.y - 152, a.say);
+    if (a.say) say(ctx, f.x, f.y - 152, a.say, a.sayFull || a.say);
   }
   ctx.restore();
 }
@@ -212,21 +298,42 @@ function drawGrid(ctx, origin) {
 
 const BUBBLE = { maxW: 440, lineH: 26, padX: 12, padY: 7, maxLines: 5 };
 
+const OPEN = "「『(（[", CLOSE = "」』)）]";
+const GLUE = new Set(["—", "–", "·", "→", ":"]);   // 홀로 줄 머리에 서면 어색한 기호
+
 /**
- * 말풍선 글을 폭에 맞춰 끊는다.
- * 한국어는 띄어쓰기가 드물어 글자 단위로 재되, 가까운 곳에 공백이 있으면 거기서 끊는다
- * (「」 로 묶인 문서명이 두 줄에 걸쳐 쪼개지는 것을 줄인다).
+ * 말풍선 글을 뜻 덩어리로 자른다.
+ * 공백에서만 끊되 「」·() 안의 공백은 끊는 자리로 치지 않는다 — 문서명·서고명이 한 덩어리.
+ * 「—」 같은 이음 기호는 앞 덩어리에 붙인다 (다음 줄이 「—」로 시작하지 않게).
  */
-function wrapSay(ctx, text, maxW) {
+function chunks(text) {
+  const out = [];
+  let cur = "", depth = 0;
+  for (const ch of text) {
+    if (OPEN.includes(ch)) depth++;
+    else if (CLOSE.includes(ch)) depth = Math.max(0, depth - 1);
+    if (ch === " " && depth === 0) {
+      if (cur) out.push(cur);
+      cur = "";
+      continue;
+    }
+    cur += ch;
+  }
+  if (cur) out.push(cur);
+  const merged = [];
+  for (const c of out) {
+    if (GLUE.has(c) && merged.length) merged[merged.length - 1] += " " + c;
+    else merged.push(c);
+  }
+  return merged;
+}
+
+/** 한 덩어리가 한 줄보다 길 때만 쓰는 비상구 — 글자 단위로 끊는다. */
+function hardWrap(ctx, text, maxW) {
   const lines = [];
   let line = "";
   for (const ch of text) {
-    if (ch === "\n") { lines.push(line); line = ""; continue; }
-    if (line && ctx.measureText(line + ch).width > maxW) {
-      const sp = line.lastIndexOf(" ");
-      if (sp > 0 && line.length - sp <= 12) { lines.push(line.slice(0, sp)); line = line.slice(sp + 1); }
-      else { lines.push(line); line = ""; }
-    }
+    if (line && ctx.measureText(line + ch).width > maxW) { lines.push(line); line = ""; }
     line += ch;
   }
   if (line) lines.push(line);
@@ -234,14 +341,56 @@ function wrapSay(ctx, text, maxW) {
 }
 
 /**
+ * 말풍선 글을 폭에 맞춰 끊는다.
+ * 뜻 덩어리(chunks) 사이에서만 끊는다. 「유사사례 서고」가 「유사사례 / 서고」로 갈리지 않는다.
+ */
+function wrapSay(ctx, text, maxW) {
+  const lines = [];
+  for (const para of text.split("\n")) {
+    let line = "";
+    const put = (c, fallback) => {
+      const next = line ? line + " " + c : c;
+      if (ctx.measureText(next).width <= maxW) { line = next; return; }
+      if (ctx.measureText(c).width > maxW) { fallback(c); return; }
+      lines.push(line);
+      line = c;
+    };
+    const hard = c => {
+      if (line) lines.push(line);
+      const parts = hardWrap(ctx, c, maxW);
+      line = parts.pop();
+      lines.push(...parts);
+    };
+    // 한 줄보다 긴 덩어리(긴 문서명)는 그 안의 띄어쓰기에서 끊는다. 낱말까지 길면 글자로.
+    for (const c of chunks(para)) put(c, big => big.split(" ").forEach(w => put(w, hard)));
+    lines.push(line);
+  }
+  return lines;
+}
+
+/**
+ * 타자 효과 — 줄은 **다 쓴 글** 기준으로 정해 두고 앞에서부터 n 글자만 보인다.
+ * 쓰는 도중 기준으로 끊으면 덩어리가 넘칠 때 윗줄 끝에서 아랫줄로 튀어 내려간다.
+ */
+function revealLines(lines, n) {
+  const shown = [];
+  for (const l of lines) {
+    if (n <= 0) break;
+    shown.push(l.slice(0, n));
+    n -= l.length + 1;                     // +1 = 끊긴 자리의 공백
+  }
+  return shown;
+}
+
+/**
  * 말풍선 — 길면 줄을 바꾼다.
  * 말꼬리가 닿는 아래 모서리는 그대로 두고 **위로** 늘린다. 아래로 늘리면 말하는 사람을 덮는다.
  */
-function say(ctx, x, y, text) {
+function say(ctx, x, y, text, full = text) {
   ctx.save();
   ctx.font = "21px sans-serif";            // 말풍선
   ctx.textAlign = "center";
-  let lines = wrapSay(ctx, text, BUBBLE.maxW);
+  let lines = revealLines(wrapSay(ctx, full, BUBBLE.maxW), text.length);
   if (lines.length > BUBBLE.maxLines) {
     lines = lines.slice(0, BUBBLE.maxLines);
     lines[lines.length - 1] = lines[lines.length - 1].slice(0, -1) + "…";
@@ -275,7 +424,7 @@ export function draw(canvas, view) {
   ctx.save();
   ctx.translate(pan.x, pan.y);
   ctx.scale(scale, scale);
-  const r = paint(ctx, reads, labels, walls, actors);
+  const r = paint(ctx, reads, labels, walls, actors, scale * dpr);
   if (grid) drawGrid(ctx, sceneBox().origin);
   ctx.restore();
   return r;
