@@ -1,0 +1,162 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "바넘 효과란 무엇인가?",
+ "목차": [
+  "바넘 효과의 정의와 개념",
+  "바넘 효과의 심리적 기초",
+  "바넘 효과의 실제 사례",
+  "바넘 효과의 영향과 비판"
+ ],
+ "시작문서": "Barnum effect",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Barnum effect",
+   "library": "편향",
+   "source_chars": 8065,
+   "memo_chars": 348,
+   "relevant": true
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 279,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 322,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 290,
+   "relevant": true
+  },
+  {
+   "doc": "Halo effect",
+   "library": "편향",
+   "source_chars": 31902,
+   "memo_chars": 221,
+   "relevant": true
+  },
+  {
+   "doc": "Graphology",
+   "library": "유사사례",
+   "source_chars": 14163,
+   "memo_chars": 219,
+   "relevant": true
+  },
+  {
+   "doc": "Effect size",
+   "library": "측정",
+   "source_chars": 92098,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 199,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 353,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Personality test",
+   "library": "측정",
+   "source_chars": 31044,
+   "memo_chars": 310,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "바넘 효과의 정의와 개념",
+   "text": "바넘 효과(Barnum effect)는 개인의 성격에 대한 모호하고 일반적인 설명에 높은 정확도를 부여하는 심리적 현상이다. 이 효과는 점성술, 운세, 아우라 읽기와 같은 초자연적 신념의 수용을 설명하는 데 기여할 수 있다 «Barnum effect». 심리학자 베르트람 포러(Bertram Forer)는 1949년에 이를 '개인 검증의 오류'라고 불렀고, 1956년에는 폴 E. 미힐(Paul E. Meehl)이 '바넘 효과'라는 용어를 만들었다 «Barnum effect». 포러의 실험에서 39명의 학생에게 동일한 성격 묘사를 제공했으나, 학생들은 평균 4.30의 정확도를 평가했다 «Barnum effect». 이 효과는 긍정적인 특성과 부정적인 특성의 비율, 피드백 제공자의 신뢰도에 영향을 받는다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "바넘 효과의 심리적 기초",
+   "text": "바넘 효과는 인지 편향(cognitive bias)과 관련이 있다. 인지 편향은 개인이 자신의 주관적 현실을 만들어내는 과정에서 발생하며, 이는 잘못된 판단이나 비논리적 해석으로 이어질 수 있다 «Cognitive bias». 바넘 효과는 사람들이 일반적인 진술을 자신에게 맞는 것으로 받아들이는 경향을 보여주는 예시로, 이는 인지 편향의 일종으로 볼 수 있다 «Cognitive bias». 또한, 확증 편향(confirmation bias)도 바넘 효과와 관련이 있다. 확증 편향은 개인이 자신의 기존 신념을 지지하는 정보를 검색하고 해석하며 기억하는 경향을 의미한다 «Confirmation bias». 연구에 따르면, 확증 편향은 사람들이 모순되는 정보를 무시하거나 애매한 증거를 기존 태도를 지지하는 것으로 해석할 때 나타난다 «Confirmation bias». 이러한 심리적 기초는 바넘 효과가 어떻게 작용하는지를 이해하는 데 중요한 요소가 된다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "바넘 효과의 실제 사례",
+   "text": "바넘 효과는 점성술에서 뚜렷하게 나타난다. 점성술은 인간의 일과 지구의 사건에 대한 정보를 천체의 위치를 통해 파악할 수 있다고 주장하며, 고대 메소포타미아에서 기원하여 현대 서양 점성술로 발전하였다 «Astrology». 그러나 과학적 방법의 광범위한 채택 이후 점성술은 이론적 및 실험적 근거에서 도전받아 과학적 유효성을 잃었다 «Astrology». 또한, MBTI(Myers–Briggs Type Indicator)와 같은 성격 검사도 바넘 효과의 영향을 받는다. MBTI는 참가자들이 결과의 정확성을 과대평가하는 경향이 있으며, 심리학자 아담 그랜트는 MBTI가 직무 성과나 결혼 생활의 만족도를 예측하는 데 거의 예측력이 없다고 주장했다 «Myers–Briggs Type Indicator». 이처럼 바넘 효과는 다양한 성격 평가 도구와 초자연적 신념 체계에서 공통적으로 나타난다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "바넘 효과의 영향과 비판",
+   "text": "바넘 효과는 성격 테스트 방법의 검증을 어렵게 만든다. 비개인화된 그래포로지 보고서는 이러한 비판을 뒷받침하며, 연구자 제프리 딘(Geoffrey Dean)은 그래포로지의 효과 크기가 너무 작다고 주장한다 «Graphology». 또한, 바넘 효과는 사람들이 긍정적인 인상을 가진 사람에 대해 다른 특성도 긍정적으로 평가하는 경향을 보여준다 «Halo effect». 예를 들어, 2023년 연구에서는 2748명의 참가자가 미화 필터를 적용한 후 동일한 개인에 대해 지능, 신뢰성, 사교성, 행복감이 더 높게 평가되었다 «Halo effect». 이러한 현상은 바넘 효과와 유사하다 «Halo effect». 바넘 효과는 개인의 성격에 대한 설명이 개인 맞춤형으로 보일 때 높은 정확도 평가를 받는 심리적 현상으로, 이는 심리학적 연구에서 중요한 논의의 주제가 되고 있다 «Barnum effect».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 바넘 효과의 정의와 개념\n\n바넘 효과(Barnum effect)는 개인의 성격에 대한 모호하고 일반적인 설명에 높은 정확도를 부여하는 심리적 현상이다. 이 효과는 점성술, 운세, 아우라 읽기와 같은 초자연적 신념의 수용을 설명하는 데 기여할 수 있다 «Barnum effect». 심리학자 베르트람 포러(Bertram Forer)는 1949년에 이를 '개인 검증의 오류'라고 불렀고, 1956년에는 폴 E. 미힐(Paul E. Meehl)이 '바넘 효과'라는 용어를 만들었다 «Barnum effect». 포러의 실험에서 39명의 학생에게 동일한 성격 묘사를 제공했으나, 학생들은 평균 4.30의 정확도를 평가했다 «Barnum effect». 이 효과는 긍정적인 특성과 부정적인 특성의 비율, 피드백 제공자의 신뢰도에 영향을 받는다 «Barnum effect».\n\n## 바넘 효과의 심리적 기초\n\n바넘 효과는 인지 편향(cognitive bias)과 관련이 있다. 인지 편향은 개인이 자신의 주관적 현실을 만들어내는 과정에서 발생하며, 이는 잘못된 판단이나 비논리적 해석으로 이어질 수 있다 «Cognitive bias». 바넘 효과는 사람들이 일반적인 진술을 자신에게 맞는 것으로 받아들이는 경향을 보여주는 예시로, 이는 인지 편향의 일종으로 볼 수 있다 «Cognitive bias». 또한, 확증 편향(confirmation bias)도 바넘 효과와 관련이 있다. 확증 편향은 개인이 자신의 기존 신념을 지지하는 정보를 검색하고 해석하며 기억하는 경향을 의미한다 «Confirmation bias». 연구에 따르면, 확증 편향은 사람들이 모순되는 정보를 무시하거나 애매한 증거를 기존 태도를 지지하는 것으로 해석할 때 나타난다 «Confirmation bias». 이러한 심리적 기초는 바넘 효과가 어떻게 작용하는지를 이해하는 데 중요한 요소가 된다 «Barnum effect».\n\n## 바넘 효과의 실제 사례\n\n바넘 효과는 점성술에서 뚜렷하게 나타난다. 점성술은 인간의 일과 지구의 사건에 대한 정보를 천체의 위치를 통해 파악할 수 있다고 주장하며, 고대 메소포타미아에서 기원하여 현대 서양 점성술로 발전하였다 «Astrology». 그러나 과학적 방법의 광범위한 채택 이후 점성술은 이론적 및 실험적 근거에서 도전받아 과학적 유효성을 잃었다 «Astrology». 또한, MBTI(Myers–Briggs Type Indicator)와 같은 성격 검사도 바넘 효과의 영향을 받는다. MBTI는 참가자들이 결과의 정확성을 과대평가하는 경향이 있으며, 심리학자 아담 그랜트는 MBTI가 직무 성과나 결혼 생활의 만족도를 예측하는 데 거의 예측력이 없다고 주장했다 «Myers–Briggs Type Indicator». 이처럼 바넘 효과는 다양한 성격 평가 도구와 초자연적 신념 체계에서 공통적으로 나타난다 «Barnum effect».\n\n## 바넘 효과의 영향과 비판\n\n바넘 효과는 성격 테스트 방법의 검증을 어렵게 만든다. 비개인화된 그래포로지 보고서는 이러한 비판을 뒷받침하며, 연구자 제프리 딘(Geoffrey Dean)은 그래포로지의 효과 크기가 너무 작다고 주장한다 «Graphology». 또한, 바넘 효과는 사람들이 긍정적인 인상을 가진 사람에 대해 다른 특성도 긍정적으로 평가하는 경향을 보여준다 «Halo effect». 예를 들어, 2023년 연구에서는 2748명의 참가자가 미화 필터를 적용한 후 동일한 개인에 대해 지능, 신뢰성, 사교성, 행복감이 더 높게 평가되었다 «Halo effect». 이러한 현상은 바넘 효과와 유사하다 «Halo effect». 바넘 효과는 개인의 성격에 대한 설명이 개인 맞춤형으로 보일 때 높은 정확도 평가를 받는 심리적 현상으로, 이는 심리학적 연구에서 중요한 논의의 주제가 되고 있다 «Barnum effect».",
+ "metrics": {
+  "근거율": 0.6923,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 5,
+  "최다문서편중": 0.3889,
+  "중복률": null,
+  "격리율": 1.0,
+  "문장수": 26,
+  "인용수": 18,
+  "읽은문서수": 12,
+  "보고서자수": 1893,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 105700,
+  "completion": 3837
+ },
+ "cost_krw": 25,
+ "초": 44.6
+}

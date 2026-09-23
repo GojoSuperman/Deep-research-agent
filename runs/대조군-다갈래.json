@@ -1,0 +1,183 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
+ "목차": [
+  "MBTI 궁합론의 이론적 근거",
+  "심리학계의 비판적 시각",
+  "성격 유형과 인간 관계",
+  "성격 심리학의 발전과 MBTI"
+ ],
+ "시작문서": "Myers–Briggs Type Indicator",
+ "예산": 15,
+ "실제로읽은건수": 15,
+ "reads": [
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 250,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 331,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Barnum effect",
+   "library": "편향",
+   "source_chars": 8065,
+   "memo_chars": 271,
+   "relevant": true
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 302,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 259,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 299,
+   "relevant": true
+  },
+  {
+   "doc": "Extraversion and introversion",
+   "library": "유형론",
+   "source_chars": 43405,
+   "memo_chars": 325,
+   "relevant": true
+  },
+  {
+   "doc": "Hans Eysenck",
+   "library": "성격심리",
+   "source_chars": 29000,
+   "memo_chars": 234,
+   "relevant": true
+  },
+  {
+   "doc": "Effect size",
+   "library": "측정",
+   "source_chars": 92098,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Blood type personality theory",
+   "library": "유사사례",
+   "source_chars": 13810,
+   "memo_chars": 317,
+   "relevant": true
+  },
+  {
+   "doc": "Personality",
+   "library": "성격심리",
+   "source_chars": 24066,
+   "memo_chars": 342,
+   "relevant": true
+  },
+  {
+   "doc": "Analytical psychology",
+   "library": "유형론",
+   "source_chars": 57424,
+   "memo_chars": 0,
+   "relevant": false
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "MBTI 궁합론의 이론적 근거",
+   "text": "MBTI는 16개의 성격 유형으로 개인을 분류하는 자기 보고식 질문지이다 «Myers–Briggs Type Indicator». 이 검사는 사람들의 성격을 외향성, 내향성, 감각, 직관, 사고, 감정, 판단, 인식의 8가지 차원으로 나누어 분석한다 «Extraversion and introversion». 그러나 MBTI는 심리학계에서 과학적 신뢰성이 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 연구자 Adam Grant는 MBTI의 유효성에 대한 증거가 없다고 주장하며, 이 검사가 직업 성과나 결혼 생활의 만족도를 예측하는 데 거의 도움이 되지 않는다고 언급했다 «Myers–Briggs Type Indicator». 또한, MBTI는 심리학적 실습이나 연구에서 유용하지 않다고 평가받고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받았다 «Myers–Briggs Type Indicator». 이와 같은 이유로 MBTI 궁합론은 개인 간의 관계를 설명하는 데 있어 신뢰할 수 있는 근거가 부족하다 «Myers–Briggs Type Indicator\".",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "심리학계의 비판적 시각",
+   "text": "MBTI는 과학적 근거가 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 성격 심리학의 발전에 따라, 성격을 측정하는 다양한 방법론이 제안되었으며, 그 중 16PF(16 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로 개발되었다 «16PF Questionnaire». 16PF는 60개 이상의 연구에 의해 그 구조의 타당성이 입증되었고, 다른 주요 성격 검사와의 상관관계도 확인되었다 «16PF Questionnaire». 반면, MBTI는 Barnum 효과와 같은 심리적 현상에 의해 그 신뢰성이 의심받고 있다 «Barnum effect». Barnum 효과는 개인이 자신에게 맞춰진 것처럼 느끼는 모호하고 일반적인 성격 설명에 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 또한, 확증 편향(confirmation bias)은 사람들이 기존 신념을 확인하는 정보를 선호하고, 반대되는 정보를 무시하는 경향을 나타내며, 이는 MBTI 궁합론에 대한 신뢰성을 더욱 떨어뜨린다 «Confirmation bias». 이러한 비판들은 MBTI가 성격 유형을 정의하는 데 있어 과학적 근거가 부족하다는 점을 강조한다 «Myers–Briggs Type Indicator\".",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "성격 유형과 인간 관계",
+   "text": "성격은 행동, 인지, 감정 패턴으로 구성되며, 상대적으로 안정적이지만 경험과 발달 과정에 따라 변화할 수 있다 «Personality». 성격 유형에 따라 사람들은 서로 다른 방식으로 관계를 형성하고 유지한다 «Personality». MBTI 궁합론은 이러한 성격 유형을 기반으로 인간 관계의 호환성을 설명하려고 한다 «Myers–Briggs Type Indicator». 그러나 MBTI의 과학적 신뢰성이 부족하다는 점에서, 성격 유형이 인간 관계에 미치는 영향을 단순화하는 경향이 있다 «Myers–Briggs Type Indicator». 외향적인 사람들은 사교적이고, 내향적인 사람들은 혼자 있는 것을 선호하는 경향이 있다 «Extraversion and introversion». 이러한 성격 특성은 인간 관계의 형성에 영향을 미칠 수 있지만, MBTI가 제시하는 궁합론은 이러한 복잡한 관계를 단순화하여 설명하려는 경향이 있다 «Myers–Briggs Type Indicator\".",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "성격 심리학의 발전과 MBTI",
+   "text": "성격심리학은 개인의 성격과 그 변이를 연구하는 심리학의 한 분야이다 «Personality psychology». 성격 이론에는 기질적 관점, 정신역동적 관점, 인본주의적 관점, 생물학적 관점, 행동주의적 관점 등이 포함된다 «Personality psychology». MBTI는 성격 유형을 정의하는 데 사용되지만, 과학적 근거가 부족하다는 비판을 받는다 «Myers–Briggs Type Indicator». 성격 심리학의 발전에 따라, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2)와 같은 다양한 성격 측정 도구가 개발되었다 «Personality». 이러한 도구들은 성격의 다섯 가지 요인(개방성, 성실성, 외향성, 친화성, 신경증)을 측정하며, 시간이 지나도 안정적이라는 점에서 MBTI와는 차별화된다 «Personality». MBTI는 성격의 고정된 특성으로 사람들의 행동을 설명하려고 하지만, 성격은 환경과의 상호작용을 통해 개인의 기대, 자아 개념, 가치 및 태도에 강한 영향을 미친다 «Personality psychology\".",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## MBTI 궁합론의 이론적 근거\n\nMBTI는 16개의 성격 유형으로 개인을 분류하는 자기 보고식 질문지이다 «Myers–Briggs Type Indicator». 이 검사는 사람들의 성격을 외향성, 내향성, 감각, 직관, 사고, 감정, 판단, 인식의 8가지 차원으로 나누어 분석한다 «Extraversion and introversion». 그러나 MBTI는 심리학계에서 과학적 신뢰성이 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 연구자 Adam Grant는 MBTI의 유효성에 대한 증거가 없다고 주장하며, 이 검사가 직업 성과나 결혼 생활의 만족도를 예측하는 데 거의 도움이 되지 않는다고 언급했다 «Myers–Briggs Type Indicator». 또한, MBTI는 심리학적 실습이나 연구에서 유용하지 않다고 평가받고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받았다 «Myers–Briggs Type Indicator». 이와 같은 이유로 MBTI 궁합론은 개인 간의 관계를 설명하는 데 있어 신뢰할 수 있는 근거가 부족하다 «Myers–Briggs Type Indicator\".\n\n## 심리학계의 비판적 시각\n\nMBTI는 과학적 근거가 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 성격 심리학의 발전에 따라, 성격을 측정하는 다양한 방법론이 제안되었으며, 그 중 16PF(16 성격 요인 질문지)는 성격을 측정하고 정신과적 장애 진단 및 치료 계획에 도움을 줄 수 있는 도구로 개발되었다 «16PF Questionnaire». 16PF는 60개 이상의 연구에 의해 그 구조의 타당성이 입증되었고, 다른 주요 성격 검사와의 상관관계도 확인되었다 «16PF Questionnaire». 반면, MBTI는 Barnum 효과와 같은 심리적 현상에 의해 그 신뢰성이 의심받고 있다 «Barnum effect». Barnum 효과는 개인이 자신에게 맞춰진 것처럼 느끼는 모호하고 일반적인 성격 설명에 높은 정확도를 부여하는 심리적 현상이다 «Barnum effect». 또한, 확증 편향(confirmation bias)은 사람들이 기존 신념을 확인하는 정보를 선호하고, 반대되는 정보를 무시하는 경향을 나타내며, 이는 MBTI 궁합론에 대한 신뢰성을 더욱 떨어뜨린다 «Confirmation bias». 이러한 비판들은 MBTI가 성격 유형을 정의하는 데 있어 과학적 근거가 부족하다는 점을 강조한다 «Myers–Briggs Type Indicator\".\n\n## 성격 유형과 인간 관계\n\n성격은 행동, 인지, 감정 패턴으로 구성되며, 상대적으로 안정적이지만 경험과 발달 과정에 따라 변화할 수 있다 «Personality». 성격 유형에 따라 사람들은 서로 다른 방식으로 관계를 형성하고 유지한다 «Personality». MBTI 궁합론은 이러한 성격 유형을 기반으로 인간 관계의 호환성을 설명하려고 한다 «Myers–Briggs Type Indicator». 그러나 MBTI의 과학적 신뢰성이 부족하다는 점에서, 성격 유형이 인간 관계에 미치는 영향을 단순화하는 경향이 있다 «Myers–Briggs Type Indicator». 외향적인 사람들은 사교적이고, 내향적인 사람들은 혼자 있는 것을 선호하는 경향이 있다 «Extraversion and introversion». 이러한 성격 특성은 인간 관계의 형성에 영향을 미칠 수 있지만, MBTI가 제시하는 궁합론은 이러한 복잡한 관계를 단순화하여 설명하려는 경향이 있다 «Myers–Briggs Type Indicator\".\n\n## 성격 심리학의 발전과 MBTI\n\n성격심리학은 개인의 성격과 그 변이를 연구하는 심리학의 한 분야이다 «Personality psychology». 성격 이론에는 기질적 관점, 정신역동적 관점, 인본주의적 관점, 생물학적 관점, 행동주의적 관점 등이 포함된다 «Personality psychology». MBTI는 성격 유형을 정의하는 데 사용되지만, 과학적 근거가 부족하다는 비판을 받는다 «Myers–Briggs Type Indicator». 성격 심리학의 발전에 따라, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2)와 같은 다양한 성격 측정 도구가 개발되었다 «Personality». 이러한 도구들은 성격의 다섯 가지 요인(개방성, 성실성, 외향성, 친화성, 신경증)을 측정하며, 시간이 지나도 안정적이라는 점에서 MBTI와는 차별화된다 «Personality». MBTI는 성격의 고정된 특성으로 사람들의 행동을 설명하려고 하지만, 성격은 환경과의 상호작용을 통해 개인의 기대, 자아 개념, 가치 및 태도에 강한 영향을 미친다 «Personality psychology\".",
+ "metrics": {
+  "근거율": 0.84,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 8,
+  "최다문서편중": 0.381,
+  "중복률": null,
+  "격리율": 1.0,
+  "문장수": 25,
+  "인용수": 21,
+  "읽은문서수": 15,
+  "보고서자수": 2391,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 17,
+  "prompt": 132682,
+  "completion": 5114
+ },
+ "cost_krw": 32,
+ "초": 52.0
+}
