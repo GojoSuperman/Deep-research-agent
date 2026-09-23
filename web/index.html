@@ -815,15 +815,35 @@ showKeyState();
 
 setTab("replay");               // 처음 화면은 재생 탭
 
+// 주소로 화면 상태를 정할 수 있다 — 캡처와 리뷰에서 같은 장면을 다시 부르려고.
+//   ?tab=live|settings   어느 탭을 열지
+//   ?run=다갈래-기본       어느 녹화를 고를지
+//   ?play=1              재생을 바로 시작할지 (캡처용)
+//   ?report=1            보고서 창을 열어 둘지
+//   ?fps=1               성능 계기
+const Q = new URLSearchParams(location.search);
+
 preload().then(async ({ total, missing }) => {
   ready = true;
   cam.fit();
+
+  const want = Q.get("run");
+  if (want && [...$run.options].some(o => o.value === want)) $run.value = want;
   await pick($run.value);
+
   if (missing) status.innerHTML = `<span class="err">스프라이트 ${missing}/${total} 못 읽음</span>`;
   requestAnimationFrame(loop);
+
+  const tab = Q.get("tab");
+  if (tab === "live" || tab === "settings") setTab(tab);
+
   let seen = false;
   try { seen = !!localStorage.getItem(SEEN); } catch { seen = false; }
-  if (!seen) $intro.showModal();
+  // 주소로 특정 장면을 부른 것이면 안내 창을 띄우지 않는다 (캡처를 가린다)
+  if (!seen && ![...Q.keys()].length) $intro.showModal();
+
+  if (Q.get("play") === "1" && !$play.disabled) $play.click();
+  if (Q.get("report") === "1" && !$reportOpen.disabled) $reportOpen.click();
 });
 </script>
 </body>
