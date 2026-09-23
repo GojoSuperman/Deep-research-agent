@@ -1,9 +1,9 @@
 # 배포에 필요 없는 것 (함수 번들과 정적 출력 둘 다 가볍게)
 .venv/
 __pycache__/
-docs/
-tools/
-runs/
+/docs/
+/tools/
+/runs/
 .superpowers/
 .bkit/
 .claude/
