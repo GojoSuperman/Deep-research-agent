@@ -116,5 +116,8 @@ export const DESK_SPRITE = null;   // 책상 의자는 두지 않는다
 export const CARPETS = [];
 
 export const ASSETS = "assets";
+// 에셋 버전 — 스프라이트 주소 끝에 ?v= 로 붙는다. vercel.json 이 /assets/ 를 1년 immutable 로 캐시하므로
+// **PNG 를 바꾸거나 새로 렌더했으면 이 값을 올린다.** 안 올리면 한 번 온 방문자는 옛 그림을 1년 본다.
+export const ASSET_V = "1";
 export const FURN = "furniture";
 export const FACE = "_SE";        // 회전이 없으므로 한 방향만 쓴다

@@ -1,6 +1,6 @@
 // 렌더러 — 바닥·벽·가구·캐릭터. 화면은 한 방향 고정이다.
 import { GRID, PROPS, ZONES, SHELF_SPRITE, GAUGE_MAX, GAUGE_DY, GAUGE_DX, ZONE_COLOR, SHELF_SCALE,
-         DESKS, DESK_SPRITE, WALL, CARPETS, ASSETS, FURN, FACE, LAYER, TILE } from "./config.js";
+         DESKS, DESK_SPRITE, WALL, CARPETS, ASSETS, ASSET_V, FURN, FACE, LAYER, TILE } from "./config.js";
 import { foot, spriteTopLeft, depth, sceneBox } from "./iso.js";
 import { allParts, drawActor, CAST } from "./actors.js";
 
@@ -15,7 +15,7 @@ function load(name, dir) {
     img.onerror = () => ok(null);      // 없는 스프라이트는 null 로 남겨 화면에 보고한다
   }).then(v => (cache.set(key, v), v));
   cache.set(key, p);
-  img.src = `${ASSETS}/${dir}/${name}.png`;   // 이 줄이 없으면 onload 가 영영 오지 않는다
+  img.src = `${ASSETS}/${dir}/${name}.png?v=${ASSET_V}`;   // 이 줄이 없으면 onload 가 영영 오지 않는다
   return p;
 }
 
