@@ -1,0 +1,458 @@
+{
+  "question": "MBTI의 네 지표는 각각 무엇을 재는가?",
+  "settings": {
+    "sections": 4,
+    "budget": 3,
+    "assign": true,
+    "zone": true,
+    "role": true,
+    "redelegate": true
+  },
+  "metrics": {
+    "근거율": 0.75,
+    "출처불일치": 0,
+    "출처불일치문장": [],
+    "인용0곳절수": 0,
+    "인용0곳절": [],
+    "허위인용": 0,
+    "허위인용문서": [],
+    "읽고안쓴문서": 4,
+    "최다문서편중": 0.381,
+    "중복률": 0.2727,
+    "격리율": 0.023,
+    "인용서고수": 2,
+    "서고분포": {
+      "유형론": 18,
+      "성격심리": 3
+    },
+    "문장수": 28,
+    "인용수": 21,
+    "읽은문서수": 11,
+    "보고서자수": 2832,
+    "그물": {
+      "통과": true,
+      "사유": []
+    }
+  },
+  "report": "# MBTI의 네 지표는 각각 무엇을 재는가?\n\n이 보고서는 MBTI(Myers–Briggs Type Indicator)의 네 가지 지표가 각각 무엇을 측정하는지를 탐구한다. 각 지표는 개인의 성격 유형을 이해하는 데 중요한 역할을 하며, 이 보고서는 이러한 지표들이 어떻게 구성되고 작용하는지를 설명할 것이다. 또한, MBTI의 심리적 기초와 성격 이론과의 관계를 살펴보며, 이 도구의 적용과 비판에 대해서도 논의할 예정이다.\n\n## MBTI의 네 지표 소개\n\nMBTI는 개인을 16개의 독특한 심리적 유형으로 분류하는 자기 보고식 질문지이다 «Myers–Briggs Type Indicator». 이 검사는 네 가지 이분법적 범주인 내향성/외향성, 감각/직관, 사고/감정, 판단/지각을 기반으로 하여 결과를 생성한다 «Myers–Briggs Type Indicator». 각 범주는 이진 문자 값으로 표현되며, 최종 결과는 네 개의 문자로 구성된다 «Myers–Briggs Type Indicator». 내향성과 외향성은 인간 성격 이론의 핵심 특성 차원으로, 외향성은 사교성과 높은 에너지와 관련이 있고, 내향성은 조용함과 고독한 활동 선호와 관련이 있다 «Extraversion and introversion». 이 두 특성은 고정된 범주가 아니라 정도로 측정될 수 있는 성격 특성이다 «Extraversion and introversion». MBTI는 제2차 세계대전 중에 Katharine Cook Briggs와 그녀의 딸 Isabel Briggs Myers에 의해 개발되었으며, Carl Jung의 심리적 유형 이론에 영감을 받았다 «Myers–Briggs Type Indicator».\n\n## MBTI 지표의 심리적 기초\n\n칼 융(Carl Jung)은 집단무의식(collective unconscious)이라는 개념을 제안하였으며, 이는 인간의 무의식이 선천적인 상징인 원형(archetype)으로 구성되어 있다고 믿었다. 집단무의식은 개인의 삶에 깊은 영향을 미치며, 이는 개인의 경험을 통해 의미를 부여받는다 «Collective unconscious». 융은 원형을 인간의 심리적 구조의 보편적이고 선천적인 패턴으로 정의하였고, 이는 개인의 환경에서 실현되기 위해 노력하는 내재적 사고 및 행동의 패턴이라고 주장하였다 «Jungian archetypes». 원형은 개인의 무의식에 통합되어 복합체(complex)를 형성하며, 이는 개인의 경험에 따라 다르게 나타날 수 있다 «Jungian archetypes». 또한, 칼 융은 의식의 네 가지 주요 기능을 제안하였다: 두 가지 인식 기능(감각과 직관)과 두 가지 판단 기능(사고와 감정)이다 «Psychological Types». 이 기능들은 외향성과 내향성이라는 두 가지 태도 유형에 의해 수정되며, 여덟 가지 주요 심리적 유형이 형성된다 «Psychological Types». 이러한 심리적 유형은 MBTI의 네 지표와 밀접한 관련이 있으며, 각 지표는 개인의 성격을 이해하는 데 중요한 역할을 한다. 따라서 MBTI는 융의 심리학적 이론에 기초하여 개인의 성격 유형을 분류하는 도구로 사용된다 «Psychological Types».\n\n## MBTI와 성격 이론 비교\n\nMBTI는 성격 유형을 평가하기 위한 도구로, 엑스트라버전과 내향성, 감각과 직관, 사고와 감정, 판단과 인식의 네 가지 지표를 사용한다. 엑스트라버전과 내향성은 개인의 에너지 방향성을 나타내며, 엑스트라버트는 사교적이고 외부 자극을 선호하는 반면, 내향자는 내성적이고 고독한 활동을 선호한다 «Extraversion and introversion». 감각과 직관은 정보 처리 방식을 구분하며, 감각형은 구체적이고 실질적인 정보를 선호하고, 직관형은 추상적이고 미래 지향적인 정보를 중시한다. 사고와 감정은 의사결정 방식을 나타내며, 사고형은 논리적이고 객관적인 판단을 중시하고, 감정형은 개인의 가치와 감정을 고려하여 결정을 내린다. 마지막으로 판단과 인식은 생활 방식과 관련이 있으며, 판단형은 계획적이고 구조적인 접근을 선호하고, 인식형은 유연하고 즉흥적인 방식을 선호한다. 이러한 네 가지 지표는 MBTI가 개인의 성격을 이해하고 예측하는 데 도움을 준다 «16PF Questionnaire». 이 절이 질문에 답하기에 충분한가, 부족하면 무엇이 더 필요한가.\n\n## MBTI의 적용과 비판\n\nMBTI는 카를 융의 심리적 유형 이론을 바탕으로 개발되었으며, 개인의 성격 유형을 구분하기 위해 심리적 기능의 두 쌍인 지각 기능(감각과 직관)과 판단 기능(사고와 감정)을 사용한다 «Personality psychology». MBTI는 사람의 행동을 고정된 상반된 특성으로 설명하며, 감각과 직관의 선호는 가장 기본적인 것으로 간주된다 «Personality psychology». 내향성과 외향성은 개인의 성격 이론에서 중요한 요소로, 내향성은 자신의 정신적 삶에서 만족을 얻는 상태로 정의된다 «Extraversion and introversion». 내향적인 사람은 혼자 있는 시간을 즐기고, 대규모 그룹에서의 시간에서 보상을 덜 느끼는 경향이 있다 «Extraversion and introversion». 반면 외향성은 외부에서 만족을 얻는 상태로, 외향적인 사람은 사람들과 함께 시간을 보내는 것을 즐기고 혼자 있는 것보다 더 지루함을 느낀다 «Extraversion and introversion». 연구에 따르면 내향성과 외향성은 고정된 범주가 아니라 연속체로 측정될 수 있다 «Extraversion and introversion». 또한 내향성은 종종 수줍음과 혼동되지만, 내향성은 선호일 뿐이며 수줍음은 고통에서 비롯된다 «Extraversion and introversion».\n",
+  "usage": {
+    "calls": 21,
+    "prompt": 148368,
+    "completion": 4714
+  },
+  "질문id": "단일-네지표",
+  "목록커밋": "ea2fab8 2026-09-23 11:32:50 +0900",
+  "events": [
+    {
+      "v": 1,
+      "type": "run.start",
+      "ts": 0.0,
+      "question": "MBTI의 네 지표는 각각 무엇을 재는가?",
+      "설정": {
+        "절수": 4,
+        "절예산": 3,
+        "배정": true,
+        "구역": true,
+        "역할": true,
+        "재위임": true
+      }
+    },
+    {
+      "v": 1,
+      "type": "plan.done",
+      "ts": 5.298,
+      "목차": [
+        {
+          "절": "MBTI의 네 지표 소개",
+          "역할": "큰그림 담당",
+          "시작문서": "Myers–Briggs Type Indicator",
+          "서고": "유형론"
+        },
+        {
+          "절": "MBTI 지표의 심리적 기초",
+          "역할": "인물 담당",
+          "시작문서": "Carl Jung",
+          "서고": "유형론"
+        },
+        {
+          "절": "MBTI와 성격 이론 비교",
+          "역할": "비교 담당",
+          "시작문서": "Big Five personality traits",
+          "서고": "성격심리"
+        },
+        {
+          "절": "MBTI의 적용과 비판",
+          "역할": "원인 담당",
+          "시작문서": "Personality psychology",
+          "서고": "성격심리"
+        }
+      ],
+      "교정": []
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 5.309,
+      "바퀴": 1,
+      "인원": 4,
+      "배치": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 5.312,
+      "절": "MBTI의 네 지표 소개",
+      "역할": "큰그림 담당",
+      "시작문서": "Myers–Briggs Type Indicator",
+      "피하기": [
+        "Carl Jung",
+        "Big Five personality traits",
+        "Personality psychology"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 5.319,
+      "절": "MBTI 지표의 심리적 기초",
+      "역할": "인물 담당",
+      "시작문서": "Carl Jung",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Big Five personality traits",
+        "Personality psychology"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 5.331,
+      "절": "MBTI와 성격 이론 비교",
+      "역할": "비교 담당",
+      "시작문서": "Big Five personality traits",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Carl Jung",
+        "Personality psychology"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 5.342,
+      "절": "MBTI의 적용과 비판",
+      "역할": "원인 담당",
+      "시작문서": "Personality psychology",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Carl Jung",
+        "Big Five personality traits"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.13,
+      "절": "MBTI의 적용과 비판",
+      "문서": "Personality psychology",
+      "서고": "성격심리",
+      "원문자수": 43865,
+      "메모자수": 219,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.289,
+      "절": "MBTI의 네 지표 소개",
+      "문서": "Myers–Briggs Type Indicator",
+      "서고": "유형론",
+      "원문자수": 31278,
+      "메모자수": 271,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.524,
+      "절": "MBTI와 성격 이론 비교",
+      "문서": "Big Five personality traits",
+      "서고": "성격심리",
+      "원문자수": 91312,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 8.807,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Carl Jung",
+      "서고": "유형론",
+      "원문자수": 93023,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.949,
+      "절": "MBTI의 적용과 비판",
+      "문서": "Extraversion and introversion",
+      "서고": "유형론",
+      "원문자수": 43405,
+      "메모자수": 308,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 10.988,
+      "절": "MBTI와 성격 이론 비교",
+      "문서": "16PF Questionnaire",
+      "서고": "성격심리",
+      "원문자수": 31102,
+      "메모자수": 250,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 11.224,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Analytical psychology",
+      "서고": "유형론",
+      "원문자수": 57424,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 11.441,
+      "절": "MBTI의 네 지표 소개",
+      "문서": "16PF Questionnaire",
+      "서고": "성격심리",
+      "원문자수": 31102,
+      "메모자수": 266,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 12.411,
+      "절": "MBTI의 적용과 비판",
+      "문서": "Analytical psychology",
+      "서고": "유형론",
+      "원문자수": 57424,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 12.965,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Astrology",
+      "서고": "유사사례",
+      "원문자수": 55332,
+      "메모자수": 0,
+      "관련": false
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 12.965,
+      "절": "MBTI 지표의 심리적 기초",
+      "자수": 0,
+      "인용": 0,
+      "충분": false,
+      "부족": "읽은 문서가 모두 이 절과 관련이 없었다."
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 13.99,
+      "절": "MBTI의 네 지표 소개",
+      "문서": "Extraversion and introversion",
+      "서고": "유형론",
+      "원문자수": 43405,
+      "메모자수": 189,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 14.621,
+      "절": "MBTI와 성격 이론 비교",
+      "문서": "Extraversion and introversion",
+      "서고": "유형론",
+      "원문자수": 43405,
+      "메모자수": 330,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 16.881,
+      "절": "MBTI의 적용과 비판",
+      "자수": 674,
+      "인용": 7,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 17.968,
+      "절": "MBTI의 네 지표 소개",
+      "자수": 581,
+      "인용": 6,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 19.287,
+      "절": "MBTI와 성격 이론 비교",
+      "자수": 541,
+      "인용": 2,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 19.288,
+      "절수": 4,
+      "빈칸": [
+        "MBTI 지표의 심리적 기초"
+      ],
+      "종료": null
+    },
+    {
+      "v": 1,
+      "type": "dispatch",
+      "ts": 19.289,
+      "바퀴": 2,
+      "인원": 1,
+      "배치": [
+        1
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.start",
+      "ts": 19.289,
+      "절": "MBTI 지표의 심리적 기초",
+      "역할": "인물 담당",
+      "시작문서": "Carl Jung",
+      "피하기": [
+        "Myers–Briggs Type Indicator",
+        "Big Five personality traits",
+        "Personality psychology"
+      ]
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 21.752,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Collective unconscious",
+      "서고": "유형론",
+      "원문자수": 25878,
+      "메모자수": 312,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 23.996,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Jungian archetypes",
+      "서고": "유형론",
+      "원문자수": 34330,
+      "메모자수": 272,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.read",
+      "ts": 27.193,
+      "절": "MBTI 지표의 심리적 기초",
+      "문서": "Psychological Types",
+      "서고": "유형론",
+      "원문자수": 23106,
+      "메모자수": 249,
+      "관련": true
+    },
+    {
+      "v": 1,
+      "type": "researcher.done",
+      "ts": 31.943,
+      "절": "MBTI 지표의 심리적 기초",
+      "자수": 714,
+      "인용": 6,
+      "충분": true,
+      "부족": ""
+    },
+    {
+      "v": 1,
+      "type": "review",
+      "ts": 31.944,
+      "절수": 4,
+      "빈칸": [],
+      "종료": "빈 칸 없음"
+    },
+    {
+      "v": 1,
+      "type": "synthesize",
+      "ts": 33.593,
+      "절수": 4,
+      "보고서자수": 2832,
+      "머리말자수": 212
+    },
+    {
+      "v": 1,
+      "type": "evaluate",
+      "ts": 33.595,
+      "metrics": {
+        "근거율": 0.75,
+        "출처불일치": 0,
+        "출처불일치문장": [],
+        "인용0곳절수": 0,
+        "인용0곳절": [],
+        "허위인용": 0,
+        "허위인용문서": [],
+        "읽고안쓴문서": 4,
+        "최다문서편중": 0.381,
+        "중복률": 0.2727,
+        "격리율": 0.023,
+        "인용서고수": 2,
+        "서고분포": {
+          "유형론": 18,
+          "성격심리": 3
+        },
+        "문장수": 28,
+        "인용수": 21,
+        "읽은문서수": 11,
+        "보고서자수": 2832,
+        "그물": {
+          "통과": true,
+          "사유": []
+        }
+      }
+    },
+    {
+      "v": 1,
+      "type": "run.end",
+      "ts": 33.595
+    }
+  ]
+}

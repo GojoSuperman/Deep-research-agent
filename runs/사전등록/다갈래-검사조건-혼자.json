@@ -1,0 +1,171 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "성격 검사가 갖춰야 할 조건은 무엇이고, MBTI는 그중 무엇을 못 갖췄는가?",
+ "목차": [
+  "성격 검사에 필요한 조건",
+  "MBTI의 한계",
+  "성격 검사에서의 신뢰성과 타당성",
+  "성격 유형 이론의 다양성"
+ ],
+ "시작문서": "Personality test",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Personality test",
+   "library": "측정",
+   "source_chars": 31044,
+   "memo_chars": 218,
+   "relevant": true
+  },
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 277,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 296,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Enneagram of Personality",
+   "library": "유형론",
+   "source_chars": 15321,
+   "memo_chars": 316,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 238,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "HEXACO model of personality structure",
+   "library": "성격심리",
+   "source_chars": 22163,
+   "memo_chars": 340,
+   "relevant": true
+  },
+  {
+   "doc": "Factor analysis",
+   "library": "측정",
+   "source_chars": 74533,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Industrial and organizational psychology",
+   "library": "관계",
+   "source_chars": 56854,
+   "memo_chars": 241,
+   "relevant": true
+  },
+  {
+   "doc": "Construct validity",
+   "library": "측정",
+   "source_chars": 15243,
+   "memo_chars": 238,
+   "relevant": true
+  },
+  {
+   "doc": "Personality",
+   "library": "성격심리",
+   "source_chars": 24066,
+   "memo_chars": 309,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "성격 검사에 필요한 조건",
+   "text": "성격 검사는 인간의 성격 구조를 평가하는 방법으로, 주로 자기 보고식 설문지(Q-data)와 생활 기록(L-data)에서 수집된 자료를 사용한다 «Personality test». 성격 검사는 개인의 행동, 사고, 감정, 동기 및 행동을 설명하는 데 도움을 주며, 신뢰성과 타당성이 중요한 요소로 작용한다 «Personality». 신뢰성은 검사 결과가 일관되게 나타나는지를 평가하며, 타당성은 측정 도구가 의도한 개념을 얼마나 잘 반영하는지를 평가한다 «Construct validity». 성격 검사는 일반 법칙을 찾는 노모테틱(nomothetic) 접근과 특정 개인의 독특한 측면을 이해하려는 이디오그래픽(idiographic) 접근으로 나뉜다 «Personality psychology». 이러한 접근 방식은 성격 검사가 개인의 성격을 정확하게 반영하기 위해 필수적이다. 또한, 성격 검사는 다양한 심리적 이론과 원칙을 바탕으로 설계되어야 하며, 이를 통해 개인의 성격을 보다 깊이 이해할 수 있다 «Industrial and organizational psychology». 따라서 성격 검사는 신뢰성과 타당성을 갖추고, 다양한 이론적 배경을 반영해야 한다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "MBTI의 한계",
+   "text": "MBTI는 16개의 심리적 유형으로 개인을 분류하는 자기보고식 질문지로, 유효성 및 신뢰성에서 심각한 결함이 있다 «Myers–Briggs Type Indicator». 연구에 따르면 MBTI의 유효성을 지지하는 대부분의 연구는 Myers–Briggs 재단이 운영하는 심리적 유형 응용 센터에서 수행되었으며, 이는 독립성, 편향 및 이해 상충에 대한 의문을 제기한다 «Myers–Briggs Type Indicator». MBTI는 응답자가 자신의 이미지를 좋게 보이기 위해 답변을 조작할 수 있는 위험이 있으며, 이러한 점은 신뢰성과 타당성 문제를 더욱 악화시킨다 «Personality test». 또한, MBTI는 예측력이 부족하여 심리적 실무나 연구에서 유용하다고 여겨지지 않는다 «Myers–Briggs Type Indicator». 2013년 펜실베이니아 대학교의 아담 그랜트 교수는 MBTI에 대한 증거가 없다고 주장하였다 «Myers–Briggs Type Indicator». 이러한 한계로 인해 MBTI는 성격 검사의 기준으로서 신뢰할 수 없는 도구로 간주된다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "성격 검사에서의 신뢰성과 타당성",
+   "text": "성격 검사의 신뢰성과 타당성은 그 검사가 얼마나 효과적으로 성격을 측정하는지를 결정하는 중요한 요소이다 «Construct validity». 신뢰성은 검사 결과가 일관되게 나타나는지를 평가하며, 이는 검사 도구의 신뢰성을 높이는 데 필수적이다 «Personality». 타당성은 측정 도구가 의도한 개념을 얼마나 잘 반영하는지를 평가하며, 이는 심리학 및 사회과학에서 특히 중요하다 «Construct validity». 성격 검사가 신뢰성과 타당성을 갖추기 위해서는 다양한 연구에서의 상관관계를 누적적으로 검토해야 하며, 이는 신뢰성과 타당성을 확보하는 데 필수적이다 «Construct validity». 예를 들어, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2)는 신뢰성과 타당성을 갖춘 성격 검사로 알려져 있다 «Personality». 이러한 검사는 개인의 행동 차이를 설명하고, 직업 및 관계 성공, 정신 건강, 웰빙과 관련된 성격 특성을 평가하는 데 유용하다 «Personality psychology».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "성격 유형 이론의 다양성",
+   "text": "성격 유형 이론은 다양한 접근 방식을 통해 개인의 성격을 이해하려고 한다 «Personality psychology». 예를 들어, 16PF(16 Personality Factor Questionnaire)는 성격을 측정하는 자가 보고식 검사로, 임상 심리학자들이 정신 장애 진단 및 치료 계획에 도움을 줄 수 있다 «16PF Questionnaire». 또한, HEXACO 모델은 성격을 여섯 가지 차원으로 설명하며, 각 차원은 고유한 특성을 포함하고 있다 «HEXACO model of personality structure». Enneagram은 9개의 상호 연결된 성격 유형으로 구성된 비과학적 모델로, 성격 검사의 신뢰성과 타당성에 대한 비판이 존재한다 «Enneagram of Personality». 이러한 다양한 성격 유형 이론은 각기 다른 관점에서 개인의 성격을 설명하고, 성격 검사의 설계 및 해석에 영향을 미친다 «Personality psychology». 따라서 성격 유형 이론의 다양성은 성격 검사의 발전과 이해에 기여할 수 있다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 성격 검사에 필요한 조건\n\n성격 검사는 인간의 성격 구조를 평가하는 방법으로, 주로 자기 보고식 설문지(Q-data)와 생활 기록(L-data)에서 수집된 자료를 사용한다 «Personality test». 성격 검사는 개인의 행동, 사고, 감정, 동기 및 행동을 설명하는 데 도움을 주며, 신뢰성과 타당성이 중요한 요소로 작용한다 «Personality». 신뢰성은 검사 결과가 일관되게 나타나는지를 평가하며, 타당성은 측정 도구가 의도한 개념을 얼마나 잘 반영하는지를 평가한다 «Construct validity». 성격 검사는 일반 법칙을 찾는 노모테틱(nomothetic) 접근과 특정 개인의 독특한 측면을 이해하려는 이디오그래픽(idiographic) 접근으로 나뉜다 «Personality psychology». 이러한 접근 방식은 성격 검사가 개인의 성격을 정확하게 반영하기 위해 필수적이다. 또한, 성격 검사는 다양한 심리적 이론과 원칙을 바탕으로 설계되어야 하며, 이를 통해 개인의 성격을 보다 깊이 이해할 수 있다 «Industrial and organizational psychology». 따라서 성격 검사는 신뢰성과 타당성을 갖추고, 다양한 이론적 배경을 반영해야 한다.\n\n## MBTI의 한계\n\nMBTI는 16개의 심리적 유형으로 개인을 분류하는 자기보고식 질문지로, 유효성 및 신뢰성에서 심각한 결함이 있다 «Myers–Briggs Type Indicator». 연구에 따르면 MBTI의 유효성을 지지하는 대부분의 연구는 Myers–Briggs 재단이 운영하는 심리적 유형 응용 센터에서 수행되었으며, 이는 독립성, 편향 및 이해 상충에 대한 의문을 제기한다 «Myers–Briggs Type Indicator». MBTI는 응답자가 자신의 이미지를 좋게 보이기 위해 답변을 조작할 수 있는 위험이 있으며, 이러한 점은 신뢰성과 타당성 문제를 더욱 악화시킨다 «Personality test». 또한, MBTI는 예측력이 부족하여 심리적 실무나 연구에서 유용하다고 여겨지지 않는다 «Myers–Briggs Type Indicator». 2013년 펜실베이니아 대학교의 아담 그랜트 교수는 MBTI에 대한 증거가 없다고 주장하였다 «Myers–Briggs Type Indicator». 이러한 한계로 인해 MBTI는 성격 검사의 기준으로서 신뢰할 수 없는 도구로 간주된다.\n\n## 성격 검사에서의 신뢰성과 타당성\n\n성격 검사의 신뢰성과 타당성은 그 검사가 얼마나 효과적으로 성격을 측정하는지를 결정하는 중요한 요소이다 «Construct validity». 신뢰성은 검사 결과가 일관되게 나타나는지를 평가하며, 이는 검사 도구의 신뢰성을 높이는 데 필수적이다 «Personality». 타당성은 측정 도구가 의도한 개념을 얼마나 잘 반영하는지를 평가하며, 이는 심리학 및 사회과학에서 특히 중요하다 «Construct validity». 성격 검사가 신뢰성과 타당성을 갖추기 위해서는 다양한 연구에서의 상관관계를 누적적으로 검토해야 하며, 이는 신뢰성과 타당성을 확보하는 데 필수적이다 «Construct validity». 예를 들어, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2)는 신뢰성과 타당성을 갖춘 성격 검사로 알려져 있다 «Personality». 이러한 검사는 개인의 행동 차이를 설명하고, 직업 및 관계 성공, 정신 건강, 웰빙과 관련된 성격 특성을 평가하는 데 유용하다 «Personality psychology».\n\n## 성격 유형 이론의 다양성\n\n성격 유형 이론은 다양한 접근 방식을 통해 개인의 성격을 이해하려고 한다 «Personality psychology». 예를 들어, 16PF(16 Personality Factor Questionnaire)는 성격을 측정하는 자가 보고식 검사로, 임상 심리학자들이 정신 장애 진단 및 치료 계획에 도움을 줄 수 있다 «16PF Questionnaire». 또한, HEXACO 모델은 성격을 여섯 가지 차원으로 설명하며, 각 차원은 고유한 특성을 포함하고 있다 «HEXACO model of personality structure». Enneagram은 9개의 상호 연결된 성격 유형으로 구성된 비과학적 모델로, 성격 검사의 신뢰성과 타당성에 대한 비판이 존재한다 «Enneagram of Personality». 이러한 다양한 성격 유형 이론은 각기 다른 관점에서 개인의 성격을 설명하고, 성격 검사의 설계 및 해석에 영향을 미친다 «Personality psychology». 따라서 성격 유형 이론의 다양성은 성격 검사의 발전과 이해에 기여할 수 있다.",
+ "metrics": {
+  "근거율": 0.84,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 3,
+  "최다문서편중": 0.1905,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 4,
+  "서고분포": {
+   "성격심리": 9,
+   "측정": 6,
+   "유형론": 5,
+   "관계": 1
+  },
+  "문장수": 25,
+  "인용수": 21,
+  "읽은문서수": 12,
+  "보고서자수": 2321,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 101088,
+  "completion": 4099
+ },
+ "cost_krw": 25,
+ "초": 46.3,
+ "질문id": "다갈래-검사조건",
+ "목록커밋": "ea2fab8 2026-09-23 11:32:50 +0900"
+}

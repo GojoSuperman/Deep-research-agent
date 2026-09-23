@@ -14,6 +14,9 @@
   (지표는 정답표를 쓰지 않는다), 여기서 참고로만 잰다. 새 질문으로 녹화하기 **전에** 목록을 적어야
   이 둘을 믿을 수 있다.
 
+사전 등록 7건(runs/사전등록/, python -m pipeline.prereg)은 목록을 녹화 **전에** 적은 질문이라
+순환이 없다 — 이 도구의 뒤 표가 그것이다. 팀/혼자를 가르는 결론은 이 표로 낸다.
+
 팀 녹화는 절별 원고를 저장하지 않았다. 보고서 본문의 인용 수가 15편 모두 지표의 인용 수와
 같은 것을 확인하고(2026-09-23) 보고서로 잰다.
 """
@@ -73,8 +76,38 @@ def main() -> int:
         print(f"  {qn:4} 서고수 {t['인용서고수']} / {s['인용서고수']} · "
               f"핵심문서 {t['핵심문서도달']:.2f} / {s['핵심문서도달']:.2f} · "
               f"누락 {','.join(t['필수서고누락']) or '-'} / {','.join(s['필수서고누락']) or '-'}")
-    print("\n⚠ 핵심문서·필수서고는 녹화 다음 날 적은 목록이다 — 참고로만 본다 (이 파일 첫머리)")
+    print("\n⚠ 위 표의 핵심문서·필수서고는 녹화 다음 날 적은 목록이다 — 참고로만 본다 (이 파일 첫머리)")
+
+    prereg(corpus)
     return 0
+
+
+def prereg(corpus) -> None:
+    """사전 등록 — 목록을 녹화보다 먼저 적은 질문. 팀과 혼자를 같은 읽기 예산으로 붙였다."""
+    folder = ROOT / "runs" / "사전등록"
+    by_id = {q["id"]: q for q in json.loads((ROOT / "data/questions.json").read_text(encoding="utf-8"))["질문"]}
+    pairs = sorted({f.stem.rsplit("-", 1)[0] for f in folder.glob("*-팀.json")}) if folder.exists() else []
+    if not pairs:
+        return
+    commit = json.loads((folder / f"{pairs[0]}-팀.json").read_text(encoding="utf-8")).get("목록커밋", "?")
+    print(f"\n── 사전 등록 {len(pairs)}건 — 목록 커밋 {commit} · 순환 없음 ──")
+    print(f"{'질문':14} {'근거율':>11} {'서고수':>7} {'핵심문서':>11}  필수 서고 누락 (팀 / 혼자)")
+    tally = {"근거율": [0, 0], "서고수": [0, 0], "핵심문서": [0, 0]}
+    for qid in pairs:
+        solo_f = folder / f"{qid}-혼자.json"
+        if not solo_f.exists():
+            continue
+        q = by_id[qid]
+        runs = [json.loads((folder / f"{qid}-{w}.json").read_text(encoding="utf-8")) for w in ("팀", "혼자")]
+        (t, s) = (measure(r["report"], q, corpus) | {"근거율": r["metrics"]["근거율"]} for r in runs)
+        for key, a, b in (("근거율", t["근거율"], s["근거율"]), ("서고수", t["인용서고수"], s["인용서고수"]),
+                          ("핵심문서", t["핵심문서도달"], s["핵심문서도달"])):
+            if a > b: tally[key][0] += 1
+            elif b > a: tally[key][1] += 1
+        miss = f"{','.join(t['필수서고누락']) or '-'} / {','.join(s['필수서고누락']) or '-'}"
+        print(f"{qid:14} {t['근거율']:>5.2f}/{s['근거율']:<5.2f} {t['인용서고수']:>3}/{s['인용서고수']:<3} "
+              f"{t['핵심문서도달']:>5.2f}/{s['핵심문서도달']:<5.2f}  {miss}")
+    print("팀 승 / 혼자 승 (동점 제외): " + " · ".join(f"{k} {v[0]}/{v[1]}" for k, v in tally.items()))
 
 
 if __name__ == "__main__":

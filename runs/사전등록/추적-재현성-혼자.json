@@ -1,0 +1,170 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "재현성 위기는 성격심리학의 무엇을 흔들었는가?",
+ "목차": [
+  "재현성 위기의 개념과 성격심리학에 미친 영향",
+  "성격심리학의 주요 이론과 재현성 문제",
+  "측정의 신뢰성과 타당성 문제",
+  "성격심리학의 미래 방향과 재현성 위기 극복 방안"
+ ],
+ "시작문서": "Replication crisis",
+ "예산": 12,
+ "실제로읽은건수": 12,
+ "reads": [
+  {
+   "doc": "Replication crisis",
+   "library": "측정",
+   "source_chars": 101010,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 270,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 328,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 245,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Effect size",
+   "library": "측정",
+   "source_chars": 92098,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Falsifiability",
+   "library": "유사사례",
+   "source_chars": 60296,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Pseudoscience",
+   "library": "유사사례",
+   "source_chars": 46850,
+   "memo_chars": 317,
+   "relevant": true
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 263,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Scientific consensus",
+   "library": "유사사례",
+   "source_chars": 12263,
+   "memo_chars": 228,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 409,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "재현성 위기의 개념과 성격심리학에 미친 영향",
+   "text": "재현성 위기(reproducibility crisis)는 과학 연구에서 실험 결과가 반복적으로 재현되지 않는 문제를 지칭한다. 이는 성격심리학을 포함한 여러 심리학 분야에서 심각한 논란을 일으키고 있다 «Personality psychology». 성격심리학은 개인의 성격과 그 변화를 연구하는 분야로, 연구 결과의 신뢰성과 타당성이 매우 중요하다. 그러나 재현성 위기는 성격심리학의 연구 결과가 일관되게 재현되지 않음을 드러내며, 이는 이 분야의 신뢰성에 부정적인 영향을 미친다 «Personality psychology». 연구자들은 자신의 가설을 지지하는 데이터를 선호하는 경향이 있으며, 이는 확증 편향(confirmation bias)으로 이어져 연구 결과의 재현성을 저해할 수 있다 «Confirmation bias». 이러한 상황은 성격심리학의 이론적 기초와 실험적 방법론에 대한 신뢰를 약화시키고, 연구자들 간의 합의 형성을 어렵게 만든다 «Scientific consensus». 따라서 재현성 위기는 성격심리학의 발전에 중대한 도전 과제가 되고 있다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "성격심리학의 주요 이론과 재현성 문제",
+   "text": "성격심리학은 다양한 이론적 관점에서 발전해왔다. 성격 특성 이론, 심리역동적 이론, 인본주의적 이론, 생물학적 이론, 행동주의적 이론, 진화론적 이론, 사회학습적 이론 등이 있다 «Personality psychology». 그러나 이러한 이론들은 재현성 문제에 직면해 있다. 예를 들어, 성격 특성 이론은 개인의 성격을 특정한 차원으로 설명하려 하지만, 이러한 차원들이 일관되게 측정되지 않을 경우 연구 결과의 신뢰성이 떨어진다. 또한, 심리역동적 이론은 주관적인 해석에 의존하는 경향이 있어, 연구자 간의 차이가 클 수 있다 «Cognitive bias». 이로 인해 성격심리학의 이론적 논쟁이 심화되고, 연구 결과의 재현성이 저하되는 상황이 발생한다. 따라서 성격심리학의 주요 이론들은 재현성 문제를 해결하기 위한 지속적인 검토와 수정이 필요하다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "측정의 신뢰성과 타당성 문제",
+   "text": "성격심리학에서 측정의 신뢰성(reliability)과 타당성(validity)은 매우 중요한 요소이다. 신뢰성은 측정 도구가 일관되게 결과를 산출하는지를 의미하며, 타당성은 측정 도구가 실제로 측정하고자 하는 개념을 얼마나 잘 측정하는지를 나타낸다 «Personality psychology». 그러나 재현성 위기는 이러한 신뢰성과 타당성에 심각한 도전을 제기한다. 예를 들어, 16PF(16 Personality Factor Questionnaire)는 성격을 측정하기 위한 도구로 널리 사용되지만, 그 결과가 일관되게 재현되지 않는 경우 신뢰성이 의심받을 수 있다 «16PF Questionnaire». 또한, 인지 편향(cognitive bias)은 연구자가 자신의 주관적 현실을 구성하는 방식에 영향을 미쳐, 잘못된 판단이나 비논리적 해석을 유발할 수 있다 «Cognitive bias». 이러한 문제들은 성격심리학의 연구 결과에 부정적인 영향을 미치며, 연구자들은 측정 도구의 신뢰성과 타당성을 강화하기 위한 노력이 필요하다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "성격심리학의 미래 방향과 재현성 위기 극복 방안",
+   "text": "성격심리학의 미래 방향은 재현성 위기를 극복하는 데 중점을 두어야 한다. 연구자들은 과학적 합의(scientific consensus)를 형성하기 위해 동료 검토와 메타 분석을 통해 연구 결과를 검증해야 한다 «Scientific consensus». 또한, 성격심리학의 이론적 기초를 강화하고, 다양한 연구 방법론을 활용하여 결과의 일관성을 높이는 것이 중요하다. 예를 들어, 다변량 통계 기법을 활용하여 성격의 기본 차원을 보다 명확하게 밝혀내는 연구가 필요하다 «Personality psychology». 더불어, 연구자들은 확증 편향(confirmation bias)과 같은 인지 편향을 인식하고 이를 극복하기 위한 노력을 기울여야 한다 «Confirmation bias». 이러한 접근은 성격심리학의 연구 결과의 신뢰성과 타당성을 높이는 데 기여할 수 있으며, 궁극적으로 성격심리학의 발전에 긍정적인 영향을 미칠 것이다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 재현성 위기의 개념과 성격심리학에 미친 영향\n\n재현성 위기(reproducibility crisis)는 과학 연구에서 실험 결과가 반복적으로 재현되지 않는 문제를 지칭한다. 이는 성격심리학을 포함한 여러 심리학 분야에서 심각한 논란을 일으키고 있다 «Personality psychology». 성격심리학은 개인의 성격과 그 변화를 연구하는 분야로, 연구 결과의 신뢰성과 타당성이 매우 중요하다. 그러나 재현성 위기는 성격심리학의 연구 결과가 일관되게 재현되지 않음을 드러내며, 이는 이 분야의 신뢰성에 부정적인 영향을 미친다 «Personality psychology». 연구자들은 자신의 가설을 지지하는 데이터를 선호하는 경향이 있으며, 이는 확증 편향(confirmation bias)으로 이어져 연구 결과의 재현성을 저해할 수 있다 «Confirmation bias». 이러한 상황은 성격심리학의 이론적 기초와 실험적 방법론에 대한 신뢰를 약화시키고, 연구자들 간의 합의 형성을 어렵게 만든다 «Scientific consensus». 따라서 재현성 위기는 성격심리학의 발전에 중대한 도전 과제가 되고 있다.\n\n## 성격심리학의 주요 이론과 재현성 문제\n\n성격심리학은 다양한 이론적 관점에서 발전해왔다. 성격 특성 이론, 심리역동적 이론, 인본주의적 이론, 생물학적 이론, 행동주의적 이론, 진화론적 이론, 사회학습적 이론 등이 있다 «Personality psychology». 그러나 이러한 이론들은 재현성 문제에 직면해 있다. 예를 들어, 성격 특성 이론은 개인의 성격을 특정한 차원으로 설명하려 하지만, 이러한 차원들이 일관되게 측정되지 않을 경우 연구 결과의 신뢰성이 떨어진다. 또한, 심리역동적 이론은 주관적인 해석에 의존하는 경향이 있어, 연구자 간의 차이가 클 수 있다 «Cognitive bias». 이로 인해 성격심리학의 이론적 논쟁이 심화되고, 연구 결과의 재현성이 저하되는 상황이 발생한다. 따라서 성격심리학의 주요 이론들은 재현성 문제를 해결하기 위한 지속적인 검토와 수정이 필요하다.\n\n## 측정의 신뢰성과 타당성 문제\n\n성격심리학에서 측정의 신뢰성(reliability)과 타당성(validity)은 매우 중요한 요소이다. 신뢰성은 측정 도구가 일관되게 결과를 산출하는지를 의미하며, 타당성은 측정 도구가 실제로 측정하고자 하는 개념을 얼마나 잘 측정하는지를 나타낸다 «Personality psychology». 그러나 재현성 위기는 이러한 신뢰성과 타당성에 심각한 도전을 제기한다. 예를 들어, 16PF(16 Personality Factor Questionnaire)는 성격을 측정하기 위한 도구로 널리 사용되지만, 그 결과가 일관되게 재현되지 않는 경우 신뢰성이 의심받을 수 있다 «16PF Questionnaire». 또한, 인지 편향(cognitive bias)은 연구자가 자신의 주관적 현실을 구성하는 방식에 영향을 미쳐, 잘못된 판단이나 비논리적 해석을 유발할 수 있다 «Cognitive bias». 이러한 문제들은 성격심리학의 연구 결과에 부정적인 영향을 미치며, 연구자들은 측정 도구의 신뢰성과 타당성을 강화하기 위한 노력이 필요하다.\n\n## 성격심리학의 미래 방향과 재현성 위기 극복 방안\n\n성격심리학의 미래 방향은 재현성 위기를 극복하는 데 중점을 두어야 한다. 연구자들은 과학적 합의(scientific consensus)를 형성하기 위해 동료 검토와 메타 분석을 통해 연구 결과를 검증해야 한다 «Scientific consensus». 또한, 성격심리학의 이론적 기초를 강화하고, 다양한 연구 방법론을 활용하여 결과의 일관성을 높이는 것이 중요하다. 예를 들어, 다변량 통계 기법을 활용하여 성격의 기본 차원을 보다 명확하게 밝혀내는 연구가 필요하다 «Personality psychology». 더불어, 연구자들은 확증 편향(confirmation bias)과 같은 인지 편향을 인식하고 이를 극복하기 위한 노력을 기울여야 한다 «Confirmation bias». 이러한 접근은 성격심리학의 연구 결과의 신뢰성과 타당성을 높이는 데 기여할 수 있으며, 궁극적으로 성격심리학의 발전에 긍정적인 영향을 미칠 것이다.",
+ "metrics": {
+  "근거율": 0.4615,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 7,
+  "최다문서편중": 0.4167,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 3,
+  "서고분포": {
+   "성격심리": 6,
+   "편향": 4,
+   "유사사례": 2
+  },
+  "문장수": 26,
+  "인용수": 12,
+  "읽은문서수": 12,
+  "보고서자수": 2062,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 14,
+  "prompt": 123586,
+  "completion": 5492
+ },
+ "cost_krw": 31,
+ "초": 59.9,
+ "질문id": "추적-재현성",
+ "목록커밋": "ea2fab8 2026-09-23 11:32:50 +0900"
+}

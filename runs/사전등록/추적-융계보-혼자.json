@@ -1,0 +1,190 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "융의 유형론에서 MBTI로 오면서 무엇이 더해지고 무엇이 빠졌는가?",
+ "목차": [
+  "융의 유형론의 기본 개념",
+  "MBTI의 발전과 특징",
+  "융의 이론과 MBTI의 차이점",
+  "MBTI의 비판과 논란"
+ ],
+ "시작문서": "Carl Jung",
+ "예산": 15,
+ "실제로읽은건수": 15,
+ "reads": [
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Analytical psychology",
+   "library": "유형론",
+   "source_chars": 57424,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 323,
+   "relevant": true
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 346,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Collective unconscious",
+   "library": "유형론",
+   "source_chars": 25878,
+   "memo_chars": 283,
+   "relevant": true
+  },
+  {
+   "doc": "Extraversion and introversion",
+   "library": "유형론",
+   "source_chars": 43405,
+   "memo_chars": 309,
+   "relevant": true
+  },
+  {
+   "doc": "Psychological Types",
+   "library": "유형론",
+   "source_chars": 23106,
+   "memo_chars": 271,
+   "relevant": true
+  },
+  {
+   "doc": "Jungian archetypes",
+   "library": "유형론",
+   "source_chars": 34330,
+   "memo_chars": 278,
+   "relevant": true
+  },
+  {
+   "doc": "Gordon Allport",
+   "library": "성격심리",
+   "source_chars": 13525,
+   "memo_chars": 320,
+   "relevant": true
+  },
+  {
+   "doc": "Hans Eysenck",
+   "library": "성격심리",
+   "source_chars": 29000,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 254,
+   "relevant": true
+  },
+  {
+   "doc": "Enneagram of Personality",
+   "library": "유형론",
+   "source_chars": 15321,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Personality type",
+   "library": "성격심리",
+   "source_chars": 15273,
+   "memo_chars": 277,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "융의 유형론의 기본 개념",
+   "text": "카를 융의 심리적 유형 이론은 개인의 심리적 기능과 태도의 차이에 기반하고 있으며, 두 가지 쌍의 인지 기능(사고와 감정, 감각과 직관)을 제안한다 «Personality type». 융은 외향성과 내향성을 인간 성격 이론의 중심 특성 차원으로 정의하였다 «Extraversion and introversion». 그는 외향성을 사교성, 수다스러움, 높은 에너지와 관련지었고, 내향성을 내성적 사고, 자제, 고독한 활동 선호와 연결지었다 «Extraversion and introversion». 융은 의식의 네 가지 주요 기능(감각, 직관, 사고, 감정)을 제안하고, 두 가지 태도 유형(외향성과 내향성)으로 수정된다고 설명하였다 «Psychological Types». 그는 지배적인 기능과 태도가 의식을 특징짓고, 반대되는 기능은 억압되어 무의식을 형성한다고 주장하였다 «Psychological Types». 이로 인해 여덟 가지 주요 심리 유형이 생성되며, 이는 외향적 감각, 내향적 감각, 외향적 직관, 내향적 직관, 외향적 사고, 내향적 사고, 외향적 감정, 내향적 감정으로 구분된다 «Personality type». 이러한 이론은 MBTI의 기초가 되었다 «Myers–Briggs Type Indicator».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "MBTI의 발전과 특징",
+   "text": "MBTI는 16개의 심리적 유형으로 개인을 분류하는 자기 보고식 질문지로, 네 가지 이분법적 범주(내향성/외향성, 감각/직관, 사고/감정, 판단/지각)에 각각 이진 문자 값을 부여한다 «Myers–Briggs Type Indicator». MBTI는 카를 융의 1921년 저서 «Psychological Types»에서 영감을 받아 개발되었으며, 융의 이론을 대중이 이해하기 쉽게 정리하려는 노력의 일환으로 만들어졌다 «Myers–Briggs Type Indicator». 그러나 MBTI는 낮은 신뢰도와 타당성을 지니고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받고 있다 «Myers–Briggs Type Indicator». 특히, MBTI는 예측력이 부족하여 심리학적 실무나 연구에서 유용하지 않다고 평가된다 «Myers–Briggs Type Indicator».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "융의 이론과 MBTI의 차이점",
+   "text": "융의 심리적 유형 이론은 개인의 심리적 기능과 태도의 차이에 기반하고 있으며, 이는 MBTI와 유사한 점이 있지만 몇 가지 중요한 차이점이 존재한다 «Personality type». 융은 심리적 유형을 왼손잡이와 오른손잡이의 유사성으로 설명하며, 개인의 지배적인 기능은 보조 기능에 의해 지원된다고 주장하였다 «Personality type». 반면, MBTI는 이러한 융의 이론에서 파생된 평가 도구로, 심리적 유형을 8가지로 구분하고 이를 고정된 특성으로 설명한다 «Myers–Briggs Type Indicator». 또한, 융은 집단무의식 개념을 통해 인간의 무의식이 선천적인 상징인 원형으로 구성되어 있다고 주장하였고, 이는 MBTI에서는 다루어지지 않는다 «Collective unconscious». MBTI는 성격을 고정된 범주로 나누기보다는 정도로 측정하는 도구로, 현대 성격 모델의 한 형태로 자리 잡고 있다 «Extraversion and introversion».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "MBTI의 비판과 논란",
+   "text": "MBTI는 낮은 신뢰도와 타당성을 지니고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받고 있다 «Myers–Briggs Type Indicator». 특히, MBTI는 예측력이 부족하여 심리학적 실무나 연구에서 유용하지 않다고 평가된다 «Myers–Briggs Type Indicator». 이러한 비판은 MBTI가 성격을 고정된 특성으로 설명하는 데에서 기인하며, 이는 성격심리학의 다른 이론들과의 충돌을 일으킨다 «Personality psychology». MBTI는 성격을 측정하는 도구로 널리 사용되지만, 그 과학적 근거가 부족하다는 점에서 논란이 되고 있다 «Myers–Briggs Type Indicator».",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## 융의 유형론의 기본 개념\n\n카를 융의 심리적 유형 이론은 개인의 심리적 기능과 태도의 차이에 기반하고 있으며, 두 가지 쌍의 인지 기능(사고와 감정, 감각과 직관)을 제안한다 «Personality type». 융은 외향성과 내향성을 인간 성격 이론의 중심 특성 차원으로 정의하였다 «Extraversion and introversion». 그는 외향성을 사교성, 수다스러움, 높은 에너지와 관련지었고, 내향성을 내성적 사고, 자제, 고독한 활동 선호와 연결지었다 «Extraversion and introversion». 융은 의식의 네 가지 주요 기능(감각, 직관, 사고, 감정)을 제안하고, 두 가지 태도 유형(외향성과 내향성)으로 수정된다고 설명하였다 «Psychological Types». 그는 지배적인 기능과 태도가 의식을 특징짓고, 반대되는 기능은 억압되어 무의식을 형성한다고 주장하였다 «Psychological Types». 이로 인해 여덟 가지 주요 심리 유형이 생성되며, 이는 외향적 감각, 내향적 감각, 외향적 직관, 내향적 직관, 외향적 사고, 내향적 사고, 외향적 감정, 내향적 감정으로 구분된다 «Personality type». 이러한 이론은 MBTI의 기초가 되었다 «Myers–Briggs Type Indicator».\n\n## MBTI의 발전과 특징\n\nMBTI는 16개의 심리적 유형으로 개인을 분류하는 자기 보고식 질문지로, 네 가지 이분법적 범주(내향성/외향성, 감각/직관, 사고/감정, 판단/지각)에 각각 이진 문자 값을 부여한다 «Myers–Briggs Type Indicator». MBTI는 카를 융의 1921년 저서 «Psychological Types»에서 영감을 받아 개발되었으며, 융의 이론을 대중이 이해하기 쉽게 정리하려는 노력의 일환으로 만들어졌다 «Myers–Briggs Type Indicator». 그러나 MBTI는 낮은 신뢰도와 타당성을 지니고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받고 있다 «Myers–Briggs Type Indicator». 특히, MBTI는 예측력이 부족하여 심리학적 실무나 연구에서 유용하지 않다고 평가된다 «Myers–Briggs Type Indicator».\n\n## 융의 이론과 MBTI의 차이점\n\n융의 심리적 유형 이론은 개인의 심리적 기능과 태도의 차이에 기반하고 있으며, 이는 MBTI와 유사한 점이 있지만 몇 가지 중요한 차이점이 존재한다 «Personality type». 융은 심리적 유형을 왼손잡이와 오른손잡이의 유사성으로 설명하며, 개인의 지배적인 기능은 보조 기능에 의해 지원된다고 주장하였다 «Personality type». 반면, MBTI는 이러한 융의 이론에서 파생된 평가 도구로, 심리적 유형을 8가지로 구분하고 이를 고정된 특성으로 설명한다 «Myers–Briggs Type Indicator». 또한, 융은 집단무의식 개념을 통해 인간의 무의식이 선천적인 상징인 원형으로 구성되어 있다고 주장하였고, 이는 MBTI에서는 다루어지지 않는다 «Collective unconscious». MBTI는 성격을 고정된 범주로 나누기보다는 정도로 측정하는 도구로, 현대 성격 모델의 한 형태로 자리 잡고 있다 «Extraversion and introversion».\n\n## MBTI의 비판과 논란\n\nMBTI는 낮은 신뢰도와 타당성을 지니고 있으며, 많은 연구가 방법론적으로 약하거나 비과학적이라는 비판을 받고 있다 «Myers–Briggs Type Indicator». 특히, MBTI는 예측력이 부족하여 심리학적 실무나 연구에서 유용하지 않다고 평가된다 «Myers–Briggs Type Indicator». 이러한 비판은 MBTI가 성격을 고정된 특성으로 설명하는 데에서 기인하며, 이는 성격심리학의 다른 이론들과의 충돌을 일으킨다 «Personality psychology». MBTI는 성격을 측정하는 도구로 널리 사용되지만, 그 과학적 근거가 부족하다는 점에서 논란이 되고 있다 «Myers–Briggs Type Indicator».",
+ "metrics": {
+  "근거율": 1.0,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 9,
+  "최다문서편중": 0.4286,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 2,
+  "서고분포": {
+   "유형론": 16,
+   "성격심리": 5
+  },
+  "문장수": 20,
+  "인용수": 21,
+  "읽은문서수": 15,
+  "보고서자수": 2008,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 17,
+  "prompt": 125347,
+  "completion": 4556
+ },
+ "cost_krw": 30,
+ "초": 56.6,
+ "질문id": "추적-융계보",
+ "목록커밋": "ea2fab8 2026-09-23 11:32:50 +0900"
+}

@@ -1,0 +1,193 @@
+{
+ "종류": "대조군(혼자)",
+ "question": "MBTI·혈액형 성격설·점성술은 어디가 닮았고 어디가 다른가?",
+ "목차": [
+  "MBTI와 혈액형 성격설의 유사점과 차이점",
+  "점성술의 과학적 근거와 비과학적 요소",
+  "성격 이론의 심리학적 기초",
+  "유사사례로서의 혈액형 성격설과 점성술"
+ ],
+ "시작문서": "Myers–Briggs Type Indicator",
+ "예산": 15,
+ "실제로읽은건수": 15,
+ "reads": [
+  {
+   "doc": "Myers–Briggs Type Indicator",
+   "library": "유형론",
+   "source_chars": 31278,
+   "memo_chars": 275,
+   "relevant": true
+  },
+  {
+   "doc": "Blood type personality theory",
+   "library": "유사사례",
+   "source_chars": 13810,
+   "memo_chars": 296,
+   "relevant": true
+  },
+  {
+   "doc": "Big Five personality traits",
+   "library": "성격심리",
+   "source_chars": 91312,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "16PF Questionnaire",
+   "library": "성격심리",
+   "source_chars": 31102,
+   "memo_chars": 345,
+   "relevant": true
+  },
+  {
+   "doc": "Construct validity",
+   "library": "측정",
+   "source_chars": 15243,
+   "memo_chars": 291,
+   "relevant": true
+  },
+  {
+   "doc": "Personality",
+   "library": "성격심리",
+   "source_chars": 24066,
+   "memo_chars": 379,
+   "relevant": true
+  },
+  {
+   "doc": "Trait theory",
+   "library": "성격심리",
+   "source_chars": 8310,
+   "memo_chars": 406,
+   "relevant": true
+  },
+  {
+   "doc": "Hans Eysenck",
+   "library": "성격심리",
+   "source_chars": 29000,
+   "memo_chars": 267,
+   "relevant": true
+  },
+  {
+   "doc": "Astrology",
+   "library": "유사사례",
+   "source_chars": 55332,
+   "memo_chars": 281,
+   "relevant": true
+  },
+  {
+   "doc": "Confirmation bias",
+   "library": "편향",
+   "source_chars": 56495,
+   "memo_chars": 344,
+   "relevant": true
+  },
+  {
+   "doc": "Cognitive bias",
+   "library": "편향",
+   "source_chars": 19562,
+   "memo_chars": 267,
+   "relevant": true
+  },
+  {
+   "doc": "Personality psychology",
+   "library": "성격심리",
+   "source_chars": 43865,
+   "memo_chars": 257,
+   "relevant": true
+  },
+  {
+   "doc": "Carl Jung",
+   "library": "유형론",
+   "source_chars": 93023,
+   "memo_chars": 0,
+   "relevant": false
+  },
+  {
+   "doc": "Barnum effect",
+   "library": "편향",
+   "source_chars": 8065,
+   "memo_chars": 317,
+   "relevant": true
+  },
+  {
+   "doc": "Personality test",
+   "library": "측정",
+   "source_chars": 31044,
+   "memo_chars": 216,
+   "relevant": true
+  }
+ ],
+ "drafts": [
+  {
+   "section": 0,
+   "title": "MBTI와 혈액형 성격설의 유사점과 차이점",
+   "text": "MBTI는 16개의 심리적 유형으로 개인을 분류하는 자가 보고식 질문지로, 카를 융의 심리적 유형 이론에 기초하고 있다 «Myers–Briggs Type Indicator». 혈액형 성격설은 개인의 혈액형이 성격과 기질을 예측한다고 믿는 비과학적 신념이다 «Blood type personality theory». 두 이론 모두 개인의 성격을 특정한 유형으로 나누려는 시도를 한다는 점에서 유사하다. 그러나 MBTI는 심리학적 이론에 기반을 두고 있으며, 혈액형 성격설은 과학적 근거가 부족하다 «Blood type personality theory». MBTI는 낮은 신뢰도와 타당성으로 비판받고 있으며, 50%의 사람들이 재응답 시 다른 유형으로 분류된다 «Myers–Briggs Type Indicator». 반면 혈액형 성격설은 일본과 한국에서 여전히 인기가 있으며, 직업 인터뷰에서 혈액형 질문이 등장하기도 한다 «Blood type personality theory». MBTI는 심리학적 연구에서 유용성이 없다고 여겨지며, 이론적 근거가 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 혈액형 성격설은 통계적으로 유의미한 연관성을 보여주지 않는 연구가 많지만, 일부 연구는 혈액형과 성격 간의 관계를 제시하였다 «Blood type personality theory». 그러나 이러한 관계는 자기 충족적 예언 때문일 수 있다 «Blood type personality theory». 따라서 두 이론은 성격을 분류하려는 공통된 목표를 가지고 있지만, 그 기초와 신뢰성에서 큰 차이를 보인다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 1,
+   "title": "점성술의 과학적 근거와 비과학적 요소",
+   "text": "점성술은 인간의 일과 지구의 사건을 천체의 위치를 통해 해석하려는 시도를 한다 «Astrology». 고대 메소포타미아에서 시작된 점성술은 그리스, 로마, 이슬람 세계로 퍼져나갔으며, 현대 서양 점성술은 개인의 성격과 삶의 중요한 사건을 예측하는 시스템과 관련이 있다 «Astrology». 그러나 점성술은 18세기 이후로 비과학적이라고 여겨지며, 과학적 방법론의 확산으로 이론적 및 실험적 근거에서 도전받았다 «Astrology». 점성술은 과거에는 학문적 전통으로 여겨졌으나, 계몽주의 시대 이후로 학문적 지위를 잃었다 «Astrology». 점성술의 주장에 대한 과학적 유효성이 없음을 입증받았으며, 이는 점성술이 비과학적 요소를 포함하고 있음을 나타낸다 «Astrology». 점성술의 해석은 주관적이며, 개인의 신념에 따라 달라질 수 있다. 이러한 점에서 점성술은 성격 이론과 유사한 비과학적 요소를 지니고 있다. 점성술의 신뢰성은 낮으며, 과학적 근거가 부족하다는 점에서 성격 이론과의 비교가 가능하다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 2,
+   "title": "성격 이론의 심리학적 기초",
+   "text": "성격 이론은 인간 성격 연구의 접근법으로, 행동, 사고, 감정의 습관적 패턴으로 정의되는 성격 특성의 측정에 중점을 둔다 «Trait theory». 성격은 행동, 인지, 감정 패턴으로 구성되며, 개인의 독특한 삶에 대한 적응을 나타낸다 «Personality». 성격 심리학 연구는 개인의 행동 차이를 설명하려고 하며, 성격 특성은 직업 및 관계 성공, 정신 건강, 행복, 장수와 관련이 있다 «Personality». 성격 이론에는 기질적 관점, 심리역동적, 인본주의적, 생물학적, 행동주의적, 진화적, 사회학습적 관점이 포함된다 «Personality psychology». 연구자들은 일반적으로 한 관점에 국한되지 않고 생태적 접근을 취하며, 성격 검사의 응용 분야에 상당한 비중을 두고 있다 «Personality psychology». 성격 측정 도구로는 객관적 검사와 투사적 측정이 있으며, 신뢰성과 타당성을 갖춘 다양한 테스트가 존재한다 «Personality test». 예를 들어, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2) 등이 있다 «Personality test». 성격 이론의 심리학적 기초는 개인의 성격과 그 변화를 연구하는 데 중요한 역할을 한다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  },
+  {
+   "section": 3,
+   "title": "유사사례로서의 혈액형 성격설과 점성술",
+   "text": "혈액형 성격설과 점성술은 모두 비과학적 신념으로, 개인의 성격을 특정한 기준에 따라 분류하려는 시도를 한다 «Blood type personality theory». 혈액형 성격설은 개인의 혈액형이 성격과 기질을 예측한다고 믿는 반면, 점성술은 천체의 위치를 통해 인간의 일과 사건을 해석하려 한다 «Astrology». 두 이론 모두 과학적 근거가 부족하며, 개인의 신념에 따라 달라질 수 있다 «Blood type personality theory». 혈액형 성격설은 일본과 한국에서 인기가 있으며, 직업 인터뷰에서 혈액형 질문이 등장하기도 한다 «Blood type personality theory». 점성술은 과거에는 학문적 전통으로 여겨졌으나, 현대에 들어서 비과학적 요소로 평가받고 있다 «Astrology». 두 이론 모두 모호한 설명을 제공하며, 바넘 효과에 의해 개인이 자신에게 맞춰진 것처럼 느끼게 만든다 «Barnum effect». 이러한 점에서 혈액형 성격설과 점성술은 유사한 비과학적 특성을 지니고 있으며, 개인의 성격을 이해하는 데 있어 신뢰할 수 없는 방법으로 평가된다.",
+   "citations": [],
+   "enough": true,
+   "missing": ""
+  }
+ ],
+ "report": "## MBTI와 혈액형 성격설의 유사점과 차이점\n\nMBTI는 16개의 심리적 유형으로 개인을 분류하는 자가 보고식 질문지로, 카를 융의 심리적 유형 이론에 기초하고 있다 «Myers–Briggs Type Indicator». 혈액형 성격설은 개인의 혈액형이 성격과 기질을 예측한다고 믿는 비과학적 신념이다 «Blood type personality theory». 두 이론 모두 개인의 성격을 특정한 유형으로 나누려는 시도를 한다는 점에서 유사하다. 그러나 MBTI는 심리학적 이론에 기반을 두고 있으며, 혈액형 성격설은 과학적 근거가 부족하다 «Blood type personality theory». MBTI는 낮은 신뢰도와 타당성으로 비판받고 있으며, 50%의 사람들이 재응답 시 다른 유형으로 분류된다 «Myers–Briggs Type Indicator». 반면 혈액형 성격설은 일본과 한국에서 여전히 인기가 있으며, 직업 인터뷰에서 혈액형 질문이 등장하기도 한다 «Blood type personality theory». MBTI는 심리학적 연구에서 유용성이 없다고 여겨지며, 이론적 근거가 부족하다는 비판을 받고 있다 «Myers–Briggs Type Indicator». 혈액형 성격설은 통계적으로 유의미한 연관성을 보여주지 않는 연구가 많지만, 일부 연구는 혈액형과 성격 간의 관계를 제시하였다 «Blood type personality theory». 그러나 이러한 관계는 자기 충족적 예언 때문일 수 있다 «Blood type personality theory». 따라서 두 이론은 성격을 분류하려는 공통된 목표를 가지고 있지만, 그 기초와 신뢰성에서 큰 차이를 보인다.\n\n## 점성술의 과학적 근거와 비과학적 요소\n\n점성술은 인간의 일과 지구의 사건을 천체의 위치를 통해 해석하려는 시도를 한다 «Astrology». 고대 메소포타미아에서 시작된 점성술은 그리스, 로마, 이슬람 세계로 퍼져나갔으며, 현대 서양 점성술은 개인의 성격과 삶의 중요한 사건을 예측하는 시스템과 관련이 있다 «Astrology». 그러나 점성술은 18세기 이후로 비과학적이라고 여겨지며, 과학적 방법론의 확산으로 이론적 및 실험적 근거에서 도전받았다 «Astrology». 점성술은 과거에는 학문적 전통으로 여겨졌으나, 계몽주의 시대 이후로 학문적 지위를 잃었다 «Astrology». 점성술의 주장에 대한 과학적 유효성이 없음을 입증받았으며, 이는 점성술이 비과학적 요소를 포함하고 있음을 나타낸다 «Astrology». 점성술의 해석은 주관적이며, 개인의 신념에 따라 달라질 수 있다. 이러한 점에서 점성술은 성격 이론과 유사한 비과학적 요소를 지니고 있다. 점성술의 신뢰성은 낮으며, 과학적 근거가 부족하다는 점에서 성격 이론과의 비교가 가능하다.\n\n## 성격 이론의 심리학적 기초\n\n성격 이론은 인간 성격 연구의 접근법으로, 행동, 사고, 감정의 습관적 패턴으로 정의되는 성격 특성의 측정에 중점을 둔다 «Trait theory». 성격은 행동, 인지, 감정 패턴으로 구성되며, 개인의 독특한 삶에 대한 적응을 나타낸다 «Personality». 성격 심리학 연구는 개인의 행동 차이를 설명하려고 하며, 성격 특성은 직업 및 관계 성공, 정신 건강, 행복, 장수와 관련이 있다 «Personality». 성격 이론에는 기질적 관점, 심리역동적, 인본주의적, 생물학적, 행동주의적, 진화적, 사회학습적 관점이 포함된다 «Personality psychology». 연구자들은 일반적으로 한 관점에 국한되지 않고 생태적 접근을 취하며, 성격 검사의 응용 분야에 상당한 비중을 두고 있다 «Personality psychology». 성격 측정 도구로는 객관적 검사와 투사적 측정이 있으며, 신뢰성과 타당성을 갖춘 다양한 테스트가 존재한다 «Personality test». 예를 들어, Big Five Inventory(BFI)와 Minnesota Multiphasic Personality Inventory(MMPI-2) 등이 있다 «Personality test». 성격 이론의 심리학적 기초는 개인의 성격과 그 변화를 연구하는 데 중요한 역할을 한다.\n\n## 유사사례로서의 혈액형 성격설과 점성술\n\n혈액형 성격설과 점성술은 모두 비과학적 신념으로, 개인의 성격을 특정한 기준에 따라 분류하려는 시도를 한다 «Blood type personality theory». 혈액형 성격설은 개인의 혈액형이 성격과 기질을 예측한다고 믿는 반면, 점성술은 천체의 위치를 통해 인간의 일과 사건을 해석하려 한다 «Astrology». 두 이론 모두 과학적 근거가 부족하며, 개인의 신념에 따라 달라질 수 있다 «Blood type personality theory». 혈액형 성격설은 일본과 한국에서 인기가 있으며, 직업 인터뷰에서 혈액형 질문이 등장하기도 한다 «Blood type personality theory». 점성술은 과거에는 학문적 전통으로 여겨졌으나, 현대에 들어서 비과학적 요소로 평가받고 있다 «Astrology». 두 이론 모두 모호한 설명을 제공하며, 바넘 효과에 의해 개인이 자신에게 맞춰진 것처럼 느끼게 만든다 «Barnum effect». 이러한 점에서 혈액형 성격설과 점성술은 유사한 비과학적 특성을 지니고 있으며, 개인의 성격을 이해하는 데 있어 신뢰할 수 없는 방법으로 평가된다.",
+ "metrics": {
+  "근거율": 0.7879,
+  "출처불일치": 0,
+  "출처불일치문장": [],
+  "인용0곳절수": 0,
+  "인용0곳절": [],
+  "허위인용": 0,
+  "허위인용문서": [],
+  "읽고안쓴문서": 7,
+  "최다문서편중": 0.3077,
+  "중복률": null,
+  "격리율": 1.0,
+  "인용서고수": 5,
+  "서고분포": {
+   "유사사례": 15,
+   "성격심리": 5,
+   "유형론": 3,
+   "측정": 2,
+   "편향": 1
+  },
+  "문장수": 33,
+  "인용수": 26,
+  "읽은문서수": 15,
+  "보고서자수": 2634,
+  "그물": {
+   "통과": true,
+   "사유": []
+  }
+ },
+ "usage": {
+  "calls": 17,
+  "prompt": 114948,
+  "completion": 5388
+ },
+ "cost_krw": 29,
+ "초": 58.9,
+ "질문id": "다갈래-유사사례",
+ "목록커밋": "ea2fab8 2026-09-23 11:32:50 +0900"
+}
