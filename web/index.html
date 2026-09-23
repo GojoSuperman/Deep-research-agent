@@ -284,6 +284,18 @@ import * as live from "./src/live.js";
 import { docKo } from "./src/docs.js";
 
 const canvas = document.getElementById("lab");
+
+// ── 성능 계기 (?fps=1 일 때만 뜬다) ───────────────────────
+// 화면이 끊긴다는 말은 소스로 못 잰다. 재는 자리에서 재려고 붙인 계기다.
+const METER = new URLSearchParams(location.search).has("fps");
+let $meter = null, mFrames = 0, mDrawMs = 0, mWorst = 0, mT = 0;
+if (METER) {
+  $meter = document.createElement("div");
+  $meter.style.cssText = "position:fixed;left:10px;bottom:10px;z-index:9999;background:#000d;" +
+    "color:#7f7;font:12px/1.5 ui-monospace,monospace;padding:8px 10px;border-radius:8px;white-space:pre";
+  $meter.textContent = "계기 준비 중 …";
+  document.body.appendChild($meter);
+}
 const status = document.getElementById("status");
 const $run = document.getElementById("run");
 const $play = document.getElementById("play");
@@ -401,6 +413,7 @@ async function pick(name) {
 
 function render() {
   if (!ready) return;
+  const mT0 = METER ? performance.now() : 0;
   const st = player?.state;
   const actors = st
     ? [{ ...st.coord }, ...st.actors]
@@ -416,6 +429,10 @@ function render() {
   if (st?.metrics) showDash(st.metrics);
   status.innerHTML = r.missing.length
     ? `<span class="err">못 읽은 스프라이트: ${r.missing.join(", ")}</span>` : "";
+  if (METER) {
+    const ms = performance.now() - mT0;
+    mDrawMs += ms; mFrames++; if (ms > mWorst) mWorst = ms;
+  }
 }
 
 /** 왼쪽 설명 패널 — 지금 고른 녹화가 무엇을 시험한 것인지 */
@@ -581,6 +598,17 @@ function loop(now) {
   requestAnimationFrame(loop);
   const dt = Math.min((now - last) / 1000, 0.1);
   last = now;
+  if (METER) {
+    mT += dt;
+    if (mT >= 0.5) {
+      const fps = mFrames / mT, avg = mDrawMs / Math.max(mFrames, 1);
+      $meter.textContent =
+        `${fps.toFixed(0)} fps · 그리기 ${avg.toFixed(1)}ms (최악 ${mWorst.toFixed(1)}ms)\n` +
+        `캔버스 ${canvas.width}\u00d7${canvas.height} · DPR ${devicePixelRatio} · 배율 ${(cam.v.scale ?? 1).toFixed(2)}\n` +
+        `${playing ? "재생 중" : "멈춤"} · 하드웨어 동시성 ${navigator.hardwareConcurrency ?? "?"}`;
+      mFrames = 0; mDrawMs = 0; mWorst = 0; mT = 0;
+    }
+  }
   // 카메라는 재생이 멈춰 있어도 목표까지 마저 간다
   if (cam.step(dt)) render();
   if (!playing || !player) return;
