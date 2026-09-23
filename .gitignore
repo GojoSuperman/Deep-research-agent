@@ -33,3 +33,7 @@ build/
 .bkit/
 .vercel
 .env*
+
+# 대화 전문 — 공개 저장소에 두지 않는다 (키 조각·개인 경로가 들어 있다)
+docs/전체 대화 기록.html
+docs/전체 대화 기록.md
