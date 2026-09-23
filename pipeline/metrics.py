@@ -10,7 +10,9 @@ from collections import Counter
 
 from .state import Draft, Read
 
-CITE = re.compile(r"«([^»]{1,120})»")
+# 줄바꿈·« 는 인용 안에 못 들어온다 — 닫는 표시가 깨진 인용(«…" )이 다음 절의 «…» 까지
+# 한 덩어리로 삼키던 것을 막는다 (대조군-다갈래 보고서에서 2건 실측. 원고에는 없어 지표는 그대로였다)
+CITE = re.compile(r"«([^»«\n]{1,120})»")
 # 오귀속 검사용 — 문장 속 영문 고유명사와 연도. 한국어 표기만 있으면 못 잡는다 (한계)
 PROPER = re.compile(r"[A-Z][a-zA-Z]{3,}")
 YEAR = re.compile(r"\b(?:19|20)\d{2}\b")
@@ -111,6 +113,16 @@ def compute(
 
     mis = misattributed(drafts, corpus)
 
+    # 인용 서고 — 근거를 몇 개 서고에서 가져왔나. 정답표 없이 코퍼스 분류만 본다.
+    # 근거율은 한 문서만 되풀이 인용해도 오른다 — 어디서 가져왔는지는 이것으로 본다.
+    # 서고는 코퍼스가 있으면 코퍼스에서, 없으면 읽은 기록에 적힌 서고에서 찾는다.
+    shelf_of = {r["doc"]: r.get("library") for r in reads}
+    if corpus is not None:
+        shelf_of.update({doc: corpus.group(doc) for doc in cited_all})
+    shelves: Counter = Counter()
+    for doc, n in cited_all.items():
+        shelves[shelf_of.get(doc) or "미분류"] += n
+
     return {
         "근거율": _ratio(len(cited_sents), len(all_sents)),
         "출처불일치": len(mis),
@@ -123,6 +135,8 @@ def compute(
         "최다문서편중": skew,
         "중복률": overlap,
         "격리율": isolation,
+        "인용서고수": len([s for s in shelves if s != "미분류"]),
+        "서고분포": dict(shelves.most_common()),
         "문장수": len(all_sents),
         "인용수": sum(cited_all.values()),
         "읽은문서수": len(read_all),
