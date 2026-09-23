@@ -210,21 +210,53 @@ function drawGrid(ctx, origin) {
   ctx.restore();
 }
 
-/** 말풍선 — 지금 무엇을 하는지 한 줄 */
+const BUBBLE = { maxW: 440, lineH: 26, padX: 12, padY: 7, maxLines: 5 };
+
+/**
+ * 말풍선 글을 폭에 맞춰 끊는다.
+ * 한국어는 띄어쓰기가 드물어 글자 단위로 재되, 가까운 곳에 공백이 있으면 거기서 끊는다
+ * (「」 로 묶인 문서명이 두 줄에 걸쳐 쪼개지는 것을 줄인다).
+ */
+function wrapSay(ctx, text, maxW) {
+  const lines = [];
+  let line = "";
+  for (const ch of text) {
+    if (ch === "\n") { lines.push(line); line = ""; continue; }
+    if (line && ctx.measureText(line + ch).width > maxW) {
+      const sp = line.lastIndexOf(" ");
+      if (sp > 0 && line.length - sp <= 12) { lines.push(line.slice(0, sp)); line = line.slice(sp + 1); }
+      else { lines.push(line); line = ""; }
+    }
+    line += ch;
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+/**
+ * 말풍선 — 길면 줄을 바꾼다.
+ * 말꼬리가 닿는 아래 모서리는 그대로 두고 **위로** 늘린다. 아래로 늘리면 말하는 사람을 덮는다.
+ */
 function say(ctx, x, y, text) {
-  const t = text.length > 38 ? text.slice(0, 37) + "…" : text;
   ctx.save();
   ctx.font = "21px sans-serif";            // 말풍선
   ctx.textAlign = "center";
-  const w = ctx.measureText(t).width + 22;
+  let lines = wrapSay(ctx, text, BUBBLE.maxW);
+  if (lines.length > BUBBLE.maxLines) {
+    lines = lines.slice(0, BUBBLE.maxLines);
+    lines[lines.length - 1] = lines[lines.length - 1].slice(0, -1) + "…";
+  }
+  const w = Math.max(...lines.map(l => ctx.measureText(l).width)) + BUBBLE.padX * 2;
+  const h = lines.length * BUBBLE.lineH + BUBBLE.padY * 2;
+  const bottom = y + 6, top = bottom - h;
   ctx.fillStyle = "rgba(255,255,255,.93)";
   ctx.strokeStyle = "rgba(0,0,0,.18)";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
-  ctx.roundRect(x - w / 2, y - 27, w, 33, 9);
+  ctx.roundRect(x - w / 2, top, w, h, 9);
   ctx.fill(); ctx.stroke();
   ctx.fillStyle = "#1a1a1a";
-  ctx.fillText(t, x, y - 5);
+  lines.forEach((l, i) => ctx.fillText(l, x, top + BUBBLE.padY + BUBBLE.lineH * i + 19));
   ctx.restore();
 }
 
