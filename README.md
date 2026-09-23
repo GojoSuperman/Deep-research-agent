@@ -48,13 +48,56 @@
 
 ### ② 직접 돌려 보기 (₩40 · 40초)
 
+**OpenAI API 키가 필요하고, 본인 키로 청구된다** (한 바퀴 약 ₩40). 키는 OpenAI 계정의
+[API keys](https://platform.openai.com/api-keys) 에서 발급한다. 키 없이 보려면 위 ①로 충분하다.
+
+**1) 받아서 환경 만들기**
+
 ```bash
 git clone https://github.com/GojoSuperman/Deep-research-agent.git
 cd Deep-research-agent
 uv venv --python 3.12 .venv          # 시스템 기본 3.14는 라이브러리 호환 문제가 있다
 uv pip install -r requirements.txt
-.venv/bin/python -m pipeline.setkey  # OpenAI 키를 .env.local(권한 600, git 제외)에 넣는다
-.venv/bin/python -m pipeline.run     # 한 바퀴
+```
+
+`uv` 가 없으면 표준 도구로도 된다 (Python 3.12 기준).
+
+```bash
+python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+```
+
+**2) 키 넣기** — `.env.local`(권한 600 · git 제외)에 저장된다. 저장소에는 올라가지 않는다.
+
+```bash
+.venv/bin/python -m pipeline.setkey              # 물어보면 키를 붙여 넣는다
+```
+
+터미널이 대화형 입력을 못 받는 환경이면(에이전트·CI·`!` 프리픽스 실행 등) 이렇게 넣는다.
+
+```bash
+.venv/bin/python -m pipeline.setkey --from-file /경로/key.txt --wipe   # 읽고 그 파일을 지운다
+.venv/bin/python -m pipeline.setkey --from-clipboard                    # 윈도우 클립보드에서
+```
+
+**키가 실제로 먹는지 먼저 확인한다** — 아주 짧은 호출 한 번이라 값이 거의 들지 않는다.
+
+```bash
+.venv/bin/python -m pipeline.setkey --check
+```
+```
+  파일   …/.env.local 있음
+  키     sk-…xxxx (164자)
+  모델   gpt-4o-mini
+  결과   ✅ 먹는다 · 응답 'ping' · 토큰 14
+```
+
+`❌` 가 나오면 이유를 그대로 보여 준다 — `401` 이면 키가 거부된 것, `429` 면 잔액·한도,
+`403` 이면 그 키로 이 모델을 못 쓰는 것이다.
+
+**3) 한 바퀴 돌리기**
+
+```bash
+.venv/bin/python -m pipeline.run
 ```
 
 이벤트가 한 줄씩 찍히고 마지막에 보고서와 지표가 나온다. 이런 모양이다.
