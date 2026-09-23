@@ -38,18 +38,27 @@
   #stage{flex:1;min-width:0;min-height:0;padding:10px 18px;position:relative;
          display:flex;flex-direction:column;gap:8px}
   /* 오른쪽 패널 머리말 — 지금 보는 것이 녹화인지 실시간인지 */
-  #banner{flex:none;font-size:.8rem;line-height:1.5;padding:7px 12px;border-radius:8px;
-          border:1px solid var(--line);background:var(--panel);color:var(--mut)}
+  /* 상단 띠 = 진행 표시줄. 지금 어느 단계이고 무슨 일이 벌어지는지 한 줄로.
+     예전에는 단계가 캔버스 왼쪽 위에, 대사가 캔버스 아래에 겹쳐 있었다 — 장면을 가렸다. */
+  /* 높이를 고정한다. 대사 길이에 따라 띠가 커졌다 작아지면 캔버스가 같이 리사이즈되고,
+     그때마다 카메라 맞춤이 다시 돌아 장면이 튄다. */
+  #banner{flex:none;display:flex;align-items:center;gap:10px;height:56px;box-sizing:border-box;
+          font-size:.86rem;line-height:1.45;padding:7px 12px;border-radius:8px;
+          border:1px solid var(--line);background:var(--panel);color:var(--fg)}
   #banner b{color:var(--fg)}
-  #banner.live{border-color:var(--acc);color:var(--acc)}
+  #banner.live{border-color:var(--acc)}
+  #phase{flex:none;font-weight:700;font-size:.84rem;color:var(--acc);white-space:nowrap;
+         background:color-mix(in srgb,var(--acc) 12%,transparent);padding:3px 10px;border-radius:6px}
+  #phase:empty{display:none}
+  #cap{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;
+       -webkit-box-orient:vertical;overflow:hidden}
+  #cap b{color:var(--acc)}
   #wrap{position:relative;flex:1;min-height:0;width:100%;background:var(--panel);
         border:1px solid var(--line);border-radius:8px;overflow:hidden}
   canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
   canvas.drag{cursor:grabbing}
-  #phase{position:absolute;left:14px;top:12px;font-weight:700;font-size:.95rem;
-         background:color-mix(in srgb,var(--panel) 90%,transparent);padding:6px 12px;border-radius:7px}
   /* 파이프라인 표시기 — 지금 어느 노드가 도는가 */
-  #pipe{position:absolute;left:14px;top:44px;margin:0;padding:10px 12px;list-style:none;
+  #pipe{position:absolute;left:14px;top:12px;margin:0;padding:10px 12px;list-style:none;
         background:color-mix(in srgb,var(--panel) 90%,transparent);border:1px solid var(--line);
         border-radius:9px;font-size:.78rem;line-height:1.35;min-width:132px}
   #pipe li{display:grid;grid-template-columns:16px 1fr;gap:7px;align-items:center;
@@ -82,14 +91,10 @@
   #bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:color-mix(in srgb,var(--line) 60%,transparent)}
   #bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .1s linear}
   /* 조작 안내 — 자막 그라데이션 위로 올리고 배경·테두리를 줘서 바닥 무늬에 묻히지 않게 한다 */
-  #hint{position:absolute;right:14px;bottom:58px;z-index:3;font-size:.76rem;color:var(--fg);
+  #hint{position:absolute;right:14px;bottom:14px;z-index:3;font-size:.76rem;color:var(--fg);
         text-align:right;background:var(--panel);border:1px solid var(--line);
         padding:5px 10px;border-radius:7px;opacity:.94}
   /* 자막 — 지금 무슨 일이 벌어지는지 한 줄로 */
-  #cap{position:absolute;left:0;right:0;bottom:4px;padding:10px 16px 14px;text-align:center;
-       font-size:.92rem;line-height:1.5;color:var(--fg);pointer-events:none;
-       background:linear-gradient(transparent,color-mix(in srgb,var(--panel) 88%,transparent) 45%)}
-  #cap b{color:var(--acc)}
   #status{padding:6px 18px 10px;font-size:.8rem;color:var(--mut);text-align:center;flex:none}
   .err{color:#c0392b}
   /* 라이브 모드 줄 — 재생 모드에서는 통째로 숨는다 */
@@ -240,13 +245,13 @@
     </details>
   </div>
 </div>
-<div id="stage"><div id="banner"></div><div id="wrap">
+<div id="stage">
+<div id="banner"><span id="phase"></span><span id="cap"></span></div>
+<div id="wrap">
   <canvas id="lab"></canvas>
-  <div id="phase"></div>
   <ol id="pipe"></ol>
   <div id="dash"></div>
   <div id="hint">끌어서 이동 · 휠 확대/축소 · Space 재생 · F 맞춤 · L 이름표 · G 격자</div>
-  <div id="cap"></div>
   <div id="bar"><i></i></div>
 </div></div>
 </div>
@@ -458,7 +463,7 @@ function showInfo(name, run, info, net) {
       (${run.built} · 호출 ${run.usage?.calls ?? "?"}회).<br><br>
       같은 연구소에서 <b>장치를 하나씩 끄고</b> 질문 3개를 돌렸습니다 — 시작 문서를 안 정해 주면,
       역할을 안 주면, 빈 절을 안 되돌려 보내면 무엇이 무너지는가. 헤더의 목록에서 갈아 끼우며 비교해 보세요.<br><br>
-      화면 아래 <b>자막</b>이 지금 무슨 일이 벌어지는지 알려 주고, 끝나면 <b>계기판</b>과 <b>보고서</b>가 뜹니다.
+      화면 위 <b>진행 띠</b>가 지금 어느 단계에서 무슨 일이 벌어지는지 알려 주고, 끝나면 <b>계기판</b>과 <b>보고서</b>가 뜹니다.
     </p>`;
 }
 
@@ -646,16 +651,16 @@ function setMode(next) {
   $run.disabled = $play.disabled = next === "live";
   $reportOpen.disabled = $reportOpen2.disabled = true;
   playing = false; $play.textContent = "▶ 재생"; $play.classList.remove("on");
+  // 띠 전체를 갈아 끼우면 안 된다 — 그 안에 단계 배지(#phase)와 대사(#cap)가 들어 있다
   $banner.classList.toggle("live", next === "live");
-  $banner.innerHTML = next === "replay"
-    ? `<b>재생 — 미리 돌려 둔 실행 기록입니다.</b> 아래 움직임·계기판·보고서는 모두 그때 실제로 AI가 내놓은 결과입니다. 키도 비용도 들지 않습니다.`
-    : `<b>라이브 — 지금 당신의 질문으로 실제 실행합니다.</b> 본인 키로 호출하며, 화면은 파이프라인이 도는 속도 그대로 움직입니다.`;
+  $phase.textContent = "";
   if (next === "replay") { pick($run.value); status.textContent = ""; }
   else {
     player = null; $dash.style.display = "none"; setReport("", "");
     $question.textContent = "질문을 적고 실행하세요";
-    $cap.textContent = "질문을 적고 실행하면, 이 연구소가 지금 그 질문으로 움직입니다.";
-    $phase.textContent = ""; $bar.style.width = "0";
+    $cap.innerHTML = `<b>라이브 — 지금 당신의 질문으로 실제 실행합니다.</b> `
+      + `본인 키로 호출하며, 화면은 파이프라인이 도는 속도 그대로 움직입니다.`;
+    $bar.style.width = "0";
     render();
     status.textContent = "본인 OpenAI 키로 실제 한 바퀴를 돕니다. 비용은 방문자 부담입니다.";
   }
@@ -814,6 +819,8 @@ if (saved) { $key.value = saved; $remember.checked = true; }
 showKeyState();
 
 setTab("replay");               // 처음 화면은 재생 탭
+// setTab 은 모드가 이미 같으면 setMode 를 부르지 않는다. 그래서 첫 화면의 띠가 비어 있었다.
+$banner.classList.remove("live");
 
 // 주소로 화면 상태를 정할 수 있다 — 캡처와 리뷰에서 같은 장면을 다시 부르려고.
 //   ?tab=live|settings   어느 탭을 열지
