@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import time
 from pathlib import Path
 
@@ -17,12 +18,17 @@ from . import events, graph
 BUILT = "2026-09-22"
 OUT = Path("runs")
 
-# 계획서 7.1 — 성격이 다른 질문 세 개
-QUESTIONS = {
-    "단일": "바넘 효과란 무엇인가?",
-    "다갈래": "MBTI 궁합론은 어떤 근거로 제시되며, 심리학계는 이를 어떻게 평가하는가?",
-    "관계": "성격이 비슷한 사람끼리 실제로 더 잘 맞는가?",
-}
+# 질문은 data/questions.json 이 단일 출처다. 두 군데 적으면 갈라진다.
+# 그중 "녹화": true 인 것만 녹화한다 (계획서 7.1 — 성격이 다른 질문 셋).
+def load_questions() -> dict[str, str]:
+    data = json.loads(Path("data/questions.json").read_text(encoding="utf-8"))
+    picked = {q["녹화이름"]: q["질문"] for q in data["질문"] if q.get("녹화")}
+    if not picked:
+        raise SystemExit("data/questions.json 에 녹화할 질문이 없다")
+    return picked
+
+
+QUESTIONS = load_questions()
 
 # 계획서 7.2 — 끄는 것만 적는다. 나머지는 켠 상태
 SETTINGS = {
